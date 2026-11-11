@@ -1,0 +1,11 @@
+# Python & macOS clutter
+__pycache__/
+*.py[cod]
+.DS_Store
+
+# Environment secrets
+.env
+*.env
+
+# Ephemeral dev custom renders (keep curated theme/formula studio shoots & X archive)
+assets/renders/custom_*.png

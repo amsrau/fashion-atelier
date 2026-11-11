@@ -1,0 +1,14 @@
+{
+  "folders": [
+    {
+      "name": "Atelier 30 — Fashion Workspace",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/__pycache__": true,
+      "**/.DS_Store": true
+    }
+  }
+}

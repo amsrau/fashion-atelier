@@ -1,0 +1,2751 @@
+import json
+import os
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+INTEL_PATH = ROOT / "data" / "fashion_intel.json"
+OUT_HOSTED = ROOT / "index.html"
+OUT_ARTIFACT = Path(os.environ["ATELIER_ARTIFACT_OUT"]) if os.environ.get("ATELIER_ARTIFACT_OUT") else None
+
+with open(INTEL_PATH, "r", encoding="utf-8") as f:
+    intel = json.load(f)
+
+themes_catalog = [
+    {
+        "id": "smart_casual",
+        "name": "Smart Casual & Blazer-Chino",
+        "badge": "Most Versatile",
+        "posts": intel["theme_counts_all"].get("Smart Casual & Blazer-Chino", 369),
+        "unique": intel["theme_counts_unique"].get("Smart Casual & Blazer-Chino", 217),
+        "formality": "3 / 5 · Office to Dinner",
+        "tagline": "The backbone of @_menstylish & @Elegantmanx: unstructured hopsack blazers, crisp poplin or knit polos, slim twill chinos/trousers, and suede loafers.",
+        "fabrics": ["Hopsack Wool", "Crisp Oxford", "Cotton Twill", "Brushed Suede"],
+        "scent": "Bleu de Chanel / Prada L'Homme",
+        "watch": "Silver Bracelet Sport-Dress Watch",
+        "shootImg": "assets/renders/theme_smart_casual.png",
+        "defaultPreset": {
+            "outer": "blazer", "inner": "dress_shirt", "bottom": "chinos", "footwear": "loafers",
+            "outerFabric": "wool", "innerFabric": "oxford", "bottomFabric": "oxford", "footwearFabric": "suede",
+            "outerColor": "#1F2E46", "innerColor": "#F7F6F2", "bottomColor": "#CFC3AE",
+            "footwearColor": "#6B442A", "beltColor": "#6B442A", "watchMetal": "silver", "tucked": True, "pocketSquare": True
+        },
+        "formulas": [
+            {"id": "sc_1", "label": "Blazer + Dress Shirt + Chinos + Loafers", "outer": "blazer", "inner": "dress_shirt", "bottom": "chinos", "footwear": "loafers", "outerFabric": "wool", "innerFabric": "oxford", "bottomFabric": "oxford", "footwearFabric": "suede", "outerColor": "#1F2E46", "innerColor": "#F7F6F2", "bottomColor": "#CFC3AE", "footwearColor": "#6B442A", "beltColor": "#6B442A", "watchMetal": "silver", "tucked": True, "pocketSquare": True, "shootImg": "assets/renders/theme_smart_casual.png", "freq": "Signature Look"},
+            {"id": "sc_2", "label": "Dress Shirt + Chinos + Minimal Sneakers", "outer": "none", "inner": "dress_shirt", "bottom": "chinos", "footwear": "sneakers", "outerFabric": "wool", "innerFabric": "oxford", "bottomFabric": "oxford", "footwearFabric": "leather", "outerColor": "#1F2E46", "innerColor": "#F7F6F2", "bottomColor": "#C9BA9E", "footwearColor": "#F5F4F0", "beltColor": "#4A2E20", "watchMetal": "silver", "tucked": True, "pocketSquare": False, "shootImg": "assets/renders/formula_sc_2.png", "freq": "69 posts"},
+            {"id": "sc_3", "label": "Dress Shirt + Tailored Trousers + Loafers", "outer": "none", "inner": "dress_shirt", "bottom": "trousers", "footwear": "loafers", "outerFabric": "wool", "innerFabric": "oxford", "bottomFabric": "wool", "footwearFabric": "suede", "outerColor": "#1F2E46", "innerColor": "#8FB3D6", "bottomColor": "#3C3F44", "footwearColor": "#4D3122", "beltColor": "#4D3122", "watchMetal": "silver", "tucked": True, "pocketSquare": False, "shootImg": "assets/renders/formula_sc_3.png", "freq": "41 posts"},
+            {"id": "sc_4", "label": "Blazer + Fine Turtleneck + Trousers + Loafers", "outer": "blazer", "inner": "turtleneck", "bottom": "trousers", "footwear": "loafers", "outerFabric": "wool", "innerFabric": "knit", "bottomFabric": "wool", "footwearFabric": "suede", "outerColor": "#1F2E46", "innerColor": "#ECE5D4", "bottomColor": "#43464B", "footwearColor": "#18191B", "beltColor": "#18191B", "watchMetal": "silver", "tucked": True, "pocketSquare": True, "shootImg": "assets/renders/formula_sc_4.png", "freq": "Layered Guide"},
+            {"id": "sc_5", "label": "Polo Shirt + Chinos + Minimal Sneakers", "outer": "none", "inner": "polo", "bottom": "chinos", "footwear": "sneakers", "outerFabric": "wool", "innerFabric": "knit", "bottomFabric": "oxford", "footwearFabric": "leather", "outerColor": "#1F2E46", "innerColor": "#24344D", "bottomColor": "#EAE3D3", "footwearColor": "#F5F4F0", "beltColor": "#8B4E24", "watchMetal": "silver", "tucked": False, "pocketSquare": False, "shootImg": "assets/renders/formula_sc_5.png", "freq": "18 posts"},
+        ],
+        "sources": intel["theme_urls"].get("Smart Casual & Blazer-Chino", [])[:4],
+    },
+    {
+        "id": "elevated_everyday",
+        "name": "Elevated Everyday & Knit-Denim",
+        "badge": "#1 Volume Theme",
+        "posts": intel["theme_counts_all"].get("Elevated Everyday & Knit-Denim", 715),
+        "unique": intel["theme_counts_unique"].get("Elevated Everyday & Knit-Denim", 337),
+        "formality": "2 / 5 · Weekend & Creative",
+        "tagline": "Dominates @MensFits_ & @MensCanvas threads: brushed wool overshirts, heavy cotton tees or button-downs, straight selvedge denim & crisp sneakers.",
+        "fabrics": ["Wool Melton", "Heavy Jersey", "Selvedge Denim", "Box Calfskin"],
+        "scent": "Dior Sauvage / YSL La Nuit",
+        "watch": "Steel Field Watch / Leather Strap",
+        "shootImg": "assets/renders/theme_elevated_everyday.png",
+        "defaultPreset": {
+            "outer": "overshirt", "inner": "crew_tee", "bottom": "jeans", "footwear": "sneakers",
+            "outerFabric": "wool", "innerFabric": "oxford", "bottomFabric": "denim", "footwearFabric": "leather",
+            "outerColor": "#A58A6C", "innerColor": "#33363A", "bottomColor": "#466789",
+            "footwearColor": "#F4F3EF", "beltColor": "#4D3222", "watchMetal": "silver", "tucked": False, "pocketSquare": False
+        },
+        "formulas": [
+            {"id": "ee_1", "label": "Button-Up Shirt + Jeans + Minimal Sneakers", "outer": "none", "inner": "oxford_shirt", "bottom": "jeans", "footwear": "sneakers", "outerFabric": "wool", "innerFabric": "oxford", "bottomFabric": "denim", "footwearFabric": "leather", "outerColor": "#A58A6C", "innerColor": "#436180", "bottomColor": "#3A5673", "footwearColor": "#F4F3EF", "beltColor": "#4A2E20", "watchMetal": "silver", "tucked": False, "pocketSquare": False, "shootImg": "assets/renders/formula_ee_1.png", "freq": "128 posts"},
+            {"id": "ee_2", "label": "Button-Up Shirt + Chinos + Minimal Sneakers", "outer": "none", "inner": "oxford_shirt", "bottom": "chinos", "footwear": "sneakers", "outerFabric": "wool", "innerFabric": "oxford", "bottomFabric": "oxford", "footwearFabric": "leather", "outerColor": "#A58A6C", "innerColor": "#383B40", "bottomColor": "#EAE5D8", "footwearColor": "#F4F3EF", "beltColor": "#18191B", "watchMetal": "silver", "tucked": True, "pocketSquare": False, "shootImg": "assets/renders/formula_ee_2.png", "freq": "60 posts"},
+            {"id": "ee_3", "label": "Wool Overshirt + Crew Tee + Jeans + Sneakers", "outer": "overshirt", "inner": "crew_tee", "bottom": "jeans", "footwear": "sneakers", "outerFabric": "wool", "innerFabric": "oxford", "bottomFabric": "denim", "footwearFabric": "leather", "outerColor": "#A58A6C", "innerColor": "#33363A", "bottomColor": "#466789", "footwearColor": "#F4F3EF", "beltColor": "#4D3222", "watchMetal": "silver", "tucked": False, "pocketSquare": False, "shootImg": "assets/renders/theme_elevated_everyday.png", "freq": "31 posts"},
+            {"id": "ee_4", "label": "Crew Sweater + Trousers + Chelsea Boots", "outer": "none", "inner": "sweater", "bottom": "trousers", "footwear": "chelsea", "outerFabric": "wool", "innerFabric": "knit", "bottomFabric": "wool", "footwearFabric": "leather", "outerColor": "#A58A6C", "innerColor": "#4E5C3E", "bottomColor": "#3C3F44", "footwearColor": "#18191B", "beltColor": "#18191B", "watchMetal": "silver", "tucked": False, "pocketSquare": False, "shootImg": "assets/renders/formula_ee_4.png", "freq": "26 posts"},
+            {"id": "ee_5", "label": "Bomber + Crew Tee + Jeans + Sneakers", "outer": "bomber", "inner": "crew_tee", "bottom": "jeans", "footwear": "sneakers", "outerFabric": "suede", "innerFabric": "oxford", "bottomFabric": "denim", "footwearFabric": "leather", "outerColor": "#4D3222", "innerColor": "#F7F6F2", "bottomColor": "#22252A", "footwearColor": "#F4F3EF", "beltColor": "#4D3222", "watchMetal": "silver", "tucked": False, "pocketSquare": False, "shootImg": "assets/renders/formula_ee_5.png", "freq": "26 posts"},
+        ],
+        "sources": intel["theme_urls"].get("Elevated Everyday & Knit-Denim", [])[:4],
+    },
+    {
+        "id": "old_money",
+        "name": "Old Money & Quiet Luxury",
+        "badge": "Editorial Favorite",
+        "posts": intel["theme_counts_all"].get("Old Money & Quiet Luxury", 79),
+        "unique": intel["theme_counts_unique"].get("Old Money & Quiet Luxury", 44),
+        "formality": "3.5 / 5 · Riviera to Heritage",
+        "tagline": "Mined from 'Old Money', 'Look Rich Without Designer', & 'Luxury Fabric Pairings': tonal ecru, camel, espresso wool trousers, ribbed polos & suede.",
+        "fabrics": ["Cashmere Knit", "Brushed Suede", "Pleated Wool", "Irish Linen"],
+        "scent": "Creed Green Irish Tweed / Tom Ford Oud Wood",
+        "watch": "Warm Gold Dress Watch on Leather",
+        "shootImg": "assets/renders/theme_old_money.png",
+        "defaultPreset": {
+            "outer": "blazer", "inner": "polo", "bottom": "trousers", "footwear": "loafers",
+            "outerFabric": "wool", "innerFabric": "knit", "bottomFabric": "wool", "footwearFabric": "suede",
+            "outerColor": "#CBB99E", "innerColor": "#F4EFE4", "bottomColor": "#4B3629",
+            "footwearColor": "#5C3A21", "beltColor": "#5C3A21", "watchMetal": "gold", "tucked": True, "pocketSquare": True
+        },
+        "formulas": [
+            {"id": "om_1", "label": "Cream Blazer + Knit Polo + Pleated Trousers + Loafers", "outer": "blazer", "inner": "polo", "bottom": "trousers", "footwear": "loafers", "outerFabric": "wool", "innerFabric": "knit", "bottomFabric": "wool", "footwearFabric": "suede", "outerColor": "#CBB99E", "innerColor": "#F4EFE4", "bottomColor": "#4B3629", "footwearColor": "#5C3A21", "beltColor": "#5C3A21", "watchMetal": "gold", "tucked": True, "pocketSquare": True, "shootImg": "assets/renders/theme_old_money.png", "freq": "Quiet Luxury"},
+            {"id": "om_2", "label": "Knit Polo + Pleated Trousers + Suede Loafers", "outer": "none", "inner": "polo", "bottom": "trousers", "footwear": "loafers", "outerFabric": "wool", "innerFabric": "knit", "bottomFabric": "wool", "footwearFabric": "suede", "outerColor": "#CBB99E", "innerColor": "#4B593B", "bottomColor": "#F1ECE1", "footwearColor": "#6B442A", "beltColor": "#6B442A", "watchMetal": "gold", "tucked": True, "pocketSquare": False, "shootImg": "assets/renders/formula_om_2.png", "freq": "Signature Look"},
+            {"id": "om_3", "label": "Suede Jacket + Crew Tee + Trousers + Loafers", "outer": "suede_jacket", "inner": "crew_tee", "bottom": "trousers", "footwear": "loafers", "outerFabric": "suede", "innerFabric": "oxford", "bottomFabric": "wool", "footwearFabric": "suede", "outerColor": "#4E3222", "innerColor": "#F4EFE4", "bottomColor": "#D5C9B4", "footwearColor": "#5C3A21", "beltColor": "#5C3A21", "watchMetal": "gold", "tucked": True, "pocketSquare": False, "shootImg": "assets/renders/formula_om_3.png", "freq": "Rich Texture"},
+            {"id": "om_4", "label": "Cashmere Sweater + Chinos + Suede Loafers", "outer": "none", "inner": "sweater", "bottom": "chinos", "footwear": "loafers", "outerFabric": "wool", "innerFabric": "knit", "bottomFabric": "oxford", "footwearFabric": "suede", "outerColor": "#CBB99E", "innerColor": "#B58C5E", "bottomColor": "#F3EFE4", "footwearColor": "#5C3A21", "beltColor": "#5C3A21", "watchMetal": "gold", "tucked": False, "pocketSquare": False, "shootImg": "assets/renders/formula_om_4.png", "freq": "5 posts"},
+        ],
+        "sources": intel["theme_urls"].get("Old Money & Quiet Luxury", [])[:4],
+    },
+    {
+        "id": "boardroom",
+        "name": "Boardroom & Executive Tailoring",
+        "badge": "Power Dressing",
+        "posts": intel["theme_counts_all"].get("Boardroom & Executive Tailoring", 121),
+        "unique": intel["theme_counts_unique"].get("Boardroom & Executive Tailoring", 88),
+        "formality": "5 / 5 · Office, Interview, Formal",
+        "tagline": "From 'Official Boss Outfits' & 'Hire Me Interview': structured worsted single- and double-breasted suits, poplin spread collars, cap-toe oxfords.",
+        "fabrics": ["Worsted Wool", "Poplin Cotton", "Full-Grain Calfskin"],
+        "scent": "Creed Aventus / Terre d'Hermes",
+        "watch": "Classic Silver Dress Watch",
+        "shootImg": "assets/renders/theme_boardroom.png",
+        "defaultPreset": {
+            "outer": "double_breasted", "inner": "dress_shirt", "bottom": "trousers", "footwear": "oxfords",
+            "outerFabric": "wool", "innerFabric": "oxford", "bottomFabric": "wool", "footwearFabric": "leather",
+            "outerColor": "#2C3545", "innerColor": "#FFFFFF", "bottomColor": "#2C3545",
+            "footwearColor": "#1C1C1E", "beltColor": "#1C1C1E", "watchMetal": "silver", "tucked": True, "pocketSquare": True
+        },
+        "formulas": [
+            {"id": "br_1", "label": "Double-Breasted Suit + Dress Shirt + Oxfords", "outer": "double_breasted", "inner": "dress_shirt", "bottom": "trousers", "footwear": "oxfords", "outerFabric": "wool", "innerFabric": "oxford", "bottomFabric": "wool", "footwearFabric": "leather", "outerColor": "#2C3545", "innerColor": "#FFFFFF", "bottomColor": "#2C3545", "footwearColor": "#1C1C1E", "beltColor": "#1C1C1E", "watchMetal": "silver", "tucked": True, "pocketSquare": True, "shootImg": "assets/renders/theme_boardroom.png", "freq": "Boss Thread"},
+            {"id": "br_2", "label": "Suit Jacket + Dress Shirt + Trousers + Oxfords", "outer": "suit_jacket", "inner": "dress_shirt", "bottom": "trousers", "footwear": "oxfords", "outerFabric": "wool", "innerFabric": "oxford", "bottomFabric": "wool", "footwearFabric": "leather", "outerColor": "#3C3F44", "innerColor": "#8EB4D7", "bottomColor": "#3C3F44", "footwearColor": "#18191B", "beltColor": "#18191B", "watchMetal": "silver", "tucked": True, "pocketSquare": True, "shootImg": "assets/renders/formula_br_2.png", "freq": "44 posts"},
+            {"id": "br_3", "label": "Blazer + Dress Shirt + Contrasting Trousers + Oxfords", "outer": "blazer", "inner": "dress_shirt", "bottom": "trousers", "footwear": "oxfords", "outerFabric": "wool", "innerFabric": "oxford", "bottomFabric": "wool", "footwearFabric": "leather", "outerColor": "#1F2E46", "innerColor": "#F8F7F3", "bottomColor": "#8F9397", "footwearColor": "#4A2E20", "beltColor": "#4A2E20", "watchMetal": "silver", "tucked": True, "pocketSquare": True, "shootImg": "assets/renders/formula_br_3.png", "freq": "6 posts"},
+            {"id": "br_4", "label": "Dress Shirt + Tailored Trousers + Oxfords", "outer": "none", "inner": "dress_shirt", "bottom": "trousers", "footwear": "oxfords", "outerFabric": "wool", "innerFabric": "oxford", "bottomFabric": "wool", "footwearFabric": "leather", "outerColor": "#2C3545", "innerColor": "#FFFFFF", "bottomColor": "#383B40", "footwearColor": "#18191B", "beltColor": "#18191B", "watchMetal": "silver", "tucked": True, "pocketSquare": False, "shootImg": "assets/renders/formula_br_4.png", "freq": "14 posts"},
+        ],
+        "sources": intel["theme_urls"].get("Boardroom & Executive Tailoring", [])[:4],
+    },
+    {
+        "id": "monochrome_noir",
+        "name": "Monochrome & Dark Noir",
+        "badge": "#1 Viral Colorway",
+        "posts": intel["theme_counts_all"].get("Monochrome & Dark Noir", 117),
+        "unique": intel["theme_counts_unique"].get("Monochrome & Dark Noir", 63),
+        "formality": "3 / 5 · Sleek & Sharp",
+        "tagline": "'All Black' is the #1 single color combo across all 7 channels (39 posts): tonal charcoal wool, fine merino turtlenecks & sleek box-calf boots.",
+        "fabrics": ["Fine Gauge Merino", "Matte Worsted Wool", "Washed Black Denim", "Box Calf"],
+        "scent": "Tom Ford Black Orchid / Dior Sauvage Elixir",
+        "watch": "Black Dial Steel Chronograph",
+        "shootImg": "assets/renders/theme_monochrome_noir.png",
+        "defaultPreset": {
+            "outer": "blazer", "inner": "turtleneck", "bottom": "trousers", "footwear": "chelsea",
+            "outerFabric": "wool", "innerFabric": "knit", "bottomFabric": "wool", "footwearFabric": "leather",
+            "outerColor": "#2D3035", "innerColor": "#151618", "bottomColor": "#151618",
+            "footwearColor": "#141416", "beltColor": "#141416", "watchMetal": "silver", "tucked": True, "pocketSquare": False
+        },
+        "formulas": [
+            {"id": "mn_1", "label": "Charcoal Blazer + Black Turtleneck + Black Trousers + Boots", "outer": "blazer", "inner": "turtleneck", "bottom": "trousers", "footwear": "chelsea", "outerFabric": "wool", "innerFabric": "knit", "bottomFabric": "wool", "footwearFabric": "leather", "outerColor": "#2D3035", "innerColor": "#151618", "bottomColor": "#151618", "footwearColor": "#141416", "beltColor": "#141416", "watchMetal": "silver", "tucked": True, "pocketSquare": False, "shootImg": "assets/renders/theme_monochrome_noir.png", "freq": "6 posts"},
+            {"id": "mn_2", "label": "All-Black Dress Shirt + Tailored Trousers + Oxfords", "outer": "none", "inner": "dress_shirt", "bottom": "trousers", "footwear": "oxfords", "outerFabric": "wool", "innerFabric": "oxford", "bottomFabric": "wool", "footwearFabric": "leather", "outerColor": "#161719", "innerColor": "#161719", "bottomColor": "#18191B", "footwearColor": "#141416", "beltColor": "#141416", "watchMetal": "silver", "tucked": True, "pocketSquare": False, "shootImg": "assets/renders/formula_mn_2.png", "freq": "8 posts"},
+            {"id": "mn_3", "label": "Black Knit Sweater + Black Trousers + Chelsea Boots", "outer": "none", "inner": "sweater", "bottom": "trousers", "footwear": "chelsea", "outerFabric": "wool", "innerFabric": "knit", "bottomFabric": "wool", "footwearFabric": "leather", "outerColor": "#161719", "innerColor": "#161719", "bottomColor": "#2D3035", "footwearColor": "#141416", "beltColor": "#141416", "watchMetal": "silver", "tucked": False, "pocketSquare": False, "shootImg": "assets/renders/formula_mn_3.png", "freq": "5 posts"},
+            {"id": "mn_4", "label": "Black Leather Jacket + Charcoal Tee + Black Jeans + Boots", "outer": "suede_jacket", "inner": "crew_tee", "bottom": "jeans", "footwear": "chelsea", "outerFabric": "leather", "innerFabric": "oxford", "bottomFabric": "denim", "footwearFabric": "leather", "outerColor": "#17181B", "innerColor": "#43464B", "bottomColor": "#191A1D", "footwearColor": "#141416", "beltColor": "#141416", "watchMetal": "silver", "tucked": False, "pocketSquare": False, "shootImg": "assets/renders/formula_mn_4.png", "freq": "Night Edge"},
+        ],
+        "sources": intel["theme_urls"].get("Monochrome & Dark Noir", [])[:4],
+    },
+    {
+        "id": "cold_weather",
+        "name": "Cold-Weather Coat & Layering",
+        "badge": "Fall / Winter",
+        "posts": intel["theme_counts_all"].get("Cold-Weather Coat & Layering", 39),
+        "unique": intel["theme_counts_unique"].get("Cold-Weather Coat & Layering", 26),
+        "formality": "3.5 / 5 · Autumn & Winter",
+        "tagline": "Long double-faced camel overcoats, suede bombers, and leather jackets layered over heavy knit turtlenecks, anchored by Chelsea boots.",
+        "fabrics": ["Camel Hair / Wool", "Brushed Suede", "Merino Rib Knit", "Calfskin"],
+        "scent": "Viktor&Rolf Spicebomb Extreme / PDM Oajan",
+        "watch": "Brown Leather Chrono or Dress Watch",
+        "shootImg": "assets/renders/theme_cold_weather.png",
+        "defaultPreset": {
+            "outer": "overcoat", "inner": "turtleneck", "bottom": "trousers", "footwear": "chelsea",
+            "outerFabric": "wool", "innerFabric": "knit", "bottomFabric": "wool", "footwearFabric": "leather",
+            "outerColor": "#B58D63", "innerColor": "#1A1B1E", "bottomColor": "#3C3F44",
+            "footwearColor": "#4D3122", "beltColor": "#4D3122", "watchMetal": "gold", "tucked": True, "pocketSquare": False
+        },
+        "formulas": [
+            {"id": "cw_1", "label": "Overcoat + Turtleneck + Tailored Trousers + Chelsea Boots", "outer": "overcoat", "inner": "turtleneck", "bottom": "trousers", "footwear": "chelsea", "outerFabric": "wool", "innerFabric": "knit", "bottomFabric": "wool", "footwearFabric": "leather", "outerColor": "#B58D63", "innerColor": "#1A1B1E", "bottomColor": "#3C3F44", "footwearColor": "#4D3122", "beltColor": "#4D3122", "watchMetal": "gold", "tucked": True, "pocketSquare": False, "shootImg": "assets/renders/theme_cold_weather.png", "freq": "7 posts"},
+            {"id": "cw_2", "label": "Suede Bomber + Turtleneck + Jeans + Chelsea Boots", "outer": "bomber", "inner": "turtleneck", "bottom": "jeans", "footwear": "chelsea", "outerFabric": "suede", "innerFabric": "knit", "bottomFabric": "denim", "footwearFabric": "suede", "outerColor": "#5C3B28", "innerColor": "#ECE5D4", "bottomColor": "#3D5B7E", "footwearColor": "#4D3122", "beltColor": "#4D3122", "watchMetal": "gold", "tucked": False, "pocketSquare": False, "shootImg": "assets/renders/formula_cw_2.png", "freq": "7 posts"},
+            {"id": "cw_3", "label": "Leather Jacket + Knit Sweater + Trousers + Chelsea Boots", "outer": "suede_jacket", "inner": "sweater", "bottom": "trousers", "footwear": "chelsea", "outerFabric": "leather", "innerFabric": "knit", "bottomFabric": "wool", "footwearFabric": "leather", "outerColor": "#1A1B1D", "innerColor": "#8F9397", "bottomColor": "#2D3035", "footwearColor": "#161618", "beltColor": "#161618", "watchMetal": "silver", "tucked": False, "pocketSquare": False, "shootImg": "assets/renders/formula_cw_3.png", "freq": "4 posts"},
+        ],
+        "sources": intel["theme_urls"].get("Cold-Weather Coat & Layering", [])[:4],
+    },
+    {
+        "id": "resort_linen",
+        "name": "Resort, Linen & Warm-Weather",
+        "badge": "Riviera Light",
+        "posts": intel["theme_counts_all"].get("Resort, Linen & Warm-Weather", 68),
+        "unique": intel["theme_counts_unique"].get("Resort, Linen & Warm-Weather", 49),
+        "formality": "2 / 5 · Summer & Brunch",
+        "tagline": "Slubbed open-collar Irish linen shirts, airy ecru trousers, pastel dusty rose & pale yellow hues paired with unlined suede loafers.",
+        "fabrics": ["Irish Washed Linen", "Pleated Linen", "Unlined Suede"],
+        "scent": "Acqua di Gio Profondo / Creed Virgin Island",
+        "watch": "Two-Tone / Tan Leather Strap",
+        "shootImg": "assets/renders/theme_resort_linen.png",
+        "defaultPreset": {
+            "outer": "none", "inner": "oxford_shirt", "bottom": "linen_trousers", "footwear": "loafers",
+            "outerFabric": "linen", "innerFabric": "linen", "bottomFabric": "linen", "footwearFabric": "suede",
+            "outerColor": "#C98C8E", "innerColor": "#C98C8E", "bottomColor": "#F1ECE1",
+            "footwearColor": "#B99A73", "beltColor": "#B99A73", "watchMetal": "silver", "tucked": True, "pocketSquare": False
+        },
+        "formulas": [
+            {"id": "rl_1", "label": "Linen Shirt + Linen Trousers + Suede Loafers", "outer": "none", "inner": "oxford_shirt", "bottom": "linen_trousers", "footwear": "loafers", "outerFabric": "linen", "innerFabric": "linen", "bottomFabric": "linen", "footwearFabric": "suede", "outerColor": "#C98C8E", "innerColor": "#C98C8E", "bottomColor": "#F1ECE1", "footwearColor": "#B99A73", "beltColor": "#B99A73", "watchMetal": "silver", "tucked": True, "pocketSquare": False, "shootImg": "assets/renders/theme_resort_linen.png", "freq": "5 posts"},
+            {"id": "rl_2", "label": "Open Linen Overshirt + Crew Tee + Chinos + Sneakers", "outer": "overshirt", "inner": "crew_tee", "bottom": "chinos", "footwear": "sneakers", "outerFabric": "linen", "innerFabric": "oxford", "bottomFabric": "linen", "footwearFabric": "leather", "outerColor": "#8FB3D6", "innerColor": "#F7F6F2", "bottomColor": "#F1ECE1", "footwearColor": "#F5F4F0", "beltColor": "#B99A73", "watchMetal": "silver", "tucked": False, "pocketSquare": False, "shootImg": "assets/renders/formula_rl_2.png", "freq": "4 posts"},
+            {"id": "rl_3", "label": "Knit Polo + Linen Trousers + Suede Loafers", "outer": "none", "inner": "polo", "bottom": "linen_trousers", "footwear": "loafers", "outerFabric": "linen", "innerFabric": "knit", "bottomFabric": "linen", "footwearFabric": "suede", "outerColor": "#4B593B", "innerColor": "#4B593B", "bottomColor": "#F1ECE1", "footwearColor": "#8B4E24", "beltColor": "#8B4E24", "watchMetal": "gold", "tucked": True, "pocketSquare": False, "shootImg": "assets/renders/formula_rl_3.png", "freq": "Resort Classic"},
+        ],
+        "sources": intel["theme_urls"].get("Resort, Linen & Warm-Weather", [])[:4],
+    },
+    {
+        "id": "street_utility",
+        "name": "Street Casual & Utility",
+        "badge": "Relaxed Edge",
+        "posts": intel["theme_counts_all"].get("Street Casual & Utility", 93),
+        "unique": intel["theme_counts_unique"].get("Street Casual & Utility", 60),
+        "formality": "1.5 / 5 · Travel & Off-Duty",
+        "tagline": "Relaxed matte bombers & twill overshirts over heavyweight cotton hoodies or crew tees, washed charcoal denim & clean court sneakers.",
+        "fabrics": ["Heavy Twill", "Fleece Knit", "Washed Denim", "Leather Sneakers"],
+        "scent": "Chanel Allure Homme Sport",
+        "watch": "Steel Chrono / Field Watch",
+        "shootImg": "assets/renders/theme_street_utility.png",
+        "defaultPreset": {
+            "outer": "bomber", "inner": "hoodie", "bottom": "jeans", "footwear": "sneakers",
+            "outerFabric": "oxford", "innerFabric": "knit", "bottomFabric": "denim", "footwearFabric": "leather",
+            "outerColor": "#22252A", "innerColor": "#B2B6BC", "bottomColor": "#3C3F44",
+            "footwearColor": "#F5F4F0", "beltColor": "#222224", "watchMetal": "silver", "tucked": False, "pocketSquare": False
+        },
+        "formulas": [
+            {"id": "su_1", "label": "Bomber Jacket + Hoodie + Jeans + Minimal Sneakers", "outer": "bomber", "inner": "hoodie", "bottom": "jeans", "footwear": "sneakers", "outerFabric": "oxford", "innerFabric": "knit", "bottomFabric": "denim", "footwearFabric": "leather", "outerColor": "#22252A", "innerColor": "#B2B6BC", "bottomColor": "#3C3F44", "footwearColor": "#F5F4F0", "beltColor": "#222224", "watchMetal": "silver", "tucked": False, "pocketSquare": False, "shootImg": "assets/renders/theme_street_utility.png", "freq": "Airport Look"},
+            {"id": "su_2", "label": "Overshirt + Crew Tee + Straight Jeans + Sneakers", "outer": "overshirt", "inner": "crew_tee", "bottom": "jeans", "footwear": "sneakers", "outerFabric": "oxford", "innerFabric": "oxford", "bottomFabric": "denim", "footwearFabric": "leather", "outerColor": "#424F34", "innerColor": "#F4EFE4", "bottomColor": "#3E5C7A", "footwearColor": "#F5F4F0", "beltColor": "#4A2E20", "watchMetal": "silver", "tucked": False, "pocketSquare": False, "shootImg": "assets/renders/formula_su_2.png", "freq": "11 posts"},
+            {"id": "su_3", "label": "Leather Jacket + Crew Tee + Jeans + Sneakers", "outer": "suede_jacket", "inner": "crew_tee", "bottom": "jeans", "footwear": "sneakers", "outerFabric": "leather", "innerFabric": "oxford", "bottomFabric": "denim", "footwearFabric": "leather", "outerColor": "#4A2E20", "innerColor": "#F7F6F2", "bottomColor": "#1E2024", "footwearColor": "#F5F4F0", "beltColor": "#4A2E20", "watchMetal": "silver", "tucked": False, "pocketSquare": False, "shootImg": "assets/renders/formula_su_3.png", "freq": "5 posts"},
+        ],
+        "sources": intel["theme_urls"].get("Street Casual & Utility", [])[:4],
+    },
+    {
+        "id": "date_night",
+        "name": "Date Night & Evening Sharp",
+        "badge": "After 7 PM",
+        "posts": intel["theme_counts_all"].get("Date Night & Evening Sharp", 19),
+        "unique": intel["theme_counts_unique"].get("Date Night & Evening Sharp", 18),
+        "formality": "4 / 5 · Dinner & Cocktails",
+        "tagline": "Evening contrasts from @manly_talks & @Elegantmanx: burgundy, emerald, or midnight wool tailoring paired with silk-knit polos & Chelsea boots.",
+        "fabrics": ["Fine Worsted Wool", "Silk-Merino Knit", "Polished Calfskin"],
+        "scent": "YSL La Nuit de L'Homme / Azzaro Most Wanted",
+        "watch": "Slim Gold Watch on Black Leather",
+        "shootImg": "assets/renders/theme_date_night.png",
+        "defaultPreset": {
+            "outer": "suit_jacket", "inner": "polo", "bottom": "trousers", "footwear": "chelsea",
+            "outerFabric": "wool", "innerFabric": "knit", "bottomFabric": "wool", "footwearFabric": "leather",
+            "outerColor": "#5E1E2B", "innerColor": "#151618", "bottomColor": "#1E2024",
+            "footwearColor": "#161618", "beltColor": "#161618", "watchMetal": "gold", "tucked": True, "pocketSquare": True
+        },
+        "formulas": [
+            {"id": "dn_1", "label": "Burgundy Jacket + Black Knit Polo + Trousers + Boots", "outer": "suit_jacket", "inner": "polo", "bottom": "trousers", "footwear": "chelsea", "outerFabric": "wool", "innerFabric": "knit", "bottomFabric": "wool", "footwearFabric": "leather", "outerColor": "#5E1E2B", "innerColor": "#151618", "bottomColor": "#1E2024", "footwearColor": "#161618", "beltColor": "#161618", "watchMetal": "gold", "tucked": True, "pocketSquare": True, "shootImg": "assets/renders/theme_date_night.png", "freq": "Evening Sharp"},
+            {"id": "dn_2", "label": "Dark Blazer + Open-Collar Shirt + Trousers + Loafers", "outer": "blazer", "inner": "dress_shirt", "bottom": "trousers", "footwear": "loafers", "outerFabric": "wool", "innerFabric": "oxford", "bottomFabric": "wool", "footwearFabric": "suede", "outerColor": "#1E2B42", "innerColor": "#F7F6F2", "bottomColor": "#24262A", "footwearColor": "#161719", "beltColor": "#161719", "watchMetal": "gold", "tucked": True, "pocketSquare": True, "shootImg": "assets/renders/formula_dn_2.png", "freq": "Date Thread"},
+            {"id": "dn_3", "label": "Black Knit Polo + Charcoal Trousers + Chelsea Boots", "outer": "none", "inner": "polo", "bottom": "trousers", "footwear": "chelsea", "outerFabric": "wool", "innerFabric": "knit", "bottomFabric": "wool", "footwearFabric": "leather", "outerColor": "#151618", "innerColor": "#151618", "bottomColor": "#43464B", "footwearColor": "#161618", "beltColor": "#161618", "watchMetal": "gold", "tucked": True, "pocketSquare": False, "shootImg": "assets/renders/formula_dn_3.png", "freq": "Charcoal 03"},
+        ],
+        "sources": intel["theme_urls"].get("Date Night & Evening Sharp", [])[:4],
+    },
+]
+
+colorway_presets = [
+    {"id": "all_black", "name": "All Black Monochrome", "freq": "39 posts · #1 Overall", "theme": "monochrome_noir", "outer": "#18191C", "inner": "#141416", "bottom": "#191A1D", "footwear": "#141416", "belt": "#141416"},
+    {"id": "burgundy_charcoal_white", "name": "Burgundy + Light Grey + White", "freq": "28 posts · Viral Accent", "theme": "elevated_everyday", "outer": "#26282C", "inner": "#781D2E", "bottom": "#B3B7BC", "footwear": "#F5F4F0", "belt": "#3A2319"},
+    {"id": "navy_cream_cognac", "name": "Navy + Cream + Cognac", "freq": "22 posts · Classic Gentleman", "theme": "smart_casual", "outer": "#1D2C44", "inner": "#F3EFE4", "bottom": "#D5C9B4", "footwear": "#8B4E24", "belt": "#8B4E24"},
+    {"id": "dusty_blue_stone", "name": "Dusty Blue + Stone + Grey", "freq": "19 posts · Office Smart", "theme": "smart_casual", "outer": "#24344D", "inner": "#466482", "bottom": "#E2DDD0", "footwear": "#9D9E9F", "belt": "#5A4231"},
+    {"id": "olive_ecru_espresso", "name": "Olive + Ecru + Espresso", "freq": "18 posts · Earth Tonal", "theme": "old_money", "outer": "#4B593B", "inner": "#F5F2EA", "bottom": "#E4DEC9", "footwear": "#462E20", "belt": "#462E20"},
+    {"id": "chocolate_cream", "name": "Chocolate + Cream (Luxury)", "freq": "15 posts · @Mensoutfitpxs", "theme": "old_money", "outer": "#4A2E20", "inner": "#EFE8D8", "bottom": "#4A2E20", "footwear": "#6C4429", "belt": "#4A2E20"},
+    {"id": "charcoal_offwhite", "name": "Charcoal + Off-White + White", "freq": "15 posts · Crisp Clean", "theme": "elevated_everyday", "outer": "#3B3E42", "inner": "#3D4044", "bottom": "#EAE8DF", "footwear": "#F7F7F5", "belt": "#1B1C1E"},
+    {"id": "dusty_rose_grey", "name": "Dusty Rose + Cream + Sand", "freq": "17 posts · Riviera Twist", "theme": "resort_linen", "outer": "#C98C8E", "inner": "#C98C8E", "bottom": "#F1ECE1", "footwear": "#B99A73", "belt": "#B99A73"},
+    {"id": "camel_charcoal_brown", "name": "Camel + Black + Charcoal", "freq": "14 posts · Fall Editorial", "theme": "cold_weather", "outer": "#B68C5E", "inner": "#161719", "bottom": "#3B3E42", "footwear": "#4A2E20", "belt": "#4A2E20"},
+    {"id": "tan_charcoal_denim", "name": "Tan Wool + Charcoal + Indigo", "freq": "14 posts · @_menstylish", "theme": "elevated_everyday", "outer": "#A98E70", "inner": "#383A3E", "bottom": "#3D5B7E", "footwear": "#4D3121", "belt": "#4D3121"},
+    {"id": "navy_lightgrey_black", "name": "Navy + Light Grey + Black", "freq": "12 posts · Sharp Tailored", "theme": "smart_casual", "outer": "#1C293F", "inner": "#1C293F", "bottom": "#A6ACB2", "footwear": "#18191B", "belt": "#18191B"},
+    {"id": "emerald_navy_cognac", "name": "Emerald + Navy + Cognac", "freq": "10 posts · Shirt/Pant #02", "theme": "date_night", "outer": "#173D31", "inner": "#14533C", "bottom": "#1F2D45", "footwear": "#8F4F24", "belt": "#8F4F24"},
+    {"id": "burgundy_cream_brown", "name": "Burgundy + Cream + Brown", "freq": "11 posts · Shirt/Pant #04", "theme": "old_money", "outer": "#5D1E2B", "inner": "#681C2C", "bottom": "#EFEAE0", "footwear": "#7E4522", "belt": "#7E4522"},
+    {"id": "skyblue_white_navy", "name": "Sky Blue + White + Navy", "freq": "12 posts · Riviera Fresh", "theme": "resort_linen", "outer": "#88B0D4", "inner": "#8EB4D7", "bottom": "#F4F2EC", "footwear": "#1E2D45", "belt": "#1E2D45"},
+    {"id": "black_khaki_white", "name": "Black + Khaki + White", "freq": "10 posts · Classic Contrast", "theme": "smart_casual", "outer": "#18191C", "inner": "#18191C", "bottom": "#C3AF8F", "footwear": "#F4F3EF", "belt": "#3E2A1E"},
+    {"id": "navy_white_burgundy", "name": "Navy Suit + White + Burgundy", "freq": "Executive Power · Boardroom", "theme": "boardroom", "outer": "#1F2E46", "inner": "#F8F7F3", "bottom": "#1F2E46", "footwear": "#5E1E2B", "belt": "#5E1E2B"},
+    {"id": "charcoal_skyblue_cognac", "name": "Charcoal + Sky Blue + Cognac", "freq": "Office Classic · @Elegantmanx", "theme": "boardroom", "outer": "#3C3F44", "inner": "#8EB4D7", "bottom": "#3C3F44", "footwear": "#8B4E24", "belt": "#8B4E24"},
+    {"id": "olive_ecru_indigo", "name": "Dark Olive + Off-White + Denim", "freq": "Utility Lookbook · @MensCanvas", "theme": "street_utility", "outer": "#424F34", "inner": "#F1ECE1", "bottom": "#426180", "footwear": "#F4F3EF", "belt": "#4A2F1F"},
+    {"id": "jetblack_grey_indigo", "name": "Black + Heather Grey + Denim", "freq": "Airport & Off-Duty · 10x", "theme": "street_utility", "outer": "#18191C", "inner": "#AEB2B7", "bottom": "#2E3F57", "footwear": "#F4F3EF", "belt": "#18191C"},
+    {"id": "yellow_cream_sand", "name": "Pale Yellow + Cream + Sand", "freq": "Look Younger · @MensCanvas", "theme": "resort_linen", "outer": "#E5D38E", "inner": "#EAD68A", "bottom": "#F3EFE4", "footwear": "#B89A72", "belt": "#B89A72"},
+    {"id": "emerald_charcoal_black", "name": "Dark Emerald + Charcoal + Black", "freq": "Dinner Threads · @Elegantmanx", "theme": "date_night", "outer": "#163B2F", "inner": "#161719", "bottom": "#2A2C30", "footwear": "#141416", "belt": "#141416"},
+]
+
+style_rules = {
+    "pant_leather_matrix": [
+        {"pant": "Charcoal", "hex": "#43464B", "best_leather": "Black Calf Leather", "leather_hex": "#18191B"},
+        {"pant": "Navy", "hex": "#1E2D47", "best_leather": "Dark Brown Leather", "leather_hex": "#4A2F1F"},
+        {"pant": "Stone", "hex": "#CFC4B0", "best_leather": "Tan Suede", "leather_hex": "#B58D5E"},
+        {"pant": "Mid Grey", "hex": "#7E8287", "best_leather": "Oxblood Leather", "leather_hex": "#5E1E28"},
+        {"pant": "Olive", "hex": "#4D5739", "best_leather": "Espresso Leather", "leather_hex": "#3B261A"},
+        {"pant": "Taupe", "hex": "#857666", "best_leather": "Dark Brown Suede", "leather_hex": "#513A2A"},
+        {"pant": "Chocolate", "hex": "#4B3022", "best_leather": "Cognac Leather", "leather_hex": "#8C4A22"},
+        {"pant": "Ecru", "hex": "#EAE3D3", "best_leather": "Chocolate Suede", "leather_hex": "#4A2E1E"},
+        {"pant": "Black", "hex": "#18191B", "best_leather": "Black Polished Leather", "leather_hex": "#121214"},
+    ],
+    "blazer_turtleneck_matrix": [
+        {"blazer": "Navy Blazer", "blazer_hex": "#1D2B42", "matches": [("Ivory", "#EAE4D3"), ("Burgundy", "#6E1D2B"), ("Light Grey", "#B4B7BA")]},
+        {"blazer": "Charcoal Blazer", "blazer_hex": "#3C3F44", "matches": [("Black", "#17181A"), ("Cream", "#EAE1CD"), ("Chocolate", "#4B2F20")]},
+        {"blazer": "Brown Blazer", "blazer_hex": "#4E3222", "matches": [("Ivory", "#EAE4D3"), ("Navy", "#1D2B42"), ("Baby Blue", "#96B3D2")]},
+        {"blazer": "Light Grey Blazer", "blazer_hex": "#8F9397", "matches": [("Black", "#17181A"), ("Navy", "#1D2B42"), ("Burgundy", "#6E1D2B")]},
+        {"blazer": "Cream Blazer", "blazer_hex": "#D8CEBA", "matches": [("Chocolate", "#4B2F20"), ("Charcoal", "#3C3F44"), ("Navy", "#1D2B42")]},
+    ],
+    "belt_shoe_matrix": [
+        {"shoe": "Black Dress", "hex": "#17181A", "best": "Black Leather", "acceptable": "Dark Grey", "stylish": "Navy"},
+        {"shoe": "Brown Calf", "hex": "#6E3F22", "best": "Cognac Brown", "acceptable": "Dark Brown", "stylish": "Tan"},
+        {"shoe": "Chocolate", "hex": "#3E261A", "best": "Chocolate Brown", "acceptable": "Medium Brown", "stylish": "Taupe"},
+        {"shoe": "Tan / Camel", "hex": "#B58450", "best": "Tan Leather", "acceptable": "Cognac Brown", "stylish": "Beige / Braided Sand"},
+        {"shoe": "Burgundy / Oxblood", "hex": "#5E1B26", "best": "Burgundy", "acceptable": "Dark Brown", "stylish": "Navy"},
+        {"shoe": "Beige / Taupe Suede", "hex": "#9F8F78", "best": "Tan Suede", "acceptable": "Chocolate Suede", "stylish": "Grey Suede"},
+    ],
+    "charcoal_10_ways": [
+        {"n": "01", "occasion": "Power Meeting", "combo": "Navy Blazer + White Dress Shirt + Black Oxfords"},
+        {"n": "02", "occasion": "Smart Casual", "combo": "Beige Polo + Brown Suede Loafers"},
+        {"n": "03", "occasion": "Date Night", "combo": "Black Knit Polo + Black Chelsea Boots"},
+        {"n": "04", "occasion": "Weekend Cool", "combo": "Olive Overshirt + White Tank + White Sneakers"},
+        {"n": "05", "occasion": "Creative Hours", "combo": "Black Crew Tee + White Sneakers + Canvas Tote"},
+        {"n": "06", "occasion": "Evening Drinks", "combo": "Navy Cuban Collar Shirt + Black Loafers (No Socks)"},
+        {"n": "07", "occasion": "Airport Look", "combo": "Black Bomber + Grey Hoodie + White Sneakers"},
+        {"n": "08", "occasion": "Sunday Brunch", "combo": "Light Blue Striped Shirt + Brown Loafers"},
+        {"n": "09", "occasion": "Formal Event", "combo": "Charcoal Suit Blazer + Black Shirt + Black Oxfords"},
+        {"n": "10", "occasion": "Off Duty Vibes", "combo": "Cream Sweater + Brown Sneakers + Sling Bag"},
+    ],
+    "infographic_posters": [
+        {"title": "9 Pant Colors & Best Leather", "channel": "@manly_talks", "img": "assets/looks/0000100010000100100101100001011010010110100101101011001010110010.jpg", "url": "https://x.com/manly_talks/status/2116213541141459108"},
+        {"title": "Belt Colors That Match Shoes", "channel": "@manly_talks", "img": "assets/looks/0110100101110101010100110001010101010011010101110101001101001011.jpg", "url": "https://x.com/manly_talks/status/2118025487385522459"},
+        {"title": "Turtlenecks & Blazer Pairings", "channel": "@manly_talks", "img": "assets/looks/0010100001100110000110000110101001100110100110001001100010011000.jpg", "url": "https://x.com/manly_talks/status/2116787325099298966"},
+        {"title": "Luxury Fabric Color Pairings", "channel": "@Mensoutfitpxs", "img": "assets/looks/1001001001011100011111011110010001010011011001011111110001011100.jpg", "url": "https://x.com/Mensoutfitpxs/status/2116585595594223628"},
+        {"title": "9 Essential Tailoring Fit Rules", "channel": "@Elegantmanx", "img": "assets/looks/0001011101101001011010010100110101001100011010010110100110001110.jpg", "url": "https://x.com/Elegantmanx/status/2112054650585149849"},
+        {"title": "Top 10 Shirt & Pants Combos", "channel": "@manly_talks", "img": "assets/looks/0001101100001011101010111010101010101010101100001010110010101000.jpg", "url": "https://x.com/manly_talks/status/2119324041756500439"},
+    ],
+}
+
+bundle = {
+    "intel": intel,
+    "themes": themes_catalog,
+    "colorways": colorway_presets,
+    "rules": style_rules,
+}
+
+bundle_json = json.dumps(bundle, ensure_ascii=False)
+
+TEMPLATE = """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>__TITLE__</title>
+  __TAILWIND_SCRIPT__
+  <style>
+    .studio-canvas {
+      background: radial-gradient(circle at 50% 35%, #E7D4B6 0%, #D3B78E 100%);
+      border: 1px solid rgba(110, 88, 60, 0.25);
+      color: #24211D;
+    }
+    .swatch-ring {
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .swatch-ring:hover {
+      transform: scale(1.1);
+    }
+    .swatch-active {
+      box-shadow: 0 0 0 2px var(--card), 0 0 0 4px var(--foreground);
+      transform: scale(1.08);
+    }
+    input[type="color"] {
+      -webkit-appearance: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+    input[type="color"]::-webkit-color-swatch-wrapper {
+      padding: 0;
+    }
+    input[type="color"]::-webkit-color-swatch {
+      border: 1px solid rgba(128,128,128,0.4);
+      border-radius: 6px;
+    }
+    @keyframes pulseBar {
+      0%, 100% { opacity: 0.45; }
+      50% { opacity: 1; }
+    }
+    .ai-loading {
+      animation: pulseBar 1.4s ease-in-out infinite;
+    }
+  </style>
+  __EXTRA_HEAD__
+</head>
+<body class="bg-[var(--background)] text-[var(--foreground)] antialiased p-4 md:p-6">
+  <div class="max-w-7xl mx-auto space-y-5">
+    <!-- Top E-Tailer Masthead -->
+    <header class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 md:p-5 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      <div>
+        <div class="flex items-center gap-2.5 flex-wrap">
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold tracking-wider uppercase bg-[var(--primary)] text-[var(--primary-foreground)]">ATELIER 30</span>
+          <span class="text-xs font-medium text-[var(--muted-foreground)] uppercase tracking-wider">7 X Channels · 30-Day Audit (Oct 12 – Nov 11, 2026)</span>
+          <span id="host-mode-pill" class="px-2 py-0.5 rounded bg-[var(--secondary)] border border-[var(--border)] text-xs font-medium"></span>
+        </div>
+        <h1 class="text-xl md:text-2xl font-semibold tracking-tight mt-1.5">Menswear Theme &amp; Tactile Fabric Atelier</h1>
+        <p class="text-xs md:text-sm text-[var(--muted-foreground)] mt-0.5">2,045 posts → 1,218 visually unique looks across 9 wearable collections. Test real textile weaves, pre-shot theme boards &amp; matched X posts.</p>
+      </div>
+
+      <div class="flex flex-wrap sm:flex-nowrap items-center gap-2 shrink-0">
+        <nav class="flex flex-wrap gap-1.5 p-1 rounded-lg bg-[var(--secondary)] border border-[var(--border)]" aria-label="Primary sections">
+          <button id="tab-studio" onclick="switchTab('studio')" class="tab-btn px-3 py-1.5 rounded-md text-xs font-semibold transition whitespace-nowrap">Shop &amp; Configure</button>
+          <button id="tab-themes" onclick="switchTab('themes')" class="tab-btn px-3 py-1.5 rounded-md text-xs font-semibold transition whitespace-nowrap">Theme Buckets (9)</button>
+          <button id="tab-intel" onclick="switchTab('intel')" class="tab-btn px-3 py-1.5 rounded-md text-xs font-semibold transition whitespace-nowrap">30-Day Intel &amp; Guides</button>
+        </nav>
+        <button id="bag-toggle-btn" onclick="toggleBagModal()" class="px-3 py-2 rounded-lg text-xs font-semibold border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--secondary)] transition flex items-center gap-1.5 whitespace-nowrap">
+          <span>Fitting Room</span>
+          <span id="bag-count" class="px-1.5 py-0.5 rounded bg-[var(--primary)] text-[var(--primary-foreground)] text-xs font-bold">0</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- VIEW 1: SHOP & CONFIGURE -->
+    <main id="view-studio" class="space-y-5">
+      <!-- Friend Suggestion Banner (shown when opened via #look=... link) -->
+      <section id="suggestion-banner" class="hidden bg-[var(--card)] border-2 border-[var(--primary)] rounded-xl p-3.5 flex flex-wrap items-center justify-between gap-3">
+        <div class="space-y-0.5 min-w-0">
+          <div id="suggestion-from" class="text-xs font-semibold uppercase tracking-wider text-[var(--muted-foreground)]">Friend Suggestion Loaded</div>
+          <div id="suggestion-note" class="text-sm font-medium break-words"></div>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <button onclick="saveToFittingRoom()" class="px-3 py-1.5 rounded-lg bg-[var(--primary)] text-[var(--primary-foreground)] text-xs font-semibold hover:opacity-90">+ Save to Fitting Room</button>
+          <button onclick="dismissSuggestionBanner()" class="px-2.5 py-1.5 rounded-lg border border-[var(--border)] text-xs font-medium hover:bg-[var(--secondary)]">Dismiss</button>
+        </div>
+      </section>
+
+      <!-- Theme Collection Filter Strip -->
+      <section class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-3.5">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+          <span class="text-xs font-semibold uppercase tracking-wider text-[var(--muted-foreground)]">1. Select Fashion Theme Bucket</span>
+          <span id="active-theme-badge" class="text-xs text-[var(--muted-foreground)]"></span>
+        </div>
+        <div id="theme-pill-bar" class="flex flex-wrap gap-2"></div>
+      </section>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+        <!-- LEFT: REAL FABRIC & PHOTO STUDIO STAGE -->
+        <section class="lg:col-span-7 bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-4">
+          <div class="flex flex-wrap items-start justify-between gap-3">
+            <div>
+              <div id="look-kicker" class="text-xs font-semibold uppercase tracking-wider text-[var(--muted-foreground)]">SMART CASUAL</div>
+              <h2 id="look-title" class="text-lg font-semibold leading-snug mt-0.5">Unstructured Blazer + Dress Shirt + Chinos + Loafers</h2>
+            </div>
+
+            <!-- 3-Mode Stage Selector -->
+            <div class="flex flex-wrap items-center gap-1.5 max-w-full">
+              <div class="flex flex-wrap sm:flex-nowrap max-w-full rounded-lg border border-[var(--border)] bg-[var(--secondary)] p-0.5">
+                <button onclick="setStageView('shoot')" id="sv-shoot" class="px-2 sm:px-2.5 py-1 rounded text-xs font-semibold whitespace-nowrap">AI Studio Photo</button>
+                <button onclick="setStageView('mixer')" id="sv-mixer" class="px-2 sm:px-2.5 py-1 rounded text-xs font-medium whitespace-nowrap">Live Fabric Mixer</button>
+                <button onclick="setStageView('matches')" id="sv-matches" class="px-2 sm:px-2.5 py-1 rounded text-xs font-medium whitespace-nowrap">Matched X Photos</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Studio Stage Surface -->
+          <div class="studio-canvas rounded-xl p-3 md:p-4 space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2 text-xs font-medium opacity-85 border-b border-black/15 pb-2">
+              <span id="studio-meta-left">STUDIO PHOTO · REAL FABRIC DRAPE</span>
+              <div class="flex items-center gap-2">
+                <div id="mixer-layout-btns" class="hidden flex items-center gap-1 bg-white/50 rounded-md p-0.5 border border-black/15">
+                  <button onclick="setCanvasMode('split')" id="cm-split" class="px-2 py-0.5 rounded text-xs font-semibold">Full Board</button>
+                  <button onclick="setCanvasMode('model')" id="cm-model" class="px-2 py-0.5 rounded text-xs font-medium">On-Model</button>
+                  <button onclick="setCanvasMode('flatlay')" id="cm-flatlay" class="px-2 py-0.5 rounded text-xs font-medium">Flat-Lay</button>
+                </div>
+                <span id="studio-meta-right" class="font-semibold">369 POSTS IN THEME</span>
+              </div>
+            </div>
+
+            <!-- STAGE VIEW A: Photorealistic AI Shoot -->
+            <div id="stage-shoot-pane" class="space-y-3">
+              <div id="shoot-banner" class="hidden px-3 py-2 rounded-lg bg-white/85 border border-black/15 text-xs flex flex-wrap items-center justify-between gap-2">
+                <span id="shoot-banner-text" class="font-medium text-[#24211D]">Showing Theme signature shoot. Customize fabrics &amp; colors in Live Fabric Mixer, then Share Link.</span>
+                <button onclick="setStageView('mixer')" class="underline font-semibold text-[#18181b] whitespace-nowrap">Switch to Live Mixer →</button>
+              </div>
+              <div class="relative flex justify-center items-center min-h-[380px] rounded-lg overflow-hidden bg-[#D9C2A0]/60">
+                <img id="shoot-img" src="" alt="Studio lookbook render" onclick="openLightbox(this.src, document.getElementById('look-title').textContent)" class="max-h-[540px] w-auto object-contain rounded-lg shadow-md cursor-zoom-in transition" />
+                <div id="shoot-loading" class="hidden absolute inset-0 bg-[#E6D3B5]/90 flex flex-col items-center justify-center p-6 text-center space-y-2">
+                  <div class="w-36 h-1.5 rounded-full bg-[#24211D]/20 overflow-hidden"><div class="w-1/2 h-full bg-[#24211D] ai-loading"></div></div>
+                  <div class="text-sm font-semibold text-[#24211D]">Rendering Photorealistic Studio Shoot...</div>
+                  <div class="text-xs text-[#4A4035]">Tailoring cuts, macro textile weave &amp; exact hex colors (~6s via Gemini Image API)</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STAGE VIEW B: Instant 0ms Photorealistic Fabric Canvas Compositor -->
+            <div id="stage-mixer-pane" class="hidden space-y-2">
+              <canvas id="fabric-canvas" width="1120" height="820" class="w-full h-auto rounded-lg shadow-sm"></canvas>
+            </div>
+
+            <!-- STAGE VIEW C: Real X Bookmarks Visual Matches -->
+            <div id="stage-matches-pane" class="hidden space-y-3">
+              <div id="matches-meta" class="text-xs font-medium text-[#3A3228]">Matching real photographed posts across your 7 X channels...</div>
+              <div id="matches-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 max-h-[540px] overflow-y-auto pr-1"></div>
+            </div>
+
+            <!-- Stage Action Footer -->
+            <div class="pt-2.5 border-t border-black/15 flex flex-wrap items-center justify-between gap-2 text-xs">
+              <div id="canvas-palette-chips" class="flex flex-wrap items-center gap-1.5"></div>
+              <div class="flex flex-wrap items-center gap-1.5">
+                <button id="btn-render-ai" onclick="renderCustomAIShoot()" class="hidden px-3 py-1.5 rounded-md bg-[#18181b] text-white hover:opacity-90 text-xs font-semibold transition whitespace-nowrap shadow-sm">✨ Render Custom AI Shoot (~6s)</button>
+                <button onclick="swapOuterInner()" class="px-2.5 py-1.5 rounded-md border border-black/25 bg-white/80 hover:bg-white text-[#24211D] text-xs font-medium transition whitespace-nowrap">Swap Layer/Top</button>
+                <button onclick="autoMatchLeather()" class="px-2.5 py-1.5 rounded-md border border-black/25 bg-white/80 hover:bg-white text-[#24211D] text-xs font-medium transition whitespace-nowrap">Auto-Match Belt</button>
+                <button onclick="saveToFittingRoom()" class="px-2.5 py-1.5 rounded-md border border-black/25 bg-white/95 hover:bg-white text-[#18181b] text-xs font-semibold transition whitespace-nowrap">+ Save Look</button>
+                <button id="btn-share-look" onclick="openShareModal()" class="px-3 py-1.5 rounded-md bg-[#18181b] text-white hover:opacity-90 text-xs font-semibold transition whitespace-nowrap shadow-sm">Share / Suggest Look</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Diagnostics Row -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div class="p-3 rounded-lg bg-[var(--secondary)] border border-[var(--border)]">
+              <div class="text-xs font-semibold text-[var(--muted-foreground)] uppercase">Formality &amp; Contrast</div>
+              <div id="diag-formality" class="text-sm font-semibold mt-1">4 / 5 · Tailored Smart</div>
+              <div id="diag-contrast" class="text-xs text-[var(--muted-foreground)] mt-0.5">Crisp High Contrast</div>
+            </div>
+            <div class="p-3 rounded-lg bg-[var(--secondary)] border border-[var(--border)]">
+              <div class="text-xs font-semibold text-[var(--muted-foreground)] uppercase">Belt &amp; Leather Check</div>
+              <div id="diag-leather" class="text-sm font-semibold mt-1">Optimal Leather Match</div>
+              <div id="diag-leather-sub" class="text-xs text-[var(--muted-foreground)] mt-0.5">Aligned with pant rule</div>
+            </div>
+            <div class="p-3 rounded-lg bg-[var(--secondary)] border border-[var(--border)]">
+              <div class="text-xs font-semibold text-[var(--muted-foreground)] uppercase">Watch &amp; Scent Pairing</div>
+              <div id="diag-watch" class="text-sm font-semibold mt-1">Silver Sport-Dress</div>
+              <div id="diag-scent" class="text-xs text-[var(--muted-foreground)] mt-0.5">Bleu de Chanel</div>
+            </div>
+          </div>
+
+          <!-- Verified X Source Links -->
+          <div class="p-3.5 rounded-lg border border-[var(--border)] bg-[var(--background)] space-y-2">
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-xs font-semibold uppercase tracking-wider text-[var(--muted-foreground)]">Verified 30-Day X Channel Posts in Theme</span>
+              <span id="source-theme-count" class="text-xs font-semibold"></span>
+            </div>
+            <div id="source-links-list" class="grid grid-cols-1 sm:grid-cols-2 gap-2"></div>
+          </div>
+        </section>
+
+        <!-- RIGHT: PLUG-AND-PLAY CUT, FABRIC & COLOR CONFIGURATOR -->
+        <aside class="lg:col-span-5 space-y-4">
+          <!-- Step 2: Cut & Real Textile Material Pickers -->
+          <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-3.5">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold uppercase tracking-wider text-[var(--muted-foreground)]">2. Garment Cuts &amp; Real Textiles</span>
+            </div>
+
+            <div id="combo-presets-list" class="flex flex-wrap gap-1.5"></div>
+
+            <div class="space-y-2.5 pt-2 border-t border-[var(--border)]">
+              <!-- Outer -->
+              <div class="grid grid-cols-12 gap-2 items-end">
+                <div class="col-span-7">
+                  <label for="sel-outer" class="block text-xs font-medium text-[var(--muted-foreground)] mb-1">Outer Layer</label>
+                  <select id="sel-outer" onchange="onGarmentChange()" class="w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-2.5 py-1.5 text-xs font-medium">
+                    <option value="none">None (2-Piece)</option>
+                    <option value="blazer">Unstructured Blazer</option>
+                    <option value="double_breasted">Double-Breasted Blazer</option>
+                    <option value="suit_jacket">Suit Jacket</option>
+                    <option value="overshirt">Wool / Twill Overshirt</option>
+                    <option value="bomber">Bomber / Harrington</option>
+                    <option value="suede_jacket">Suede / Leather Jacket</option>
+                    <option value="overcoat">Wool Overcoat</option>
+                  </select>
+                </div>
+                <div class="col-span-5">
+                  <label for="fab-outer" class="block text-xs font-medium text-[var(--muted-foreground)] mb-1">Fabric</label>
+                  <select id="fab-outer" onchange="onFabricChange()" class="w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-2 py-1.5 text-xs font-medium">
+                    <option value="wool">Hopsack Wool</option>
+                    <option value="suede">Brushed Suede</option>
+                    <option value="linen">Irish Linen</option>
+                    <option value="oxford">Heavy Twill</option>
+                    <option value="denim">Selvedge Denim</option>
+                    <option value="leather">Full-Grain Leather</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Inner -->
+              <div class="grid grid-cols-12 gap-2 items-end">
+                <div class="col-span-7">
+                  <label for="sel-inner" class="block text-xs font-medium text-[var(--muted-foreground)] mb-1">Shirt / Knit</label>
+                  <select id="sel-inner" onchange="onGarmentChange()" class="w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-2.5 py-1.5 text-xs font-medium">
+                    <option value="dress_shirt">Spread Dress Shirt</option>
+                    <option value="oxford_shirt">Oxford Button-Down</option>
+                    <option value="polo">Knit Polo Shirt</option>
+                    <option value="turtleneck">Fine Turtleneck</option>
+                    <option value="sweater">Crewneck Sweater</option>
+                    <option value="crew_tee">Heavyweight Crew Tee</option>
+                    <option value="hoodie">Pullover Hoodie</option>
+                  </select>
+                </div>
+                <div class="col-span-5">
+                  <label for="fab-inner" class="block text-xs font-medium text-[var(--muted-foreground)] mb-1">Fabric</label>
+                  <select id="fab-inner" onchange="onFabricChange()" class="w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-2 py-1.5 text-xs font-medium">
+                    <option value="oxford">Oxford / Poplin</option>
+                    <option value="knit">Merino / Cashmere Knit</option>
+                    <option value="linen">Washed Linen</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Bottom -->
+              <div class="grid grid-cols-12 gap-2 items-end">
+                <div class="col-span-7">
+                  <label for="sel-bottom" class="block text-xs font-medium text-[var(--muted-foreground)] mb-1">Trousers / Denim</label>
+                  <select id="sel-bottom" onchange="onGarmentChange()" class="w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-2.5 py-1.5 text-xs font-medium">
+                    <option value="trousers">Tailored Pleated Trousers</option>
+                    <option value="chinos">Slim Chinos</option>
+                    <option value="jeans">Straight Denim</option>
+                    <option value="linen_trousers">Relaxed Linen Pants</option>
+                  </select>
+                </div>
+                <div class="col-span-5">
+                  <label for="fab-bottom" class="block text-xs font-medium text-[var(--muted-foreground)] mb-1">Fabric</label>
+                  <select id="fab-bottom" onchange="onFabricChange()" class="w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-2 py-1.5 text-xs font-medium">
+                    <option value="wool">Flannel / Worsted Wool</option>
+                    <option value="oxford">Brushed Cotton Twill</option>
+                    <option value="denim">Selvedge Denim</option>
+                    <option value="linen">Pleated Linen</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Footwear -->
+              <div class="grid grid-cols-12 gap-2 items-end">
+                <div class="col-span-7">
+                  <label for="sel-footwear" class="block text-xs font-medium text-[var(--muted-foreground)] mb-1">Footwear</label>
+                  <select id="sel-footwear" onchange="onGarmentChange()" class="w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-2.5 py-1.5 text-xs font-medium">
+                    <option value="sneakers">Minimal Sneakers</option>
+                    <option value="loafers">Suede / Calf Loafers</option>
+                    <option value="oxfords">Cap-Toe Oxfords</option>
+                    <option value="chelsea">Chelsea Dress Boots</option>
+                  </select>
+                </div>
+                <div class="col-span-5">
+                  <label for="fab-footwear" class="block text-xs font-medium text-[var(--muted-foreground)] mb-1">Material</label>
+                  <select id="fab-footwear" onchange="onFabricChange()" class="w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-2 py-1.5 text-xs font-medium">
+                    <option value="suede">Brushed Suede</option>
+                    <option value="leather">Full-Grain Calf</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-4 pt-1 text-xs">
+              <label class="inline-flex items-center gap-1.5 cursor-pointer">
+                <input type="checkbox" id="chk-tucked" onchange="onToggleDetail()" class="rounded" />
+                <span>Tucked In + Belt</span>
+              </label>
+              <label class="inline-flex items-center gap-1.5 cursor-pointer">
+                <input type="checkbox" id="chk-psq" onchange="onToggleDetail()" class="rounded" />
+                <span>Pocket Square</span>
+              </label>
+              <div class="flex items-center gap-1.5">
+                <span class="text-[var(--muted-foreground)]">Hardware:</span>
+                <select id="sel-metal" onchange="onToggleDetail()" class="rounded border border-[var(--border)] bg-[var(--background)] px-2 py-0.5 text-xs">
+                  <option value="silver">Brushed Steel</option>
+                  <option value="gold">Warm Gold</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: X-Mined Colorways -->
+          <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold uppercase tracking-wider text-[var(--muted-foreground)]">3. 1-Click Color Combos (Mined from 30d X)</span>
+            </div>
+            <div id="colorway-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-60 overflow-y-auto pr-1"></div>
+          </div>
+
+          <!-- Step 4: Custom Hex Pickers -->
+          <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-3.5">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="text-xs font-semibold uppercase tracking-wider text-[var(--muted-foreground)]">4. Custom Color Picker</span>
+              <span class="text-xs text-[var(--muted-foreground)]">Swatches &amp; Custom Hex</span>
+            </div>
+            <div id="custom-pickers" class="space-y-3"></div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <!-- VIEW 2: THEME COLLECTIONS (9 BUCKETS WITH STUDIO PHOTOS) -->
+    <section id="view-themes" class="hidden space-y-4">
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4">
+        <h2 class="text-lg font-semibold">9 Wearable Fashion Theme Buckets</h2>
+        <p class="text-xs md:text-sm text-[var(--muted-foreground)] mt-0.5">Every outfit post across your 7 bookmarked X channels maps cleanly to these 9 collections. Click any card to open its AI Studio Shoot and customize its fabrics &amp; colors.</p>
+      </div>
+      <div id="themes-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+    </section>
+
+    <!-- VIEW 3: 30-DAY INTEL, RULES & INFOGRAPHICS GALLERY -->
+    <section id="view-intel" class="hidden space-y-5">
+      <div id="intel-kpis" class="grid grid-cols-2 md:grid-cols-4 gap-3"></div>
+
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-3">
+        <div>
+          <h2 class="text-base font-semibold">Channel-by-Channel 30-Day Audit</h2>
+          <p class="text-xs text-[var(--muted-foreground)]">@MensFits_ and @MensCanvas share 227 identical/near-identical images (81–88% network overlap) plus 400 affiliate spam posts, whereas @Elegantmanx and @manly_talks are 90%+ original.</p>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs">
+            <thead>
+              <tr class="border-b border-[var(--border)] text-[var(--muted-foreground)] uppercase">
+                <th class="py-2 pr-3">Channel</th>
+                <th class="py-2 px-3">Scraped</th>
+                <th class="py-2 px-3">Spam / Non-Cloth</th>
+                <th class="py-2 px-3">Fashion Imgs</th>
+                <th class="py-2 px-3">Unique Looks</th>
+                <th class="py-2 px-3">Shared Overlap</th>
+                <th class="py-2 pl-3">Primary Focus</th>
+              </tr>
+            </thead>
+            <tbody id="channel-table-body" class="divide-y divide-[var(--border)]"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-semibold">9 Pant Colors &amp; Best Leather Pairings (@manly_talks)</h3>
+            <span class="text-xs text-[var(--muted-foreground)]">Click any row to test</span>
+          </div>
+          <div id="rule-pant-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-2"></div>
+        </div>
+
+        <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-semibold">Turtlenecks That Match Your Blazer (@manly_talks)</h3>
+            <span class="text-xs text-[var(--muted-foreground)]">Click any swatch to test</span>
+          </div>
+          <div id="rule-blazer-list" class="space-y-2"></div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-3">
+          <h3 class="text-sm font-semibold">Belt-to-Shoe Matching Matrix</h3>
+          <div id="rule-belt-list" class="space-y-1.5"></div>
+        </div>
+
+        <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-3">
+          <h3 class="text-sm font-semibold">One Charcoal Pant, 10 Occasions (@Elegantmanx)</h3>
+          <div id="rule-charcoal-list" class="grid grid-cols-1 sm:grid-cols-2 gap-2"></div>
+        </div>
+      </div>
+
+      <!-- Audited Real X Infographics Visual Gallery (Hosted Mode) -->
+      <div id="infographic-gallery-card" class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-3">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <h3 class="text-base font-semibold">Audited Real X Style Guides &amp; Infographics</h3>
+            <p class="text-xs text-[var(--muted-foreground)]">Click any chart to zoom full-resolution.</p>
+          </div>
+        </div>
+        <div id="infographic-gallery" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3"></div>
+      </div>
+    </section>
+
+    <!-- Fitting Room Shortlist Modal -->
+    <div id="bag-modal" class="hidden fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4" onclick="toggleBagModal()">
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl max-w-4xl w-full max-h-[580px] flex flex-col overflow-hidden shadow-xl" onclick="event.stopPropagation()">
+        <div class="p-4 border-b border-[var(--border)] flex items-center justify-between">
+          <div>
+            <h3 class="text-base font-semibold">Fitting Room Shortlist</h3>
+            <p class="text-xs text-[var(--muted-foreground)]">Compare saved looks side-by-side, share a link with friends, or reload one into the Atelier.</p>
+          </div>
+          <button onclick="toggleBagModal()" class="px-3 py-1.5 rounded-lg border border-[var(--border)] text-xs font-semibold hover:bg-[var(--secondary)]">Close</button>
+        </div>
+        <div id="bag-items" class="p-4 overflow-y-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3"></div>
+      </div>
+    </div>
+
+    <!-- Share / Suggest Look Modal -->
+    <div id="share-modal" class="hidden fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4" onclick="closeShareModal()">
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl max-w-lg w-full p-5 space-y-4 shadow-2xl" onclick="event.stopPropagation()">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <h3 class="text-base font-semibold">Share Look or Send a Suggestion</h3>
+            <p class="text-xs text-[var(--muted-foreground)] mt-0.5">This link encodes your exact garments, fabrics, and colors. Friends can open it, tweak anything, and send their own link back.</p>
+          </div>
+          <button onclick="closeShareModal()" class="px-2.5 py-1 rounded border border-[var(--border)] text-xs font-semibold hover:bg-[var(--secondary)]">Close</button>
+        </div>
+
+        <div id="share-look-summary" class="p-2.5 rounded-lg bg-[var(--secondary)] border border-[var(--border)] text-xs font-medium"></div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <div>
+            <label for="share-name" class="block text-xs font-medium text-[var(--muted-foreground)] mb-1">Your Name (optional)</label>
+            <input id="share-name" type="text" maxlength="40" placeholder="e.g. Alex" oninput="updateShareUrl()" class="w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-2.5 py-1.5 text-xs" />
+          </div>
+          <div>
+            <label for="share-note" class="block text-xs font-medium text-[var(--muted-foreground)] mb-1">Suggestion Note (optional)</label>
+            <input id="share-note" type="text" maxlength="160" placeholder="e.g. Swap to espresso suede loafers" oninput="updateShareUrl()" class="w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-2.5 py-1.5 text-xs" />
+          </div>
+        </div>
+
+        <div class="space-y-1.5">
+          <label for="share-url-input" class="block text-xs font-medium text-[var(--muted-foreground)]">Direct Outfit Link</label>
+          <input id="share-url-input" type="text" readonly onclick="this.select()" class="w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-2.5 py-1.5 text-xs font-mono" />
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2">
+          <button id="btn-copy-share-url" onclick="copyShareUrl()" class="flex-1 px-3 py-2 rounded-lg bg-[var(--primary)] text-[var(--primary-foreground)] text-xs font-semibold hover:opacity-90 transition">Copy Share Link</button>
+          <button id="btn-copy-share-summary" onclick="copyShareSummary()" class="px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--secondary)] text-xs font-semibold hover:opacity-85 transition">Copy Note + Link</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Image Zoom Lightbox -->
+    <div id="lightbox-modal" class="hidden fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4" onclick="closeLightbox()">
+      <div class="max-w-3xl w-full bg-[var(--card)] rounded-xl p-3 space-y-2 shadow-2xl" onclick="event.stopPropagation()">
+        <div class="flex items-center justify-between gap-2 px-1">
+          <div id="lightbox-caption" class="text-xs font-semibold truncate"></div>
+          <button onclick="closeLightbox()" class="px-2.5 py-1 rounded border border-[var(--border)] text-xs font-semibold">Close</button>
+        </div>
+        <img id="lightbox-img" src="" alt="Full preview" class="w-full max-h-[580px] object-contain rounded-lg bg-[#E5D1B3]" />
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const IS_HOSTED = __IS_HOSTED__;
+    let HAS_LIVE_API = false;
+    const SAVED_LOOKS_KEY = "atelier30_saved_looks_v1";
+    const DATA = __BUNDLE_JSON__;
+    let LOOKBOOK_ITEMS = [];
+    const customRenderCache = {};
+    const normalizedTextures = {};
+    let renderRequestSeq = 0;
+
+    const GARMENT_NAMES = {
+      outer: {
+        none: "No Outer Layer",
+        blazer: "Unstructured Blazer",
+        double_breasted: "Double-Breasted Blazer",
+        suit_jacket: "Suit Jacket",
+        overshirt: "Wool Overshirt",
+        bomber: "Bomber Jacket",
+        suede_jacket: "Suede / Leather Jacket",
+        overcoat: "Wool Overcoat"
+      },
+      inner: {
+        dress_shirt: "Spread Dress Shirt",
+        oxford_shirt: "Oxford Shirt",
+        polo: "Knit Polo",
+        turtleneck: "Fine Turtleneck",
+        sweater: "Crewneck Sweater",
+        crew_tee: "Crew Tee",
+        hoodie: "Pullover Hoodie"
+      },
+      bottom: {
+        trousers: "Tailored Trousers",
+        chinos: "Slim Chinos",
+        jeans: "Straight Jeans",
+        linen_trousers: "Linen Trousers"
+      },
+      footwear: {
+        sneakers: "Minimal Sneakers",
+        loafers: "Loafers",
+        oxfords: "Cap-Toe Oxfords",
+        chelsea: "Chelsea Boots"
+      }
+    };
+
+    const FABRIC_NAMES = {
+      wool: "Hopsack Wool",
+      knit: "Merino Knit",
+      oxford: "Oxford Cotton",
+      denim: "Selvedge Denim",
+      linen: "Irish Linen",
+      suede: "Brushed Suede",
+      leather: "Full-Grain Calf"
+    };
+
+    const SWATCH_PALETTES = {
+      outer: [
+        {name: "Midnight Navy", hex: "#1F2E46"},
+        {name: "Charcoal", hex: "#383B40"},
+        {name: "Jet Black", hex: "#17181B"},
+        {name: "Camel Tan", hex: "#B58C5E"},
+        {name: "Espresso", hex: "#4A2F21"},
+        {name: "Olive Drab", hex: "#4A583B"},
+        {name: "Stone Cream", hex: "#DDD4C2"},
+        {name: "Burgundy", hex: "#641D2B"},
+        {name: "Mid Grey", hex: "#8B8F94"},
+        {name: "Taupe", hex: "#948270"}
+      ],
+      inner: [
+        {name: "Crisp White", hex: "#F7F6F2"},
+        {name: "Ivory Cream", hex: "#ECE5D4"},
+        {name: "Jet Black", hex: "#161719"},
+        {name: "Sky Blue", hex: "#8FB3D6"},
+        {name: "Dusty Blue", hex: "#436180"},
+        {name: "Burgundy", hex: "#761E2E"},
+        {name: "Charcoal", hex: "#3D4044"},
+        {name: "Olive", hex: "#4E5C3E"},
+        {name: "Dusty Rose", hex: "#BC7C80"},
+        {name: "Chocolate", hex: "#4E3223"}
+      ],
+      bottom: [
+        {name: "Black", hex: "#191A1D"},
+        {name: "Charcoal", hex: "#404348"},
+        {name: "Light Grey", hex: "#B3B7BC"},
+        {name: "Stone / Khaki", hex: "#CFC3AD"},
+        {name: "Ecru / Off-White", hex: "#EAE5D8"},
+        {name: "Navy", hex: "#1F2D45"},
+        {name: "Mid Indigo Denim", hex: "#456586"},
+        {name: "Olive", hex: "#4A5638"},
+        {name: "Chocolate", hex: "#4A3022"},
+        {name: "Taupe", hex: "#867768"}
+      ],
+      footwear: [
+        {name: "White Leather", hex: "#F4F3EF"},
+        {name: "Black Calf", hex: "#151618"},
+        {name: "Dark Brown", hex: "#4A2E20"},
+        {name: "Cognac Tan", hex: "#8F4F24"},
+        {name: "Sand Suede", hex: "#B89A72"},
+        {name: "Grey Suede", hex: "#9A9C9E"},
+        {name: "Oxblood", hex: "#5C1B26"},
+        {name: "Navy Suede", hex: "#1F2D45"}
+      ],
+      belt: [
+        {name: "Black Calf", hex: "#161719"},
+        {name: "Dark Brown", hex: "#4A2E20"},
+        {name: "Cognac", hex: "#8B4E24"},
+        {name: "Tan Suede", hex: "#B38A5C"},
+        {name: "Oxblood", hex: "#5C1B26"},
+        {name: "Navy", hex: "#1F2D45"}
+      ]
+    };
+
+    let state = {
+      activeTab: "studio",
+      activeThemeId: "smart_casual",
+      stageView: IS_HOSTED ? "shoot" : "mixer",
+      canvasMode: "split",
+      outer: "blazer",
+      inner: "dress_shirt",
+      bottom: "chinos",
+      footwear: "loafers",
+      outerFabric: "wool",
+      innerFabric: "oxford",
+      bottomFabric: "oxford",
+      footwearFabric: "suede",
+      outerColor: "#1F2E46",
+      innerColor: "#F7F6F2",
+      bottomColor: "#CFC3AE",
+      footwearColor: "#6B442A",
+      beltColor: "#6B442A",
+      watchMetal: "silver",
+      tucked: true,
+      pocketSquare: true,
+      activePhotoUrl: IS_HOSTED ? "assets/renders/theme_smart_casual.png" : "",
+      photoMatchesState: true,
+      savedLooks: []
+    };
+
+    // --- Color Helpers ---
+    function hexToRgb(hex) {
+      let c = (hex || "#888888").replace("#", "");
+      if (c.length === 3) c = c.split("").map(x => x + x).join("");
+      const num = parseInt(c, 16) || 0;
+      return { r: (num >> 16) & 255, g: (num >> 8) & 255, b: num & 255 };
+    }
+    function rgbToHex(r, g, b) {
+      const clamp = v => Math.max(0, Math.min(255, Math.round(v)));
+      return "#" + [clamp(r), clamp(g), clamp(b)].map(v => v.toString(16).padStart(2, "0")).join("");
+    }
+    function shade(hex, pct) {
+      const { r, g, b } = hexToRgb(hex);
+      if (pct < 0) {
+        const f = 1 + pct;
+        return rgbToHex(r * f, g * f, b * f);
+      }
+      return rgbToHex(r + (255 - r) * pct, g + (255 - g) * pct, b + (255 - b) * pct);
+    }
+    function luminance(hex) {
+      const { r, g, b } = hexToRgb(hex);
+      return (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+    }
+    function colorDist(h1, h2) {
+      const a = hexToRgb(h1), b = hexToRgb(h2);
+      return Math.sqrt((a.r - b.r)**2 + (a.g - b.g)**2 + (a.b - b.b)**2);
+    }
+    function nearestName(hex, slot) {
+      const list = SWATCH_PALETTES[slot] || [];
+      let best = { name: hex, dist: 999 };
+      for (const s of list) {
+        const d = colorDist(hex, s.hex);
+        if (d < best.dist) best = { name: s.name, dist: d };
+      }
+      return best.dist < 42 ? best.name : hex.toUpperCase();
+    }
+
+    function currentSigKey() {
+      return [
+        state.outer, state.inner, state.bottom, state.footwear,
+        state.outerColor.toLowerCase(), state.innerColor.toLowerCase(),
+        state.bottomColor.toLowerCase(), state.footwearColor.toLowerCase(),
+        state.beltColor.toLowerCase(), state.outerFabric, state.innerFabric,
+        state.bottomFabric, state.footwearFabric, state.tucked, state.pocketSquare, state.watchMetal
+      ].join("|");
+    }
+
+    // Seed customRenderCache with all 9 Theme Signature Boards AND all 34 curated Formula Presets
+    if (IS_HOSTED) {
+      const seedSig = (p, img) => {
+        if (!p || !img) return;
+        const k = [
+          p.outer, p.inner, p.bottom, p.footwear,
+          (p.outerColor || "").toLowerCase(), (p.innerColor || "").toLowerCase(),
+          (p.bottomColor || "").toLowerCase(), (p.footwearColor || "").toLowerCase(),
+          (p.beltColor || "").toLowerCase(), p.outerFabric, p.innerFabric,
+          p.bottomFabric, p.footwearFabric, p.tucked, p.pocketSquare, p.watchMetal || "silver"
+        ].join("|");
+        customRenderCache[k] = img;
+      };
+      DATA.themes.forEach(t => {
+        seedSig(t.defaultPreset, t.shootImg);
+        (t.formulas || []).forEach(fm => seedSig(fm, fm.shootImg));
+      });
+    }
+
+    // --- Real Photographed & Procedural Grain Textures for Canvas Compositor ---
+    function createProceduralGrain(kind) {
+      const c = document.createElement("canvas");
+      c.width = 96; c.height = 96;
+      const g = c.getContext("2d");
+      const img = g.createImageData(96, 96);
+      const d = img.data;
+      let seed = kind.split("").reduce((a, ch) => a + ch.charCodeAt(0), 17);
+      const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+      for (let y = 0; y < 96; y++) {
+        for (let x = 0; x < 96; x++) {
+          const idx = (y * 96 + x) * 4;
+          let v = 236;
+          if (kind === "denim") {
+            const diag = ((x + y) % 4 === 0) ? -14 : 6;
+            v = 232 + diag + (rnd() - 0.5) * 14;
+          } else if (kind === "knit") {
+            const rib = (x % 4 === 0) ? -12 : 4;
+            const row = Math.sin(y * 1.4) * 5;
+            v = 234 + rib + row + (rnd() - 0.5) * 12;
+          } else if (kind === "linen") {
+            const h = (y % 5 === 0) ? -10 : 3;
+            const w = (x % 6 === 0) ? -8 : 3;
+            v = 235 + h + w + (rnd() - 0.5) * 18;
+          } else if (kind === "suede") {
+            v = 232 + (rnd() - 0.5) * 26;
+          } else if (kind === "leather") {
+            v = 238 + Math.sin(x * 0.4) * Math.cos(y * 0.4) * 5 + (rnd() - 0.5) * 8;
+          } else if (kind === "wool") {
+            const ch = ((x % 3 === 0) !== (y % 3 === 0)) ? -9 : 5;
+            v = 236 + ch + (rnd() - 0.5) * 12;
+          } else {
+            const ox = ((x + y) % 2 === 0) ? -4 : 4;
+            v = 240 + ox + (rnd() - 0.5) * 6;
+          }
+          const clamped = Math.max(175, Math.min(255, Math.round(v)));
+          d[idx] = d[idx+1] = d[idx+2] = clamped;
+          d[idx+3] = 255;
+        }
+      }
+      g.putImageData(img, 0, 0);
+      return c;
+    }
+
+    function normalizeMacroPhotoTile(img) {
+      const q = 128;
+      const tmp = document.createElement("canvas");
+      tmp.width = q; tmp.height = q;
+      const tg = tmp.getContext("2d");
+      tg.drawImage(img, 0, 0, q, q);
+      const dataObj = tg.getImageData(0, 0, q, q);
+      const d = dataObj.data;
+      let sum = 0;
+      for (let i = 0; i < d.length; i += 4) {
+        sum += (0.299 * d[i] + 0.587 * d[i+1] + 0.114 * d[i+2]);
+      }
+      const mean = sum / (q * q);
+      for (let i = 0; i < d.length; i += 4) {
+        const lum = 0.299 * d[i] + 0.587 * d[i+1] + 0.114 * d[i+2];
+        const norm = Math.max(175, Math.min(255, Math.round(236 + (lum - mean) * 1.45)));
+        d[i] = d[i+1] = d[i+2] = norm;
+      }
+      tg.putImageData(dataObj, 0, 0);
+
+      // 2x2 mirror-tiled canvas for zero visible tile boundary seams
+      const out = document.createElement("canvas");
+      out.width = q * 2; out.height = q * 2;
+      const og = out.getContext("2d");
+      og.drawImage(tmp, 0, 0);
+      og.save(); og.translate(q * 2, 0); og.scale(-1, 1); og.drawImage(tmp, 0, 0); og.restore();
+      og.save(); og.translate(0, q * 2); og.scale(1, -1); og.drawImage(tmp, 0, 0); og.restore();
+      og.save(); og.translate(q * 2, q * 2); og.scale(-1, -1); og.drawImage(tmp, 0, 0); og.restore();
+      return out;
+    }
+
+    // Boot fabric textures (procedural immediately, replaced by real macro photography once decoded in Hosted mode)
+    ["wool", "knit", "oxford", "denim", "linen", "suede", "leather"].forEach(k => {
+      normalizedTextures[k] = createProceduralGrain(k);
+      if (IS_HOSTED) {
+        const im = new Image();
+        im.onload = () => {
+          normalizedTextures[k] = normalizeMacroPhotoTile(im);
+          if (state.stageView === "mixer") drawFabricCanvas();
+        };
+        im.src = `assets/fabrics/${k}.png`;
+      }
+    });
+
+    // --- 2x Retina Photorealistic Fabric & Drape Canvas Compositor ---
+    let gBuf = null;
+    function getGarmentBuffer(w, h) {
+      if (!gBuf || gBuf.width !== w || gBuf.height !== h) {
+        gBuf = document.createElement("canvas");
+        gBuf.width = w; gBuf.height = h;
+      }
+      const ctx = gBuf.getContext("2d");
+      ctx.clearRect(0, 0, w, h);
+      return { canvas: gBuf, ctx };
+    }
+
+    function paintTexturedGarment(mainCtx, w, h, baseHex, fabricId, pathBuilder, detailDrawer, options = {}) {
+      const { canvas: off, ctx } = getGarmentBuffer(w, h);
+      const isDark = luminance(baseHex) < 0.25;
+
+      ctx.save();
+      ctx.beginPath();
+      pathBuilder(ctx);
+      ctx.clip(); // Strictly clip ALL shading, multiply weave & fold details to garment pixels only
+
+      ctx.fillStyle = baseHex;
+      ctx.fillRect(0, 0, w, h);
+
+      // 1. Directional Studio 3D Cylindrical Shading
+      const gx = options.cx || w * 0.5;
+      const bw = options.bw || 200;
+      const grad = ctx.createLinearGradient(gx - bw * 0.55, 0, gx + bw * 0.55, 0);
+      const hiAlpha = isDark ? 0.16 : 0.12;
+      const loAlpha = isDark ? 0.36 : 0.20;
+      grad.addColorStop(0, `rgba(0,0,0,${loAlpha})`);
+      grad.addColorStop(0.24, `rgba(255,255,255,${hiAlpha})`);
+      grad.addColorStop(0.55, `rgba(255,255,255,${hiAlpha * 0.6})`);
+      grad.addColorStop(1, `rgba(0,0,0,${loAlpha * 0.95})`);
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, w, h);
+
+      // 2. Real Photographed Macro Fabric Texture Pass (multiply strictly inside clip!)
+      const tile = normalizedTextures[fabricId] || normalizedTextures.wool;
+      if (tile) {
+        const pat = ctx.createPattern(tile, "repeat");
+        ctx.globalCompositeOperation = "multiply";
+        ctx.globalAlpha = fabricId === "leather" ? 0.65 : 0.92;
+        ctx.fillStyle = pat;
+        ctx.fillRect(0, 0, w, h);
+        ctx.globalAlpha = 1;
+        ctx.globalCompositeOperation = "source-over";
+      }
+
+      // 3. Soft Specular / Nap Depth + Crease Details
+      if (detailDrawer) detailDrawer(ctx, isDark);
+      ctx.restore();
+
+      // Crisp subtle rim edge so silhouettes stand off backdrop organically
+      ctx.save();
+      ctx.strokeStyle = isDark ? "rgba(255,255,255,0.12)" : "rgba(40,30,20,0.15)";
+      ctx.lineWidth = 1.2;
+      ctx.beginPath();
+      pathBuilder(ctx);
+      ctx.stroke();
+      ctx.restore();
+
+      // Stamp onto main canvas with soft studio contact shadow
+      mainCtx.save();
+      mainCtx.shadowColor = "rgba(45,32,18,0.22)";
+      mainCtx.shadowBlur = options.shadowBlur || 12;
+      mainCtx.shadowOffsetX = options.shadowX || 0;
+      mainCtx.shadowOffsetY = options.shadowY || 5;
+      mainCtx.drawImage(off, 0, 0);
+      mainCtx.restore();
+    }
+
+    function drawButton(ctx, x, y, r, garmentHex) {
+      const lightBtn = luminance(garmentHex) < 0.32;
+      const g = ctx.createRadialGradient(x - r*0.3, y - r*0.3, r*0.1, x, y, r);
+      if (lightBtn) {
+        g.addColorStop(0, "#7E7469");
+        g.addColorStop(1, "#2A2520");
+      } else {
+        g.addColorStop(0, "#6E5A47");
+        g.addColorStop(1, "#2B1E14");
+      }
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.fillStyle = g;
+      ctx.fill();
+      ctx.strokeStyle = "rgba(0,0,0,0.35)";
+      ctx.lineWidth = 0.8;
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    function drawOnModelCanvas(ctx, w, h, offsetX, scale) {
+      ctx.save();
+      ctx.translate(offsetX, 18);
+      ctx.scale(scale, scale);
+
+      const hasOuter = state.outer !== "none";
+      const showBelt = state.tucked || ["blazer", "double_breasted", "suit_jacket"].includes(state.outer);
+      const isKnit = ["sweater", "turtleneck", "polo", "hoodie"].includes(state.inner);
+      const metalHex = state.watchMetal === "gold" ? "#D0A94E" : "#C4CCD4";
+      const oc = state.outerColor, ic = state.innerColor, bc = state.bottomColor, fc = state.footwearColor, blc = state.beltColor;
+
+      // Floor ambient contact shadow
+      ctx.save();
+      const fg = ctx.createRadialGradient(260, 745, 20, 260, 745, 130);
+      fg.addColorStop(0, "rgba(60,42,24,0.30)");
+      fg.addColorStop(1, "rgba(60,42,24,0)");
+      ctx.fillStyle = fg;
+      ctx.beginPath();
+      ctx.ellipse(260, 745, 125, 18, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+
+      // Invisible-neck interior depth backing (headless cropped style like @_menstylish)
+      ctx.save();
+      const neckBg = ctx.createLinearGradient(0, 48, 0, 108);
+      neckBg.addColorStop(0, "rgba(85,68,52,0.18)");
+      neckBg.addColorStop(1, shade(ic, -0.35));
+      ctx.fillStyle = neckBg;
+      ctx.beginPath();
+      ctx.moveTo(222, 54);
+      ctx.quadraticCurveTo(260, 68, 298, 54);
+      ctx.lineTo(306, 98);
+      ctx.lineTo(214, 98);
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+
+      // Trousers / Denim Region
+      const isJeans = state.bottom === "jeans";
+      const isPleated = state.bottom === "trousers" || state.bottom === "linen_trousers";
+      paintTexturedGarment(ctx, w, h, bc, state.bottomFabric, c => {
+        c.moveTo(186, 368); c.lineTo(334, 368);
+        c.lineTo(342, 445);
+        c.quadraticCurveTo(336, 560, 323, 692);
+        c.lineTo(271, 692);
+        c.lineTo(260, 468);
+        c.lineTo(249, 692);
+        c.lineTo(197, 692);
+        c.quadraticCurveTo(184, 560, 178, 445);
+        c.closePath();
+      }, (c, isD) => {
+        // Center crotch + inner leg drape shadow
+        c.fillStyle = "rgba(0,0,0,0.18)";
+        c.fillRect(256, 390, 8, 92);
+        if (isJeans) {
+          // Whiskering & pocket stitch curves
+          c.strokeStyle = isD ? "rgba(255,255,255,0.18)" : "rgba(255,255,255,0.32)";
+          c.lineWidth = 1.6;
+          c.beginPath();
+          c.moveTo(189, 384); c.quadraticCurveTo(206, 404, 217, 376);
+          c.moveTo(331, 384); c.quadraticCurveTo(314, 404, 303, 376);
+          c.stroke();
+          // Soft knee fade wash
+          const wg = c.createRadialGradient(223, 520, 4, 223, 520, 44);
+          wg.addColorStop(0, "rgba(255,255,255,0.12)"); wg.addColorStop(1, "rgba(255,255,255,0)");
+          c.fillStyle = wg; c.fillRect(180, 460, 160, 130);
+        } else if (isPleated) {
+          // Crisp vertical ironed pleat highlight + soft shadow ridge
+          c.strokeStyle = "rgba(255,255,255,0.22)";
+          c.lineWidth = 1.6;
+          c.beginPath(); c.moveTo(224, 392); c.lineTo(222, 686); c.moveTo(296, 392); c.lineTo(298, 686); c.stroke();
+          c.strokeStyle = "rgba(0,0,0,0.16)";
+          c.lineWidth = 1.3;
+          c.beginPath(); c.moveTo(226, 392); c.lineTo(224, 686); c.moveTo(298, 392); c.lineTo(300, 686); c.stroke();
+        }
+        // Slanted trouser pockets
+        c.strokeStyle = "rgba(0,0,0,0.28)"; c.lineWidth = 1.6;
+        c.beginPath(); c.moveTo(196, 385); c.lineTo(206, 426); c.moveTo(324, 385); c.lineTo(314, 426); c.stroke();
+        // Fly + waistband shadow
+        c.beginPath(); c.moveTo(260, 370); c.lineTo(260, 434); c.stroke();
+        c.strokeStyle = "rgba(0,0,0,0.20)"; c.beginPath(); c.moveTo(186, 386); c.lineTo(334, 386); c.stroke();
+      }, { cx: 260, bw: 165 });
+
+      // Footwear Region (Realistic Leather/Suede Burnished Silhouette)
+      const isSneaker = state.footwear === "sneakers";
+      const isChelsea = state.footwear === "chelsea";
+      const footTopY = isChelsea ? 668 : 690;
+      paintTexturedGarment(ctx, w, h, fc, state.footwearFabric, c => {
+        // Left shoe
+        c.moveTo(200, footTopY); c.lineTo(244, footTopY);
+        c.lineTo(247, 720); c.quadraticCurveTo(248, 744, 217, 744); c.quadraticCurveTo(189, 744, 193, 720); c.closePath();
+        // Right shoe
+        c.moveTo(276, footTopY); c.lineTo(320, footTopY);
+        c.lineTo(327, 720); c.quadraticCurveTo(331, 744, 303, 744); c.quadraticCurveTo(272, 744, 273, 720); c.closePath();
+      }, (c, isD) => {
+        // Shoe toe burnished highlight
+        const lg = c.createRadialGradient(217, 726, 2, 217, 726, 26);
+        lg.addColorStop(0, "rgba(255,255,255,0.22)"); lg.addColorStop(1, "rgba(0,0,0,0.18)");
+        c.fillStyle = lg; c.fillRect(185, 685, 70, 65);
+        const rg = c.createRadialGradient(303, 726, 2, 303, 726, 26);
+        rg.addColorStop(0, "rgba(255,255,255,0.22)"); rg.addColorStop(1, "rgba(0,0,0,0.18)");
+        c.fillStyle = rg; c.fillRect(265, 685, 70, 65);
+        // Outsole
+        c.fillStyle = isSneaker ? "#F4F2EC" : "#221710";
+        c.fillRect(191, 735, 58, 11);
+        c.fillRect(271, 735, 58, 11);
+        if (state.footwear === "loafers") {
+          c.fillStyle = "rgba(0,0,0,0.25)";
+          c.fillRect(204, 705, 32, 8);
+          c.fillRect(284, 705, 32, 8);
+        } else if (state.footwear === "oxfords" || state.footwear === "sneakers") {
+          c.strokeStyle = isD ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.35)";
+          c.lineWidth = 1.6;
+          c.beginPath();
+          c.moveTo(212, 702); c.lineTo(228, 702); c.moveTo(211, 709); c.lineTo(229, 709);
+          c.moveTo(292, 702); c.lineTo(308, 702); c.moveTo(291, 709); c.lineTo(309, 709);
+          c.stroke();
+        }
+      }, { cx: 260, bw: 150, shadowBlur: 14 });
+
+      // Inner Top Layer (Shirt / Polo / Sweater / Turtleneck / Hoodie)
+      const hemY = showBelt ? 375 : 408;
+      const shortSleeve = !hasOuter && ["crew_tee", "polo"].includes(state.inner);
+      const sleeveBottomY = shortSleeve ? 228 : 362;
+
+      paintTexturedGarment(ctx, w, h, ic, state.innerFabric, c => {
+        const isTN = state.inner === "turtleneck";
+        if (!hasOuter) {
+          c.moveTo(182, 108);
+          c.lineTo(140, 140);
+          c.lineTo(126, sleeveBottomY);
+          c.lineTo(160, sleeveBottomY + 4);
+          c.lineTo(184, 210);
+          c.lineTo(186, hemY);
+          c.lineTo(334, hemY);
+          c.lineTo(336, 210);
+          c.lineTo(360, sleeveBottomY + 4);
+          c.lineTo(394, sleeveBottomY);
+          c.lineTo(380, 140);
+          c.lineTo(338, 108);
+          c.lineTo(294, 92);
+          if (isTN) {
+            c.lineTo(294, 62); c.lineTo(226, 62); c.lineTo(226, 92);
+          } else {
+            c.quadraticCurveTo(260, 106, 226, 92);
+          }
+          c.closePath();
+        } else {
+          c.moveTo(192, 102);
+          c.lineTo(226, 92);
+          if (isTN) {
+            c.lineTo(226, 62); c.lineTo(294, 62); c.lineTo(294, 92);
+          } else {
+            c.quadraticCurveTo(260, 106, 294, 92);
+          }
+          c.lineTo(328, 102);
+          c.lineTo(334, hemY);
+          c.lineTo(186, hemY);
+          c.closePath();
+        }
+      }, (c, isD) => {
+        // Ribbed hem if sweater
+        if (state.inner === "sweater" || state.inner === "hoodie") {
+          c.fillStyle = "rgba(0,0,0,0.12)";
+          c.fillRect(186, hemY - 14, 148, 14);
+        }
+        // Soft waist folds above belt
+        c.strokeStyle = "rgba(0,0,0,0.12)"; c.lineWidth = 2;
+        c.beginPath(); c.moveTo(205, hemY - 22); c.quadraticCurveTo(260, hemY - 12, 315, hemY - 22); c.stroke();
+        if (state.inner === "dress_shirt" || state.inner === "oxford_shirt") {
+          // Rolled shirt collar leaves + placket
+          c.fillStyle = shade(ic, 0.08);
+          c.beginPath();
+          c.moveTo(224, 92); c.lineTo(260, 134); c.lineTo(212, 128); c.closePath();
+          c.moveTo(296, 92); c.lineTo(260, 134); c.lineTo(308, 128); c.closePath();
+          c.fill();
+          c.strokeStyle = "rgba(0,0,0,0.22)"; c.lineWidth = 1.2; c.stroke();
+          c.beginPath(); c.moveTo(260, 134); c.lineTo(260, hemY - 8); c.stroke();
+          [165, 212, 259, 306].forEach(by => drawButton(c, 260, by, 3, ic));
+        } else if (state.inner === "polo") {
+          c.fillStyle = shade(ic, -0.09);
+          c.beginPath();
+          c.moveTo(225, 92); c.lineTo(260, 132); c.lineTo(215, 125); c.closePath();
+          c.moveTo(295, 92); c.lineTo(260, 132); c.lineTo(305, 125); c.closePath();
+          c.fill();
+          c.fillRect(256, 132, 8, 60);
+          drawButton(c, 260, 152, 2.8, ic);
+          drawButton(c, 260, 174, 2.8, ic);
+        } else if (state.inner === "turtleneck") {
+          c.fillStyle = ic;
+          c.fillRect(225, 62, 70, 42);
+          c.strokeStyle = "rgba(0,0,0,0.2)"; c.lineWidth = 1.2;
+          c.beginPath(); c.moveTo(226, 82); c.lineTo(294, 82); c.stroke();
+        } else if (state.inner === "hoodie") {
+          c.fillStyle = "rgba(0,0,0,0.16)";
+          c.beginPath(); c.moveTo(214, 80); c.quadraticCurveTo(260, 120, 306, 80); c.lineTo(296, 124); c.quadraticCurveTo(260, 146, 224, 124); c.closePath(); c.fill();
+          c.strokeStyle = isD ? "rgba(255,255,255,0.45)" : "rgba(0,0,0,0.35)"; c.lineWidth = 2.4;
+          c.beginPath(); c.moveTo(246, 128); c.lineTo(246, 185); c.moveTo(274, 128); c.lineTo(274, 185); c.stroke();
+        } else {
+          c.strokeStyle = "rgba(0,0,0,0.22)"; c.lineWidth = 2.2;
+          c.beginPath(); c.moveTo(226, 94); c.quadraticCurveTo(260, 122, 294, 94); c.stroke();
+        }
+      }, { cx: 260, bw: 200 });
+
+      // Leather Belt + Metallic Buckle (when visible)
+      if (showBelt) {
+        paintTexturedGarment(ctx, w, h, blc, "leather", c => {
+          c.rect(186, 366, 148, 15);
+        }, c => {
+          c.fillStyle = metalHex;
+          c.fillRect(250, 364, 20, 19);
+          c.fillStyle = blc;
+          c.fillRect(255, 368, 10, 11);
+        }, { shadowBlur: 4, shadowY: 2 });
+      }
+
+      // Outer Layer (Structured Blazer / DB Suit / Overcoat / Overshirt / Bomber / Leather Jacket)
+      if (hasOuter) {
+        const isTailored = ["blazer", "double_breasted", "suit_jacket", "overcoat"].includes(state.outer);
+        const coatLen = state.outer === "overcoat" ? 560 : (isTailored ? 446 : 395);
+        const flare = state.outer === "overcoat" ? 12 : 4;
+
+        // Exposed shirt cuff sliver under tailored sleeve
+        if (["dress_shirt", "oxford_shirt"].includes(state.inner)) {
+          ctx.fillStyle = ic;
+          ctx.fillRect(130, 355, 29, 12);
+          ctx.fillRect(361, 355, 29, 12);
+        }
+
+        paintTexturedGarment(ctx, w, h, oc, state.outerFabric, c => {
+          // Left sleeve
+          c.moveTo(182, 108); c.lineTo(140, 134); c.lineTo(128, 358); c.lineTo(161, 361); c.lineTo(184, 206); c.closePath();
+          // Right sleeve
+          c.moveTo(338, 108); c.lineTo(380, 134); c.lineTo(392, 358); c.lineTo(359, 361); c.lineTo(336, 206); c.closePath();
+          if (state.outer === "double_breasted") {
+            // Closed double-breasted wrap front
+            c.moveTo(182, 108); c.lineTo(226, 94); c.lineTo(260, 240); c.lineTo(294, 94);
+            c.lineTo(338, 108); c.lineTo(338, 210); c.lineTo(342, coatLen);
+            c.lineTo(178, coatLen); c.lineTo(182, 210); c.closePath();
+          } else {
+            // Left front panel
+            c.moveTo(182, 108); c.lineTo(226, 94); c.lineTo(246, 248); c.lineTo(246, coatLen);
+            c.lineTo(182 - flare, coatLen - 8); c.lineTo(184, 206); c.closePath();
+            // Right front panel
+            c.moveTo(338, 108); c.lineTo(294, 94); c.lineTo(274, 248); c.lineTo(274, coatLen);
+            c.lineTo(338 + flare, coatLen - 8); c.lineTo(336, 206); c.closePath();
+          }
+        }, (c, isD) => {
+          // Armpit & elbow soft fabric folds
+          c.strokeStyle = "rgba(0,0,0,0.20)"; c.lineWidth = 2.4;
+          c.beginPath();
+          c.moveTo(182, 195); c.quadraticCurveTo(160, 224, 146, 246);
+          c.moveTo(338, 195); c.quadraticCurveTo(360, 224, 374, 246);
+          c.stroke();
+
+          if (isTailored) {
+            // Rolled Notch / Peak Lapels with soft fold shadow
+            c.fillStyle = shade(oc, isD ? 0.14 : 0.06);
+            c.beginPath();
+            c.moveTo(226, 94); c.lineTo(248, 246); c.lineTo(212, 185); c.lineTo(221, 162); c.lineTo(205, 152); c.closePath();
+            c.moveTo(294, 94); c.lineTo(272, 246); c.lineTo(308, 185); c.lineTo(299, 162); c.lineTo(315, 152); c.closePath();
+            c.fill();
+            c.strokeStyle = "rgba(0,0,0,0.24)"; c.lineWidth = 1.2; c.stroke();
+
+            // Breast welt pocket + crisp folded pocket square
+            c.strokeStyle = "rgba(0,0,0,0.32)"; c.lineWidth = 2;
+            c.beginPath(); c.moveTo(292, 196); c.lineTo(324, 201); c.stroke();
+            if (state.pocketSquare && state.outer !== "overcoat") {
+              c.fillStyle = "#F8F6F0";
+              c.beginPath(); c.moveTo(295, 196); c.lineTo(304, 182); c.lineTo(314, 188); c.lineTo(320, 183); c.lineTo(322, 199); c.closePath(); c.fill();
+            }
+            // Hip pockets
+            c.fillStyle = "rgba(0,0,0,0.22)";
+            if (state.outer === "overcoat") {
+              c.fillRect(189, 326, 6, 44);
+              c.fillRect(325, 326, 6, 44);
+            } else {
+              c.fillRect(190, 314, 38, 8);
+              c.fillRect(292, 314, 38, 8);
+            }
+            // Horn buttons
+            if (state.outer === "double_breasted") {
+              [275, 316, 358].forEach(by => {
+                drawButton(c, 242, by, 4.4, oc);
+                drawButton(c, 278, by, 4.4, oc);
+              });
+            } else {
+              drawButton(c, 236, 278, 4.4, oc);
+              drawButton(c, 236, 324, 4.4, oc);
+            }
+          } else if (state.outer === "overshirt") {
+            // Shirt collar + twin chest flap pockets
+            c.fillStyle = shade(oc, 0.08);
+            c.beginPath();
+            c.moveTo(226, 94); c.lineTo(240, 136); c.lineTo(205, 128); c.closePath();
+            c.moveTo(294, 94); c.lineTo(280, 136); c.lineTo(315, 128); c.closePath();
+            c.fill();
+            c.fillStyle = "rgba(0,0,0,0.16)";
+            c.fillRect(192, 178, 40, 44); c.fillRect(288, 178, 40, 44);
+            drawButton(c, 212, 194, 3, oc); drawButton(c, 308, 194, 3, oc);
+          } else {
+            // Ribbed bomber/suede hem + metal zip tracks
+            c.fillStyle = "rgba(0,0,0,0.24)";
+            c.fillRect(180, coatLen - 20, 66, 20);
+            c.fillRect(274, coatLen - 20, 66, 20);
+            c.strokeStyle = metalHex; c.lineWidth = 3;
+            c.beginPath(); c.moveTo(244, 102); c.lineTo(244, coatLen - 4); c.moveTo(276, 102); c.lineTo(276, coatLen - 4); c.stroke();
+          }
+        }, { cx: 260, bw: 265, shadowBlur: 16 });
+      }
+
+      // Wristwatch peek on right arm (wearer's left wrist)
+      ctx.save();
+      ctx.fillStyle = metalHex;
+      ctx.fillRect(365, 360, 22, 8);
+      ctx.beginPath(); ctx.arc(376, 364, 7, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.arc(376, 364, 4.5, 0, Math.PI * 2); ctx.fillStyle = "#182028"; ctx.fill();
+      ctx.restore();
+
+      ctx.restore();
+    }
+
+    function drawFlatLayCanvas(ctx, w, h, offsetX, scale) {
+      ctx.save();
+      ctx.translate(offsetX, 24);
+      ctx.scale(scale, scale);
+
+      const hasOuter = state.outer !== "none";
+      const metalHex = state.watchMetal === "gold" ? "#D0A94E" : "#C4CCD4";
+      const oc = state.outerColor, ic = state.innerColor, bc = state.bottomColor, fc = state.footwearColor, blc = state.beltColor;
+      const themeObj = DATA.themes.find(t => t.id === state.activeThemeId) || DATA.themes[0];
+
+      // 1. Folded Garment Stack (Left column inside Flat-Lay panel)
+      if (hasOuter) {
+        paintTexturedGarment(ctx, w, h, oc, state.outerFabric, c => {
+          c.roundRect(28, 22, 210, 198, 12);
+        }, c => {
+          // V opening showing shirt + lapel fold
+          c.fillStyle = ic;
+          c.beginPath(); c.moveTo(98, 22); c.lineTo(133, 76); c.lineTo(168, 22); c.closePath(); c.fill();
+          c.fillStyle = shade(oc, 0.08);
+          c.beginPath(); c.moveTo(98, 22); c.lineTo(133, 128); c.lineTo(86, 94); c.closePath();
+          c.moveTo(168, 22); c.lineTo(133, 128); c.lineTo(180, 94); c.closePath();
+          c.fill();
+          drawButton(c, 133, 152, 4, oc);
+        }, { cx: 133, bw: 210, shadowY: 8 });
+
+        paintTexturedGarment(ctx, w, h, ic, state.innerFabric, c => {
+          c.roundRect(40, 260, 186, 122, 10);
+          if (state.inner === "turtleneck") { c.rect(104, 246, 58, 22); }
+        }, c => {
+          c.strokeStyle = "rgba(0,0,0,0.20)"; c.lineWidth = 1.4;
+          if (state.inner === "turtleneck") {
+            c.beginPath(); c.moveTo(104, 258); c.lineTo(162, 258); c.stroke();
+          } else {
+            c.beginPath(); c.moveTo(100, 260); c.lineTo(133, 294); c.lineTo(166, 260); c.stroke();
+            drawButton(c, 133, 314, 3, ic);
+          }
+        }, { cx: 133, bw: 186, shadowY: 8 });
+      } else {
+        paintTexturedGarment(ctx, w, h, ic, state.innerFabric, c => {
+          c.roundRect(28, 22, 210, 248, 12);
+          if (state.inner === "turtleneck") { c.rect(102, 8, 62, 22); }
+        }, c => {
+          c.strokeStyle = "rgba(0,0,0,0.22)"; c.lineWidth = 1.5;
+          if (state.inner === "turtleneck") {
+            c.beginPath(); c.moveTo(102, 20); c.lineTo(164, 20); c.stroke();
+          } else {
+            c.beginPath(); c.moveTo(94, 22); c.lineTo(133, 66); c.lineTo(172, 22); c.stroke();
+            [114, 160, 206].forEach(by => drawButton(c, 133, by, 3.2, ic));
+          }
+        }, { cx: 133, bw: 210, shadowY: 8 });
+      }
+
+      // Folded Trousers / Denim
+      const bY = hasOuter ? 426 : 316;
+      const bH = hasOuter ? 210 : 254;
+      paintTexturedGarment(ctx, w, h, bc, state.bottomFabric, c => {
+        c.roundRect(34, bY, 198, bH, 10);
+      }, c => {
+        c.strokeStyle = "rgba(0,0,0,0.22)"; c.lineWidth = 1.6;
+        c.beginPath(); c.moveTo(34, bY + 28); c.lineTo(232, bY + 28); c.moveTo(133, bY + 30); c.lineTo(133, bY + bH); c.stroke();
+        drawButton(c, 133, bY + 14, 3.8, bc);
+      }, { cx: 133, bw: 198, shadowY: 8 });
+
+      // Labels below flat-lay garments (clean dark editorial typography >= 12px)
+      ctx.save();
+      ctx.fillStyle = "#3A3228";
+      ctx.font = "600 14px system-ui, -apple-system, sans-serif";
+      ctx.textAlign = "center";
+      if (hasOuter) {
+        ctx.fillText(`${GARMENT_NAMES.outer[state.outer]} · ${FABRIC_NAMES[state.outerFabric]}`, 133, 240);
+        ctx.fillText(`${GARMENT_NAMES.inner[state.inner]} · ${FABRIC_NAMES[state.innerFabric]}`, 133, 404);
+      } else {
+        ctx.fillText(`${GARMENT_NAMES.inner[state.inner]} · ${FABRIC_NAMES[state.innerFabric]}`, 133, 294);
+      }
+      ctx.fillText(`${GARMENT_NAMES.bottom[state.bottom]} · ${FABRIC_NAMES[state.bottomFabric]}`, 133, bY + bH + 24);
+      ctx.restore();
+
+      // 2. Accessories Column (Right half of Flat-Lay panel)
+      // Sunglasses
+      ctx.save();
+      ctx.shadowColor = "rgba(0,0,0,0.20)"; ctx.shadowBlur = 8; ctx.shadowOffsetY = 4;
+      ctx.fillStyle = "#2A2019";
+      ctx.beginPath(); ctx.roundRect(298, 42, 56, 40, 12); ctx.roundRect(374, 42, 56, 40, 12); ctx.fillRect(352, 52, 24, 7); ctx.fill();
+      ctx.fillStyle = "#17241E"; ctx.fillRect(306, 48, 40, 28); ctx.fillRect(382, 48, 40, 28);
+      ctx.restore();
+
+      // Watch
+      ctx.save();
+      ctx.shadowColor = "rgba(0,0,0,0.22)"; ctx.shadowBlur = 8; ctx.shadowOffsetY = 5;
+      ctx.fillStyle = state.watchMetal === "gold" ? "#5A3B26" : "#8F969E";
+      ctx.beginPath(); ctx.roundRect(350, 126, 28, 108, 6); ctx.fill();
+      ctx.fillStyle = metalHex; ctx.beginPath(); ctx.arc(364, 180, 26, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = "#161E26"; ctx.beginPath(); ctx.arc(364, 180, 20, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = "#EFEFEF"; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(364, 180); ctx.lineTo(364, 165); ctx.moveTo(364, 180); ctx.lineTo(376, 186); ctx.stroke();
+      ctx.restore();
+
+      // Coiled Belt + Metal Buckle
+      paintTexturedGarment(ctx, w, h, blc, "leather", c => {
+        c.ellipse(364, 336, 54, 28, 0, 0, Math.PI * 2);
+      }, c => {
+        c.save();
+        c.globalCompositeOperation = "destination-out";
+        c.beginPath(); c.ellipse(364, 336, 30, 13, 0, 0, Math.PI * 2); c.fill();
+        c.restore();
+      }, { cx: 364, bw: 108, shadowY: 6 });
+      ctx.save();
+      ctx.fillStyle = metalHex;
+      ctx.fillRect(298, 323, 18, 26);
+      ctx.fillStyle = blc;
+      ctx.fillRect(303, 328, 13, 16);
+      ctx.fillStyle = metalHex;
+      ctx.fillRect(302, 334, 15, 4);
+      ctx.restore();
+
+      // Overhead Footwear Pair
+      paintTexturedGarment(ctx, w, h, fc, state.footwearFabric, c => {
+        c.ellipse(330, 485, 26, 58, 0, 0, Math.PI * 2);
+        c.ellipse(398, 485, 26, 58, 0, 0, Math.PI * 2);
+      }, c => {
+        c.fillStyle = "rgba(0,0,0,0.26)";
+        c.beginPath(); c.ellipse(330, 485, 14, 24, 0, 0, Math.PI * 2); c.ellipse(398, 485, 14, 24, 0, 0, Math.PI * 2); c.fill();
+      }, { cx: 364, bw: 120, shadowY: 8 });
+
+      ctx.save();
+      ctx.fillStyle = "#3A3228";
+      ctx.font = "600 14px system-ui, -apple-system, sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText("Timepiece", 364, 258);
+      ctx.fillText("Leather Belt", 364, 386);
+      ctx.fillText(`${GARMENT_NAMES.footwear[state.footwear]} · ${FABRIC_NAMES[state.footwearFabric]}`, 364, 566);
+
+      // Scent Card
+      ctx.fillStyle = "rgba(255,255,255,0.72)";
+      ctx.beginPath(); ctx.roundRect(262, 594, 204, 62, 10); ctx.fill();
+      ctx.strokeStyle = "rgba(0,0,0,0.14)"; ctx.lineWidth = 1; ctx.stroke();
+      ctx.fillStyle = "#2A241E"; ctx.font = "600 13px system-ui, -apple-system, sans-serif";
+      ctx.fillText("Recommended Scent", 364, 619);
+      ctx.fillStyle = "#5A5045"; ctx.font = "500 13px system-ui, -apple-system, sans-serif";
+      ctx.fillText(themeObj.scent.split("/")[0].trim(), 364, 641);
+      ctx.restore();
+
+      ctx.restore();
+    }
+
+    function drawFabricCanvas() {
+      const canvas = document.getElementById("fabric-canvas");
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      const W = canvas.width, H = canvas.height;
+      ctx.clearRect(0, 0, W, H);
+
+      // Studio radial backdrop
+      const bg = ctx.createRadialGradient(W * 0.5, H * 0.4, 80, W * 0.5, H * 0.5, W * 0.65);
+      bg.addColorStop(0, "#EBD9BE");
+      bg.addColorStop(1, "#D2B790");
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, W, H);
+
+      if (state.canvasMode === "split") {
+        drawOnModelCanvas(ctx, W, H, 10, 1.0);
+        // Subtle editorial divider line
+        ctx.save();
+        ctx.strokeStyle = "rgba(60,42,20,0.12)";
+        ctx.lineWidth = 1.5;
+        ctx.beginPath(); ctx.moveTo(575, 45); ctx.lineTo(575, H - 45); ctx.stroke();
+        ctx.restore();
+        drawFlatLayCanvas(ctx, W, H, 600, 1.08);
+      } else if (state.canvasMode === "model") {
+        drawOnModelCanvas(ctx, W, H, 290, 1.05);
+      } else {
+        drawFlatLayCanvas(ctx, W, H, 285, 1.15);
+      }
+    }
+
+    // --- Matched Real X Posts Finder ---
+    function renderMatchedXPosts() {
+      const grid = document.getElementById("matches-grid");
+      const meta = document.getElementById("matches-meta");
+      if (!IS_HOSTED || !LOOKBOOK_ITEMS.length) {
+        meta.textContent = IS_HOSTED ? "Loading 829 real X channel lookbook photos..." : "Open the hosted Atelier to browse all 829 real X channel lookbook photos.";
+        grid.innerHTML = "";
+        return;
+      }
+
+      const themeObj = DATA.themes.find(t => t.id === state.activeThemeId) || DATA.themes[0];
+      const themeName = themeObj.name;
+      const targetHexes = [
+        state.outer !== "none" ? state.outerColor : null,
+        state.innerColor, state.bottomColor, state.footwearColor
+      ].filter(Boolean);
+
+      const singles = LOOKBOOK_ITEMS.filter(x => x.post_kind === "single_outfit");
+      const scored = singles.map(item => {
+        let score = 0;
+        if (item.theme === themeName) score += 40;
+        const f = (item.formula || "").toLowerCase();
+        if (state.outer !== "none" && f.includes(state.outer.split("_")[0])) score += 16;
+        if (f.includes(state.inner.split("_")[0])) score += 12;
+        if (f.includes(state.bottom.split("_")[0])) score += 12;
+        if (f.includes(state.footwear.split("_")[0])) score += 10;
+
+        // Color palette proximity
+        if (item.palette && item.palette.length) {
+          let totalMinDist = 0;
+          targetHexes.forEach(th => {
+            const best = Math.min(...item.palette.map(ph => colorDist(th, ph)));
+            totalMinDist += best;
+          });
+          const avgDist = totalMinDist / targetHexes.length;
+          score += Math.max(0, 35 - avgDist * 0.22);
+        }
+        return { item, score };
+      });
+
+      scored.sort((a, b) => b.score - a.score);
+      const top = scored.slice(0, 12);
+      meta.textContent = `Showing top 12 photographed X posts closest to "${themeObj.name}" & your selected palette (out of 829 deduplicated outfits):`;
+
+      grid.innerHTML = top.map(({ item }) => {
+        const dots = (item.palette || []).slice(0, 4).map(h =>
+          `<span class="w-3.5 h-3.5 rounded-full border border-black/25" style="background:${h}"></span>`
+        ).join("");
+        const itemJsonIdx = LOOKBOOK_ITEMS.indexOf(item);
+        return `<article class="rounded-lg overflow-hidden bg-white/90 border border-black/15 shadow-sm flex flex-col justify-between">
+          <div class="relative bg-[#D8C2A2]">
+            <img src="${item.img}" loading="lazy" alt="${item.color_label}" onclick="openLightbox('${item.img}', '${(item.channel + " · " + item.color_label).replace(/'/g, "")}')" class="w-full aspect-[4/5] object-cover object-top cursor-zoom-in hover:opacity-95 transition" />
+            <span class="absolute top-2 left-2 px-2 py-0.5 rounded bg-black/75 text-white text-xs font-semibold">${item.channel}${item.repeats > 1 ? ` (${item.repeats}x)` : ""}</span>
+          </div>
+          <div class="p-2.5 space-y-2 text-[#18181b]">
+            <div class="text-xs font-semibold truncate">${item.color_label || item.formula}</div>
+            <div class="text-xs text-[#5A534A] truncate">${item.formula}</div>
+            <div class="flex items-center justify-between gap-2 pt-1">
+              <div class="flex items-center gap-1">${dots}</div>
+              <div class="flex items-center gap-1.5">
+                <button onclick="pullPaletteFromLook(${itemJsonIdx})" class="px-2 py-1 rounded bg-[#18181b] text-white text-xs font-semibold hover:opacity-90">Apply Colors</button>
+                <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded border border-black/20 text-xs font-medium hover:bg-black/5">X ↗</a>
+              </div>
+            </div>
+          </div>
+        </article>`;
+      }).join("");
+    }
+
+    function pullPaletteFromLook(idx) {
+      const item = LOOKBOOK_ITEMS[idx];
+      if (!item) return;
+      if (item.outer_hex && state.outer !== "none") state.outerColor = item.outer_hex;
+      if (item.inner_hex) state.innerColor = item.inner_hex;
+      if (item.bottom_hex) state.bottomColor = item.bottom_hex;
+      if (item.shoe_hex) state.footwearColor = item.shoe_hex;
+      autoMatchLeather();
+      setStageView("mixer");
+    }
+
+    // --- Live Custom AI Photo Shoot Renderer ---
+    async function renderCustomAIShoot() {
+      if (!IS_HOSTED || !HAS_LIVE_API) {
+        alert("Custom AI Studio Photography requires running the local Fashion Workspace server (server.py).");
+        return;
+      }
+      const sig = currentSigKey();
+      if (customRenderCache[sig]) {
+        state.activePhotoUrl = customRenderCache[sig];
+        state.photoMatchesState = true;
+        setStageView("shoot");
+        return;
+      }
+
+      setStageView("shoot");
+      const loader = document.getElementById("shoot-loading");
+      loader.classList.remove("hidden");
+      const reqId = ++renderRequestSeq;
+
+      const payload = {
+        outer: state.outer, inner: state.inner, bottom: state.bottom, footwear: state.footwear,
+        outerFabric: state.outerFabric, innerFabric: state.innerFabric, bottomFabric: state.bottomFabric, footwearFabric: state.footwearFabric,
+        outerColor: state.outerColor, outerColorName: nearestName(state.outerColor, "outer"),
+        innerColor: state.innerColor, innerColorName: nearestName(state.innerColor, "inner"),
+        bottomColor: state.bottomColor, bottomColorName: nearestName(state.bottomColor, "bottom"),
+        footwearColor: state.footwearColor, footwearColorName: nearestName(state.footwearColor, "footwear"),
+        beltColor: state.beltColor, beltColorName: nearestName(state.beltColor, "belt"),
+        tucked: state.tucked, pocketSquare: state.pocketSquare, watchMetal: state.watchMetal
+      };
+
+      try {
+        const res = await fetch("/api/render-look", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        if (reqId !== renderRequestSeq) return;
+        if (res.ok && data.url) {
+          customRenderCache[sig] = data.url;
+          state.activePhotoUrl = data.url;
+          state.photoMatchesState = true;
+          renderStage();
+        } else {
+          alert("Could not generate studio render: " + (data.error || res.statusText));
+        }
+      } catch (err) {
+        alert("Server connection error while rendering AI shoot: " + err.message);
+      } finally {
+        loader.classList.add("hidden");
+      }
+    }
+
+    // --- Stage & Diagnostics Updaters ---
+    function syncRenderCacheMatch() {
+      const sig = currentSigKey();
+      if (IS_HOSTED && customRenderCache[sig]) {
+        state.activePhotoUrl = customRenderCache[sig];
+        state.photoMatchesState = true;
+      } else {
+        state.photoMatchesState = false;
+      }
+    }
+
+    function setStageView(view) {
+      state.stageView = view;
+      renderStage();
+    }
+
+    function setCanvasMode(mode) {
+      state.canvasMode = mode;
+      renderStage();
+    }
+
+    function renderStage() {
+      const shootPane = document.getElementById("stage-shoot-pane");
+      const mixerPane = document.getElementById("stage-mixer-pane");
+      const matchesPane = document.getElementById("stage-matches-pane");
+      const mixerLayoutBtns = document.getElementById("mixer-layout-btns");
+
+      shootPane.classList.toggle("hidden", state.stageView !== "shoot");
+      mixerPane.classList.toggle("hidden", state.stageView !== "mixer");
+      matchesPane.classList.toggle("hidden", state.stageView !== "matches");
+      mixerLayoutBtns.classList.toggle("hidden", state.stageView !== "mixer");
+
+      ["shoot", "mixer", "matches"].forEach(v => {
+        const btn = document.getElementById("sv-" + v);
+        btn.className = state.stageView === v
+          ? "px-2 sm:px-2.5 py-1 rounded text-xs font-semibold bg-[var(--card)] shadow-sm whitespace-nowrap"
+          : "px-2 sm:px-2.5 py-1 rounded text-xs font-medium text-[var(--muted-foreground)] whitespace-nowrap";
+        if (!IS_HOSTED && v !== "mixer") btn.classList.add("hidden");
+      });
+
+      ["split", "model", "flatlay"].forEach(cm => {
+        const btn = document.getElementById("cm-" + cm);
+        btn.className = state.canvasMode === cm
+          ? "px-2 py-0.5 rounded text-xs font-semibold bg-white shadow-sm"
+          : "px-2 py-0.5 rounded text-xs font-medium text-[#4A4035]";
+      });
+
+      const themeObj = DATA.themes.find(t => t.id === state.activeThemeId) || DATA.themes[0];
+      document.getElementById("look-kicker").textContent = themeObj.name.toUpperCase();
+      const parts = [
+        state.outer !== "none" ? `${GARMENT_NAMES.outer[state.outer]} (${FABRIC_NAMES[state.outerFabric]})` : null,
+        `${GARMENT_NAMES.inner[state.inner]} (${FABRIC_NAMES[state.innerFabric]})`,
+        `${GARMENT_NAMES.bottom[state.bottom]}`,
+        `${GARMENT_NAMES.footwear[state.footwear]}`
+      ].filter(Boolean);
+      document.getElementById("look-title").textContent = parts.join(" + ");
+      document.getElementById("studio-meta-right").textContent = `${themeObj.posts} POSTS IN THEME (${themeObj.unique} UNIQUE)`;
+
+      if (state.stageView === "shoot") {
+        document.getElementById("studio-meta-left").textContent = state.photoMatchesState ? "PHOTOREALISTIC AI STUDIO SHOOT · EXACT MATCH" : "THEME SIGNATURE SHOOT (CLICK LIVE MIXER OR RENDER AI SHOOT)";
+        const imgEl = document.getElementById("shoot-img");
+        if (state.activePhotoUrl) imgEl.src = state.activePhotoUrl;
+        document.getElementById("shoot-banner").classList.toggle("hidden", state.photoMatchesState);
+      } else if (state.stageView === "mixer") {
+        document.getElementById("studio-meta-left").textContent = "LIVE FABRIC MIXER · 0MS TEXTILE & DRAPE COMPOSITOR";
+        drawFabricCanvas();
+      } else {
+        document.getElementById("studio-meta-left").textContent = "REAL X BOOKMARK PHOTOS · RANKED BY CLOSEST CUT & PALETTE";
+        renderMatchedXPosts();
+      }
+
+      const chips = [];
+      if (state.outer !== "none") chips.push({ label: "Layer", hex: state.outerColor, name: `${nearestName(state.outerColor, "outer")} ${FABRIC_NAMES[state.outerFabric]}` });
+      chips.push({ label: "Top", hex: state.innerColor, name: `${nearestName(state.innerColor, "inner")} ${FABRIC_NAMES[state.innerFabric]}` });
+      chips.push({ label: "Bottom", hex: state.bottomColor, name: `${nearestName(state.bottomColor, "bottom")} ${FABRIC_NAMES[state.bottomFabric]}` });
+      chips.push({ label: "Shoe", hex: state.footwearColor, name: `${nearestName(state.footwearColor, "footwear")} ${FABRIC_NAMES[state.footwearFabric]}` });
+      document.getElementById("canvas-palette-chips").innerHTML = chips.map(c => `
+        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-white/80 border border-black/15 text-xs text-[#24211D]">
+          <span class="w-3 h-3 rounded-full border border-black/25" style="background:${c.hex}"></span>
+          <span class="font-medium">${c.label}: ${c.name}</span>
+        </span>
+      `).join("");
+
+      updateDiagnostics(themeObj);
+    }
+
+    function updateDiagnostics(themeObj) {
+      let f = 2;
+      if (["suit_jacket", "double_breasted"].includes(state.outer)) f = 5;
+      else if (["blazer", "overcoat"].includes(state.outer)) f = 4;
+      else if (["dress_shirt", "oxford_shirt"].includes(state.inner) && state.footwear !== "sneakers") f = 3.5;
+      else if (state.footwear === "sneakers" && ["crew_tee", "hoodie"].includes(state.inner)) f = 1.5;
+      else if (state.inner === "polo" || state.outer === "overshirt") f = 2.5;
+      const fDesc = f >= 4.5 ? "Executive / Formal" : f >= 3.5 ? "Tailored Smart" : f >= 2.5 ? "Smart Casual" : "Elevated Casual";
+      document.getElementById("diag-formality").textContent = `${f} / 5 · ${fDesc}`;
+
+      const activeHexes = [state.outer !== "none" ? state.outerColor : null, state.innerColor, state.bottomColor, state.footwearColor].filter(Boolean);
+      const lums = activeHexes.map(luminance);
+      const spread = Math.max(...lums) - Math.min(...lums);
+      const maxDist = Math.max(...activeHexes.flatMap((h, i) => activeHexes.slice(i+1).map(h2 => colorDist(h, h2))));
+      let harm = "Balanced Multi-Tone";
+      if (maxDist < 45) harm = "Monochrome Tonal";
+      else if (spread > 0.6) harm = "Crisp High Contrast";
+      else if (spread < 0.28) harm = "Soft Low Contrast";
+      document.getElementById("diag-contrast").textContent = harm;
+
+      const beltShoeDist = colorDist(state.beltColor, state.footwearColor);
+      const fName = nearestName(state.footwearColor, "footwear");
+      const bName = nearestName(state.beltColor, "belt");
+      if (state.footwear === "sneakers") {
+        document.getElementById("diag-leather").textContent = `${bName} Belt`;
+        document.getElementById("diag-leather-sub").textContent = "With sneakers: match belt to pant or watch strap";
+      } else if (beltShoeDist < 70) {
+        document.getElementById("diag-leather").textContent = "Optimal Leather Match";
+        document.getElementById("diag-leather-sub").textContent = `${bName} belt aligns with ${fName}`;
+      } else {
+        document.getElementById("diag-leather").textContent = "Belt Mismatch Notice";
+        document.getElementById("diag-leather-sub").textContent = `${bName} vs ${fName} — click Auto-Match Belt`;
+      }
+
+      document.getElementById("diag-watch").textContent = themeObj.watch;
+      document.getElementById("diag-scent").textContent = themeObj.scent;
+    }
+
+    // --- UI Builders ---
+    function renderThemePills() {
+      const bar = document.getElementById("theme-pill-bar");
+      bar.innerHTML = DATA.themes.map(t => {
+        const active = t.id === state.activeThemeId;
+        return `<button onclick="selectTheme('${t.id}')" class="px-3 py-1.5 rounded-lg text-xs font-medium border transition ${active ? "bg-[var(--primary)] text-[var(--primary-foreground)] border-transparent" : "bg-[var(--secondary)] border-[var(--border)] hover:opacity-85"}">
+          ${t.name} <span class="opacity-75">(${t.unique})</span>
+        </button>`;
+      }).join("");
+      const cur = DATA.themes.find(t => t.id === state.activeThemeId);
+      document.getElementById("active-theme-badge").textContent = cur ? `${cur.formality} · ${cur.posts} posts in 30d` : "";
+    }
+
+    function renderComboPresets() {
+      const cur = DATA.themes.find(t => t.id === state.activeThemeId) || DATA.themes[0];
+      document.getElementById("combo-presets-list").innerHTML = cur.formulas.map(fm => {
+        const isActive = fm.outer === state.outer && fm.inner === state.inner && fm.bottom === state.bottom && fm.footwear === state.footwear;
+        return `<button onclick="applyFormula('${fm.id}')" class="px-2.5 py-1.5 rounded-lg border text-xs font-medium text-left transition ${isActive ? "border-[var(--primary)] bg-[var(--background)] shadow-sm" : "border-[var(--border)] bg-[var(--secondary)] hover:bg-[var(--background)]"}">
+          <span>${fm.label}</span>
+          <span class="ml-1.5 text-[var(--muted-foreground)]">· ${fm.freq}</span>
+        </button>`;
+      }).join("");
+
+      document.getElementById("source-theme-count").textContent = `${cur.posts} posts · ${cur.unique} unique`;
+      document.getElementById("source-links-list").innerHTML = (cur.sources || []).map(s => `
+        <a href="${s.url}" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-lg border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--secondary)] transition block">
+          <div class="flex items-center justify-between text-xs font-semibold">
+            <span>${s.channel}</span>
+            <span class="text-[var(--muted-foreground)]">${s.repeats > 1 ? s.repeats + "x posted" : "Original"} ↗</span>
+          </div>
+          <div class="text-xs text-[var(--muted-foreground)] truncate mt-0.5">${s.formula || s.title}</div>
+          <div class="text-xs font-medium truncate mt-0.5">${s.color_label}</div>
+        </a>
+      `).join("");
+    }
+
+    function renderColorways() {
+      const grid = document.getElementById("colorway-grid");
+      const sorted = [...DATA.colorways].sort((a, b) => (a.theme === state.activeThemeId ? -1 : 1) - (b.theme === state.activeThemeId ? -1 : 1));
+      grid.innerHTML = sorted.map(cw => {
+        const matchTheme = cw.theme === state.activeThemeId;
+        const isCurrent = cw.outer.toLowerCase() === state.outerColor.toLowerCase() && cw.inner.toLowerCase() === state.innerColor.toLowerCase() && cw.bottom.toLowerCase() === state.bottomColor.toLowerCase();
+        return `<button onclick="applyColorway('${cw.id}')" class="p-2.5 rounded-lg border text-left transition ${isCurrent ? "border-[var(--primary)] ring-1 ring-[var(--primary)] bg-[var(--secondary)]" : matchTheme ? "border-[var(--primary)] bg-[var(--secondary)]" : "border-[var(--border)] bg-[var(--background)] hover:bg-[var(--secondary)]"}">
+          <div class="flex items-center justify-between gap-2">
+            <span class="text-xs font-semibold truncate">${cw.name}</span>
+            <div class="flex -space-x-1 shrink-0">
+              <span class="w-3.5 h-3.5 rounded-full border border-black/25" style="background:${cw.outer}"></span>
+              <span class="w-3.5 h-3.5 rounded-full border border-black/25" style="background:${cw.inner}"></span>
+              <span class="w-3.5 h-3.5 rounded-full border border-black/25" style="background:${cw.bottom}"></span>
+              <span class="w-3.5 h-3.5 rounded-full border border-black/25" style="background:${cw.footwear}"></span>
+            </div>
+          </div>
+          <div class="text-xs text-[var(--muted-foreground)] mt-0.5 truncate">${cw.freq}</div>
+        </button>`;
+      }).join("");
+    }
+
+    function renderCustomPickers() {
+      const slots = [
+        { key: "outerColor", slot: "outer", fabKey: "outerFabric", label: "Outer Layer", disabled: state.outer === "none" },
+        { key: "innerColor", slot: "inner", fabKey: "innerFabric", label: "Shirt / Knit", disabled: false },
+        { key: "bottomColor", slot: "bottom", fabKey: "bottomFabric", label: "Trousers / Jeans", disabled: false },
+        { key: "footwearColor", slot: "footwear", fabKey: "footwearFabric", label: "Footwear", disabled: false },
+        { key: "beltColor", slot: "belt", fabKey: null, label: "Leather Belt", disabled: false }
+      ];
+      document.getElementById("custom-pickers").innerHTML = slots.map(s => {
+        const curHex = state[s.key];
+        const sw = SWATCH_PALETTES[s.slot].map(p => {
+          const active = p.hex.toLowerCase() === curHex.toLowerCase();
+          return `<button type="button" title="${p.name}" onclick="setSlotColor('${s.key}', '${p.hex}')" class="swatch-ring w-6 h-6 rounded-full border border-black/25 ${active ? "swatch-active" : ""}" style="background:${p.hex}"></button>`;
+        }).join("");
+        const fabHint = s.fabKey ? ` · ${FABRIC_NAMES[state[s.fabKey]]}` : "";
+        return `<div class="${s.disabled ? "opacity-45 pointer-events-none" : ""}">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-xs font-semibold">${s.label}${s.disabled ? " (None)" : fabHint}</span>
+            <label class="inline-flex items-center gap-1.5 text-xs text-[var(--muted-foreground)] cursor-pointer">
+              <span>${nearestName(curHex, s.slot)}</span>
+              <input type="color" value="${curHex}" oninput="setSlotColor('${s.key}', this.value)" class="w-6 h-6 rounded" aria-label="Custom ${s.label} color" />
+            </label>
+          </div>
+          <div class="flex flex-wrap gap-1.5">${sw}</div>
+        </div>`;
+      }).join("");
+    }
+
+    function syncFormControls() {
+      document.getElementById("sel-outer").value = state.outer;
+      document.getElementById("sel-inner").value = state.inner;
+      document.getElementById("sel-bottom").value = state.bottom;
+      document.getElementById("sel-footwear").value = state.footwear;
+      document.getElementById("fab-outer").value = state.outerFabric;
+      document.getElementById("fab-inner").value = state.innerFabric;
+      document.getElementById("fab-bottom").value = state.bottomFabric;
+      document.getElementById("fab-footwear").value = state.footwearFabric;
+      document.getElementById("chk-tucked").checked = state.tucked;
+      document.getElementById("chk-psq").checked = state.pocketSquare;
+      document.getElementById("sel-metal").value = state.watchMetal;
+    }
+
+    // --- Actions ---
+    function selectTheme(id) {
+      state.activeThemeId = id;
+      const cur = DATA.themes.find(t => t.id === id);
+      if (cur && cur.defaultPreset) {
+        Object.assign(state, cur.defaultPreset);
+        if (IS_HOSTED) {
+          state.activePhotoUrl = cur.shootImg;
+          state.photoMatchesState = true;
+          state.stageView = "shoot";
+        }
+      }
+      syncFormControls();
+      renderThemePills();
+      renderComboPresets();
+      renderColorways();
+      renderCustomPickers();
+      renderStage();
+    }
+
+    function afterCustomModification() {
+      syncRenderCacheMatch();
+      if (state.photoMatchesState && IS_HOSTED) {
+        state.stageView = "shoot";
+      } else if (state.stageView === "shoot") {
+        // Auto-flip into Live Tactile Fabric Mixer so custom changes reflect immediately at 0ms
+        state.stageView = "mixer";
+      }
+    }
+
+    function applyFormula(fid) {
+      const cur = DATA.themes.find(t => t.id === state.activeThemeId);
+      const fm = cur.formulas.find(x => x.id === fid);
+      if (!fm) return;
+      state.outer = fm.outer;
+      state.inner = fm.inner;
+      state.bottom = fm.bottom;
+      state.footwear = fm.footwear;
+      state.outerFabric = fm.outerFabric || state.outerFabric;
+      state.innerFabric = fm.innerFabric || state.innerFabric;
+      state.bottomFabric = fm.bottomFabric || state.bottomFabric;
+      state.footwearFabric = fm.footwearFabric || state.footwearFabric;
+      if (fm.outerColor) state.outerColor = fm.outerColor;
+      if (fm.innerColor) state.innerColor = fm.innerColor;
+      if (fm.bottomColor) state.bottomColor = fm.bottomColor;
+      if (fm.footwearColor) state.footwearColor = fm.footwearColor;
+      if (fm.beltColor) state.beltColor = fm.beltColor;
+      if (fm.watchMetal) state.watchMetal = fm.watchMetal;
+      state.tucked = fm.tucked;
+      state.pocketSquare = fm.pocketSquare;
+      syncFormControls();
+      afterCustomModification();
+      renderComboPresets();
+      renderColorways();
+      renderCustomPickers();
+      renderStage();
+    }
+
+    function applyColorway(cid) {
+      const cw = DATA.colorways.find(x => x.id === cid);
+      if (!cw) return;
+      state.outerColor = cw.outer;
+      state.innerColor = cw.inner;
+      state.bottomColor = cw.bottom;
+      state.footwearColor = cw.footwear;
+      state.beltColor = cw.belt;
+      afterCustomModification();
+      renderColorways();
+      renderCustomPickers();
+      renderStage();
+    }
+
+    function setSlotColor(key, hex) {
+      state[key] = hex;
+      afterCustomModification();
+      renderColorways();
+      renderCustomPickers();
+      renderStage();
+    }
+
+    function onGarmentChange() {
+      state.outer = document.getElementById("sel-outer").value;
+      state.inner = document.getElementById("sel-inner").value;
+      state.bottom = document.getElementById("sel-bottom").value;
+      state.footwear = document.getElementById("sel-footwear").value;
+      if (["blazer", "double_breasted", "suit_jacket"].includes(state.outer)) {
+        state.tucked = true;
+        document.getElementById("chk-tucked").checked = true;
+      }
+      afterCustomModification();
+      renderComboPresets();
+      renderCustomPickers();
+      renderStage();
+    }
+
+    function onFabricChange() {
+      state.outerFabric = document.getElementById("fab-outer").value;
+      state.innerFabric = document.getElementById("fab-inner").value;
+      state.bottomFabric = document.getElementById("fab-bottom").value;
+      state.footwearFabric = document.getElementById("fab-footwear").value;
+      afterCustomModification();
+      renderCustomPickers();
+      renderStage();
+    }
+
+    function onToggleDetail() {
+      state.tucked = document.getElementById("chk-tucked").checked;
+      state.pocketSquare = document.getElementById("chk-psq").checked;
+      state.watchMetal = document.getElementById("sel-metal").value;
+      afterCustomModification();
+      renderStage();
+    }
+
+    function swapOuterInner() {
+      if (state.outer === "none") {
+        const tmp = state.innerColor;
+        state.innerColor = state.bottomColor;
+        state.bottomColor = tmp;
+      } else {
+        const tmp = state.outerColor;
+        state.outerColor = state.innerColor;
+        state.innerColor = tmp;
+      }
+      afterCustomModification();
+      renderColorways();
+      renderCustomPickers();
+      renderStage();
+    }
+
+    function autoMatchLeather() {
+      if (state.footwear === "sneakers") {
+        state.beltColor = luminance(state.bottomColor) > 0.65 ? "#6B442A" : "#18191B";
+      } else {
+        state.beltColor = state.footwearColor;
+      }
+      afterCustomModification();
+      renderColorways();
+      renderCustomPickers();
+      renderStage();
+    }
+
+    function persistSavedLooks() {
+      try {
+        const compact = state.savedLooks.map(item => ({
+          id: item.id,
+          themeName: item.themeName,
+          thumb: (item.thumb && !item.thumb.startsWith("data:")) ? item.thumb : "",
+          snapshot: item.snapshot
+        }));
+        localStorage.setItem(SAVED_LOOKS_KEY, JSON.stringify(compact));
+      } catch (_) {}
+    }
+
+    function restoreSavedLooks() {
+      try {
+        const raw = localStorage.getItem(SAVED_LOOKS_KEY);
+        if (!raw) return;
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed)) {
+          state.savedLooks = parsed.filter(x => x && x.snapshot);
+          document.getElementById("bag-count").textContent = state.savedLooks.length;
+        }
+      } catch (_) {}
+    }
+
+    function saveToFittingRoom() {
+      const themeObj = DATA.themes.find(t => t.id === state.activeThemeId);
+      let thumb = "";
+      if (state.photoMatchesState && state.activePhotoUrl) {
+        thumb = state.activePhotoUrl;
+      } else {
+        const c = document.getElementById("fabric-canvas");
+        if (c) {
+          drawFabricCanvas();
+          thumb = c.toDataURL("image/png");
+        }
+      }
+      const snap = { ...state };
+      delete snap.savedLooks;
+      state.savedLooks.push({
+        id: Date.now(),
+        themeName: themeObj.name,
+        thumb,
+        snapshot: snap
+      });
+      document.getElementById("bag-count").textContent = state.savedLooks.length;
+      persistSavedLooks();
+    }
+
+    function toggleBagModal() {
+      const modal = document.getElementById("bag-modal");
+      modal.classList.toggle("hidden");
+      if (!modal.classList.contains("hidden")) renderBagItems();
+    }
+
+    function renderBagItems() {
+      const box = document.getElementById("bag-items");
+      if (!state.savedLooks.length) {
+        box.innerHTML = `<div class="col-span-full text-center py-8 text-sm text-[var(--muted-foreground)]">No looks saved yet. Configure an outfit and click "+ Save Look" to compare outfits side by side.</div>`;
+        return;
+      }
+      box.innerHTML = state.savedLooks.map((item, idx) => {
+        const s = item.snapshot;
+        const label = [s.outer !== "none" ? GARMENT_NAMES.outer[s.outer] : null, GARMENT_NAMES.inner[s.inner], GARMENT_NAMES.bottom[s.bottom]].filter(Boolean).join(" + ");
+        const safeThumb = item.thumb && (IS_HOSTED || item.thumb.startsWith("data:"))
+          ? `<img src="${item.thumb}" alt="Saved look" class="w-full h-40 object-contain rounded-lg bg-[#E3CFAF]" />`
+          : `<div class="w-full h-20 rounded-lg bg-[#E3CFAF] flex items-center justify-center gap-2 p-2">
+              ${s.outer !== "none" ? `<span class="w-8 h-12 rounded border border-black/20 shadow-sm" style="background:${s.outerColor}"></span>` : ""}
+              <span class="w-8 h-12 rounded border border-black/20 shadow-sm" style="background:${s.innerColor}"></span>
+              <span class="w-8 h-12 rounded border border-black/20 shadow-sm" style="background:${s.bottomColor}"></span>
+              <span class="w-8 h-12 rounded border border-black/20 shadow-sm" style="background:${s.footwearColor}"></span>
+            </div>`;
+        return `<div class="p-3 rounded-xl border border-[var(--border)] bg-[var(--background)] space-y-2">
+          ${safeThumb}
+          <div class="text-xs font-semibold text-[var(--muted-foreground)] uppercase">${item.themeName}</div>
+          <div class="text-xs font-semibold">${label}</div>
+          <div class="flex items-center gap-1.5 py-0.5">
+            ${s.outer !== "none" ? `<span class="w-5 h-5 rounded border border-black/25" style="background:${s.outerColor}"></span>` : ""}
+            <span class="w-5 h-5 rounded border border-black/25" style="background:${s.innerColor}"></span>
+            <span class="w-5 h-5 rounded border border-black/25" style="background:${s.bottomColor}"></span>
+            <span class="w-5 h-5 rounded border border-black/25" style="background:${s.footwearColor}"></span>
+            <span class="w-5 h-5 rounded border border-black/25" style="background:${s.beltColor}"></span>
+          </div>
+          <div class="flex items-center gap-1.5 pt-1">
+            <button onclick="loadSavedLook(${idx})" class="flex-1 px-2 py-1.5 rounded bg-[var(--primary)] text-[var(--primary-foreground)] text-xs font-semibold">Load</button>
+            <button onclick="shareSavedLook(${idx})" class="px-2 py-1.5 rounded border border-[var(--border)] text-xs font-medium">Share</button>
+            <button onclick="removeSavedLook(${idx})" class="px-2 py-1.5 rounded border border-[var(--border)] text-xs">Remove</button>
+          </div>
+        </div>`;
+      }).join("");
+    }
+
+    function loadSavedLook(idx) {
+      const item = state.savedLooks[idx];
+      if (!item) return;
+      const saved = state.savedLooks;
+      Object.assign(state, item.snapshot);
+      state.savedLooks = saved;
+      syncRenderCacheMatch();
+      if (state.photoMatchesState && IS_HOSTED) state.stageView = "shoot";
+      else if (state.stageView === "shoot") state.stageView = "mixer";
+      syncFormControls();
+      renderThemePills();
+      renderComboPresets();
+      renderColorways();
+      renderCustomPickers();
+      renderStage();
+      toggleBagModal();
+      switchTab("studio");
+    }
+
+    function shareSavedLook(idx) {
+      loadSavedLook(idx);
+      openShareModal();
+    }
+
+    function removeSavedLook(idx) {
+      state.savedLooks.splice(idx, 1);
+      document.getElementById("bag-count").textContent = state.savedLooks.length;
+      persistSavedLooks();
+      renderBagItems();
+    }
+
+    // --- URL Hash Share / Friend Suggestion Encoder & Decoder ---
+    function b64UrlEncode(str) {
+      const bytes = new TextEncoder().encode(str);
+      let bin = "";
+      bytes.forEach(b => { bin += String.fromCharCode(b); });
+      return btoa(bin).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+    }
+
+    function b64UrlDecode(str) {
+      let b64 = (str || "").replace(/-/g, "+").replace(/_/g, "/");
+      while (b64.length % 4) b64 += "=";
+      const bin = atob(b64);
+      const bytes = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+      return new TextDecoder().decode(bytes);
+    }
+
+    function describeCurrentLook() {
+      const themeObj = DATA.themes.find(t => t.id === state.activeThemeId) || DATA.themes[0];
+      const pieces = [
+        state.outer !== "none" ? `${nearestName(state.outerColor, "outer")} ${GARMENT_NAMES.outer[state.outer]} (${FABRIC_NAMES[state.outerFabric]})` : null,
+        `${nearestName(state.innerColor, "inner")} ${GARMENT_NAMES.inner[state.inner]}`,
+        `${nearestName(state.bottomColor, "bottom")} ${GARMENT_NAMES.bottom[state.bottom]}`,
+        `${nearestName(state.footwearColor, "footwear")} ${GARMENT_NAMES.footwear[state.footwear]}`
+      ].filter(Boolean);
+      return `${themeObj.name}: ${pieces.join(" + ")}`;
+    }
+
+    function buildShareHash(extraFrom = "", extraNote = "") {
+      const payload = {
+        t: state.activeThemeId,
+        o: state.outer, i: state.inner, b: state.bottom, f: state.footwear,
+        of: state.outerFabric, inf: state.innerFabric, bf: state.bottomFabric, ff: state.footwearFabric,
+        oc: state.outerColor, ic: state.innerColor, bc: state.bottomColor, fc: state.footwearColor,
+        bl: state.beltColor, wm: state.watchMetal,
+        tk: state.tucked ? 1 : 0, ps: state.pocketSquare ? 1 : 0
+      };
+      if (extraFrom) payload.fr = extraFrom.slice(0, 40);
+      if (extraNote) payload.n = extraNote.slice(0, 160);
+      return "look=" + b64UrlEncode(JSON.stringify(payload));
+    }
+
+    function buildShareUrl(extraFrom = "", extraNote = "") {
+      const hashPart = "#" + buildShareHash(extraFrom, extraNote);
+      try {
+        if (window.location.protocol.startsWith("http")) {
+          const u = new URL(window.location.href);
+          u.hash = hashPart;
+          return u.toString();
+        }
+      } catch (_) {}
+      return window.location.href.split("#")[0] + hashPart;
+    }
+
+    function updateShareUrl() {
+      const fromVal = (document.getElementById("share-name").value || "").trim();
+      const noteVal = (document.getElementById("share-note").value || "").trim();
+      const url = buildShareUrl(fromVal, noteVal);
+      document.getElementById("share-url-input").value = url;
+      try {
+        if (window.location.protocol.startsWith("http")) {
+          window.history.replaceState(null, "", "#" + buildShareHash(fromVal, noteVal));
+        }
+      } catch (_) {}
+    }
+
+    function openShareModal() {
+      document.getElementById("share-look-summary").textContent = describeCurrentLook();
+      document.getElementById("btn-copy-share-url").textContent = "Copy Share Link";
+      document.getElementById("btn-copy-share-summary").textContent = "Copy Note + Link";
+      updateShareUrl();
+      document.getElementById("share-modal").classList.remove("hidden");
+    }
+
+    function closeShareModal() {
+      document.getElementById("share-modal").classList.add("hidden");
+    }
+
+    async function copyTextSafe(text, btnId, doneLabel, resetLabel) {
+      const btn = document.getElementById(btnId);
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch (_) {
+        const inp = document.getElementById("share-url-input");
+        const prev = inp.value;
+        inp.value = text;
+        inp.select();
+        document.execCommand("copy");
+        inp.value = prev;
+      }
+      btn.textContent = doneLabel;
+      setTimeout(() => { btn.textContent = resetLabel; }, 2200);
+    }
+
+    function copyShareUrl() {
+      updateShareUrl();
+      const url = document.getElementById("share-url-input").value;
+      copyTextSafe(url, "btn-copy-share-url", "Copied Link!", "Copy Share Link");
+    }
+
+    function copyShareSummary() {
+      updateShareUrl();
+      const url = document.getElementById("share-url-input").value;
+      const fromVal = (document.getElementById("share-name").value || "").trim();
+      const noteVal = (document.getElementById("share-note").value || "").trim();
+      const prefix = fromVal ? `${fromVal}'s Atelier 30 Look` : "Atelier 30 Look";
+      const noteLine = noteVal ? `\nNote: "${noteVal}"` : "";
+      const txt = `${prefix}: ${describeCurrentLook()}${noteLine}\n${url}`;
+      copyTextSafe(txt, "btn-copy-share-summary", "Copied Note!", "Copy Note + Link");
+    }
+
+    function dismissSuggestionBanner() {
+      document.getElementById("suggestion-banner").classList.add("hidden");
+    }
+
+    function applySharedLookFromHash() {
+      const h = (window.location.hash || "").replace(/^#/, "");
+      if (!h.startsWith("look=")) return false;
+      try {
+        const d = JSON.parse(b64UrlDecode(h.slice(5)));
+        if (!d || typeof d !== "object") return false;
+        const isHex = v => typeof v === "string" && /^#[0-9a-fA-F]{6}$/.test(v);
+        const themeObj = DATA.themes.find(t => t.id === d.t);
+        if (themeObj) state.activeThemeId = themeObj.id;
+        if (d.o && GARMENT_NAMES.outer[d.o]) state.outer = d.o;
+        if (d.i && GARMENT_NAMES.inner[d.i]) state.inner = d.i;
+        if (d.b && GARMENT_NAMES.bottom[d.b]) state.bottom = d.b;
+        if (d.f && GARMENT_NAMES.footwear[d.f]) state.footwear = d.f;
+        if (d.of && FABRIC_NAMES[d.of]) state.outerFabric = d.of;
+        if (d.inf && FABRIC_NAMES[d.inf]) state.innerFabric = d.inf;
+        if (d.bf && FABRIC_NAMES[d.bf]) state.bottomFabric = d.bf;
+        if (d.ff && FABRIC_NAMES[d.ff]) state.footwearFabric = d.ff;
+        if (isHex(d.oc)) state.outerColor = d.oc;
+        if (isHex(d.ic)) state.innerColor = d.ic;
+        if (isHex(d.bc)) state.bottomColor = d.bc;
+        if (isHex(d.fc)) state.footwearColor = d.fc;
+        if (isHex(d.bl)) state.beltColor = d.bl;
+        if (d.wm === "gold" || d.wm === "silver") state.watchMetal = d.wm;
+        if (typeof d.tk !== "undefined") state.tucked = Boolean(d.tk);
+        if (typeof d.ps !== "undefined") state.pocketSquare = Boolean(d.ps);
+
+        syncRenderCacheMatch();
+        state.stageView = (IS_HOSTED && state.photoMatchesState) ? "shoot" : "mixer";
+
+        const banner = document.getElementById("suggestion-banner");
+        const fromEl = document.getElementById("suggestion-from");
+        const noteEl = document.getElementById("suggestion-note");
+        const fromTxt = typeof d.fr === "string" ? d.fr.trim() : "";
+        const noteTxt = typeof d.n === "string" ? d.n.trim() : "";
+        fromEl.textContent = fromTxt ? `Suggested by ${fromTxt}` : "Shared Outfit Look Loaded";
+        noteEl.textContent = noteTxt || describeCurrentLook();
+        banner.classList.remove("hidden");
+
+        syncFormControls();
+        renderThemePills();
+        renderComboPresets();
+        renderColorways();
+        renderCustomPickers();
+        renderStage();
+        return true;
+      } catch (_) {
+        return false;
+      }
+    }
+
+    // --- Lightbox ---
+    function openLightbox(src, caption) {
+      if (!src) return;
+      document.getElementById("lightbox-img").src = src;
+      document.getElementById("lightbox-caption").textContent = caption || "Lookbook Preview";
+      document.getElementById("lightbox-modal").classList.remove("hidden");
+    }
+    function closeLightbox() {
+      document.getElementById("lightbox-modal").classList.add("hidden");
+    }
+
+    // --- Tab 2: Theme Buckets ---
+    function renderThemesGrid() {
+      document.getElementById("themes-grid").innerHTML = DATA.themes.map(t => {
+        const dp = t.defaultPreset;
+        return `<article class="bg-[var(--card)] border border-[var(--border)] rounded-xl overflow-hidden flex flex-col justify-between">
+          ${IS_HOSTED ? `<div class="bg-[#DEC6A2] border-b border-[var(--border)]">
+            <img src="${t.shootImg}" loading="lazy" alt="${t.name}" class="w-full aspect-[4/3] object-cover object-center cursor-pointer hover:opacity-95 transition" onclick="selectTheme('${t.id}'); switchTab('studio');" />
+          </div>` : ""}
+          <div class="p-4 flex-1 flex flex-col justify-between space-y-3">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between gap-2">
+                <span class="px-2 py-0.5 rounded bg-[var(--secondary)] border border-[var(--border)] text-xs font-semibold">${t.badge}</span>
+                <span class="text-xs font-semibold text-[var(--muted-foreground)]">${t.posts} posts (${t.unique} unique)</span>
+              </div>
+              <h3 class="text-base font-semibold">${t.name}</h3>
+              <p class="text-xs text-[var(--muted-foreground)] leading-relaxed">${t.tagline}</p>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                ${t.fabrics.map(fb => `<span class="px-2 py-0.5 rounded-full bg-[var(--secondary)] text-xs">${fb}</span>`).join("")}
+              </div>
+            </div>
+            <div class="pt-3 border-t border-[var(--border)] space-y-2.5">
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-[var(--muted-foreground)]">Signature Palette:</span>
+                <div class="flex items-center gap-1">
+                  <span class="w-4 h-4 rounded-full border border-black/25" style="background:${dp.outerColor}"></span>
+                  <span class="w-4 h-4 rounded-full border border-black/25" style="background:${dp.innerColor}"></span>
+                  <span class="w-4 h-4 rounded-full border border-black/25" style="background:${dp.bottomColor}"></span>
+                  <span class="w-4 h-4 rounded-full border border-black/25" style="background:${dp.footwearColor}"></span>
+                </div>
+              </div>
+              <button onclick="selectTheme('${t.id}'); switchTab('studio');" class="w-full py-2 rounded-lg bg-[var(--primary)] text-[var(--primary-foreground)] text-xs font-semibold hover:opacity-90 transition">Open Look &amp; Customize Fabrics →</button>
+            </div>
+          </div>
+        </article>`;
+      }).join("");
+    }
+
+    // --- Tab 3: Intel, Rules & Infographics Gallery ---
+    function renderIntelView() {
+      const tot = DATA.intel.totals;
+      const kpis = [
+        { label: "Total Posts Scanned (30d)", value: tot.total_posts_scraped.toLocaleString(), sub: "Across 7 X handles (6 channels)" },
+        { label: "Spam & Non-Clothing Filtered", value: (tot.spam_coupon_posts + tot.non_fashion_posts).toLocaleString(), sub: `${tot.spam_coupon_posts} coupon links + ${tot.non_fashion_posts} scent/grooming` },
+        { label: "Visually Unique Fashion Looks", value: tot.unique_visual_dhashes.toLocaleString(), sub: `Down from ${tot.fashion_image_records.toLocaleString()} raw images` },
+        { label: "Duplicate / Repost Rate", value: tot.duplicate_rate_pct + "%", sub: "227 shared imgs @MensFits_ ↔ @MensCanvas" }
+      ];
+      document.getElementById("intel-kpis").innerHTML = kpis.map(k => `
+        <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-3.5">
+          <div class="text-xs text-[var(--muted-foreground)]">${k.label}</div>
+          <div class="text-xl font-bold mt-1">${k.value}</div>
+          <div class="text-xs text-[var(--muted-foreground)] mt-0.5">${k.sub}</div>
+        </div>
+      `).join("");
+
+      document.getElementById("channel-table-body").innerHTML = DATA.intel.channel_audit.map(c => `
+        <tr>
+          <td class="py-2.5 pr-3">
+            <div class="font-semibold">${c.name} <span class="text-[var(--muted-foreground)] font-normal">@${c.handle}</span></div>
+            <div class="text-xs text-[var(--muted-foreground)]">Prompt: "${c.user_label}"</div>
+          </td>
+          <td class="py-2.5 px-3 font-medium">${c.total_scraped}</td>
+          <td class="py-2.5 px-3 text-[var(--muted-foreground)]">${c.spam_filtered} spam / ${c.non_fashion_filtered} misc</td>
+          <td class="py-2.5 px-3 font-medium">${c.fashion_images}</td>
+          <td class="py-2.5 px-3 font-semibold">${c.unique_in_channel}</td>
+          <td class="py-2.5 px-3">${c.shared_with_network} (${Math.round(100*c.shared_with_network/Math.max(1,c.fashion_images))}%)</td>
+          <td class="py-2.5 pl-3">${c.top_themes.slice(0,2).map(t => `${t.theme} (${t.count})`).join(" · ")}</td>
+        </tr>
+      `).join("");
+
+      document.getElementById("rule-pant-grid").innerHTML = DATA.rules.pant_leather_matrix.map(r => `
+        <button onclick="applyPantRule('${r.hex}', '${r.leather_hex}')" class="p-2.5 rounded-lg border border-[var(--border)] bg-[var(--background)] hover:bg-[var(--secondary)] text-left transition">
+          <div class="flex items-center gap-2">
+            <span class="w-4 h-4 rounded border border-black/25" style="background:${r.hex}"></span>
+            <span class="text-xs font-semibold">${r.pant}</span>
+          </div>
+          <div class="flex items-center gap-1.5 mt-1.5 text-xs text-[var(--muted-foreground)]">
+            <span class="w-3 h-3 rounded-full border border-black/25" style="background:${r.leather_hex}"></span>
+            <span class="truncate">${r.best_leather}</span>
+          </div>
+        </button>
+      `).join("");
+
+      document.getElementById("rule-blazer-list").innerHTML = DATA.rules.blazer_turtleneck_matrix.map(r => `
+        <div class="p-2.5 rounded-lg border border-[var(--border)] bg-[var(--background)] flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <span class="w-4 h-4 rounded border border-black/25" style="background:${r.blazer_hex}"></span>
+            <span class="text-xs font-semibold">${r.blazer}</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            ${r.matches.map(([name, hex]) => `
+              <button onclick="applyBlazerTurtleneck('${r.blazer_hex}', '${hex}')" class="px-2 py-0.5 rounded-full border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--secondary)] text-xs inline-flex items-center gap-1">
+                <span class="w-2.5 h-2.5 rounded-full border border-black/25" style="background:${hex}"></span>
+                <span>${name}</span>
+              </button>
+            `).join("")}
+          </div>
+        </div>
+      `).join("");
+
+      document.getElementById("rule-belt-list").innerHTML = DATA.rules.belt_shoe_matrix.map(r => `
+        <div class="p-2 rounded-lg border border-[var(--border)] bg-[var(--background)] flex flex-wrap items-center justify-between gap-2 text-xs">
+          <div class="flex items-center gap-2 font-semibold">
+            <span class="w-3.5 h-3.5 rounded-full border border-black/25" style="background:${r.hex}"></span>
+            <span>${r.shoe}</span>
+          </div>
+          <div class="text-[var(--muted-foreground)]">Best: <strong class="text-[var(--foreground)]">${r.best}</strong> · Alt: ${r.acceptable} · Style: ${r.stylish}</div>
+        </div>
+      `).join("");
+
+      document.getElementById("rule-charcoal-list").innerHTML = DATA.rules.charcoal_10_ways.map(r => `
+        <div class="p-2 rounded-lg border border-[var(--border)] bg-[var(--background)] text-xs">
+          <div class="font-semibold">${r.n} · ${r.occasion}</div>
+          <div class="text-[var(--muted-foreground)] mt-0.5">${r.combo}</div>
+        </div>
+      `).join("");
+
+      if (IS_HOSTED) {
+        document.getElementById("infographic-gallery").innerHTML = DATA.rules.infographic_posters.map(p => `
+          <div class="rounded-lg overflow-hidden border border-[var(--border)] bg-[var(--background)] flex flex-col justify-between">
+            <img src="${p.img}" loading="lazy" alt="${p.title}" onclick="openLightbox('${p.img}', '${p.title} (${p.channel})')" class="w-full aspect-[4/5] object-cover object-top cursor-zoom-in hover:opacity-90 transition" />
+            <div class="p-2 text-xs">
+              <div class="font-semibold truncate">${p.title}</div>
+              <a href="${p.url}" target="_blank" rel="noopener noreferrer" class="text-[var(--muted-foreground)] hover:underline">${p.channel} ↗</a>
+            </div>
+          </div>
+        `).join("");
+      } else {
+        document.getElementById("infographic-gallery-card").classList.add("hidden");
+      }
+    }
+
+    function applyPantRule(pantHex, leatherHex) {
+      state.bottomColor = pantHex;
+      state.footwearColor = leatherHex;
+      state.beltColor = leatherHex;
+      state.footwear = "loafers";
+      state.footwearFabric = "suede";
+      syncFormControls();
+      afterCustomModification();
+      renderComboPresets();
+      renderColorways();
+      renderCustomPickers();
+      renderStage();
+      switchTab("studio");
+    }
+
+    function applyBlazerTurtleneck(blazerHex, tnHex) {
+      state.outer = "blazer";
+      state.inner = "turtleneck";
+      state.bottom = "trousers";
+      state.outerFabric = "wool";
+      state.innerFabric = "knit";
+      state.bottomFabric = "wool";
+      state.outerColor = blazerHex;
+      state.innerColor = tnHex;
+      syncFormControls();
+      afterCustomModification();
+      renderComboPresets();
+      renderColorways();
+      renderCustomPickers();
+      renderStage();
+      switchTab("studio");
+    }
+
+    function switchTab(tab) {
+      state.activeTab = tab;
+      ["studio", "themes", "intel"].forEach(t => {
+        document.getElementById("view-" + t).classList.toggle("hidden", t !== tab);
+        const btn = document.getElementById("tab-" + t);
+        if (t === tab) {
+          btn.className = "tab-btn px-3 py-1.5 rounded-md text-xs font-semibold bg-[var(--card)] shadow-sm whitespace-nowrap";
+        } else {
+          btn.className = "tab-btn px-3 py-1.5 rounded-md text-xs font-medium text-[var(--muted-foreground)] whitespace-nowrap";
+        }
+      });
+      if (tab === "studio" && state.stageView === "mixer") {
+        drawFabricCanvas();
+      }
+    }
+
+    // Boot
+    document.getElementById("host-mode-pill").textContent = IS_HOSTED ? "Hosted Atelier (34 Studio Shoots + 829 X Photos)" : "Preview Artifact (Tactile Fabric Mixer)";
+    if (!IS_HOSTED) {
+      document.getElementById("sv-shoot").classList.add("hidden");
+      document.getElementById("sv-matches").classList.add("hidden");
+      document.getElementById("btn-render-ai").classList.add("hidden");
+    } else {
+      fetch("data/lookbook_catalog.json")
+        .then(r => r.json())
+        .then(items => {
+          LOOKBOOK_ITEMS = items;
+          if (state.stageView === "matches") renderMatchedXPosts();
+        })
+        .catch(() => {});
+
+      const hName = (window.location && window.location.hostname) || "";
+      if (hName === "127.0.0.1" || hName === "localhost" || hName.endsWith(".local")) {
+        fetch("api/health", { cache: "no-store" })
+          .then(r => r.ok ? r.json() : null)
+          .then(d => {
+            if (d && d.ok) {
+              HAS_LIVE_API = true;
+              document.getElementById("btn-render-ai").classList.remove("hidden");
+              document.getElementById("host-mode-pill").textContent = "Local Workspace (Live Gemini AI + 829 X Photos)";
+              document.getElementById("shoot-banner-text").textContent = "Showing Theme signature shoot. Preview changes in Live Fabric Mixer or render a custom AI photo.";
+            }
+          })
+          .catch(() => {});
+      }
+    }
+
+    restoreSavedLooks();
+    renderThemesGrid();
+    renderIntelView();
+    if (!applySharedLookFromHash()) {
+      selectTheme("smart_casual");
+    }
+    switchTab("studio");
+    window.addEventListener("hashchange", () => { applySharedLookFromHash(); });
+  </script>
+</body>
+</html>
+"""
+
+# 1. Hosted Workspace index.html (uses cached local tailwind, local assets/renders, assets/fabrics, assets/looks, & /api/render-look)
+hosted_extra_head = """  <style>
+    :root {
+      --background: #f8f7f4;
+      --card: #ffffff;
+      --foreground: #18181b;
+      --muted-foreground: #6b7280;
+      --border: #e4e1da;
+      --primary: #18181b;
+      --primary-foreground: #ffffff;
+      --secondary: #f2efe9;
+      --secondary-foreground: #18181b;
+    }
+  </style>"""
+
+hosted_html = (
+    TEMPLATE
+    .replace("__TITLE__", "Atelier 30 — Fashion Workspace & Tactile Studio")
+    .replace("__TAILWIND_SCRIPT__", '<script src="assets/vendor/tailwindcss.min.js"></script>')
+    .replace("__EXTRA_HEAD__", hosted_extra_head)
+    .replace("__IS_HOSTED__", "true")
+    .replace("__BUNDLE_JSON__", bundle_json)
+)
+
+# 2. Standalone Antigravity Artifact (strictly compliant with generative_ui/SKILL.md: gstatic Tailwind, NO :root, self-contained Canvas Fabric Compositor)
+artifact_html = (
+    TEMPLATE
+    .replace("__TITLE__", "Atelier 30 — Interactive Menswear Tactile Fabric Atelier")
+    .replace("__TAILWIND_SCRIPT__", '<script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>')
+    .replace("__EXTRA_HEAD__", "")
+    .replace("__IS_HOSTED__", "false")
+    .replace("__BUNDLE_JSON__", bundle_json)
+)
+
+OUT_HOSTED.write_text(hosted_html, encoding="utf-8")
+print("Wrote hosted workspace HTML:", OUT_HOSTED)
+if OUT_ARTIFACT:
+    OUT_ARTIFACT.write_text(artifact_html, encoding="utf-8")
+    print("Wrote Antigravity Artifact HTML:", OUT_ARTIFACT)

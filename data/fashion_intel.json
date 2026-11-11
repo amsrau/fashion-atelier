@@ -1,0 +1,1699 @@
+{
+  "date_window": "Oct 12 \u2013 Nov 11, 2026 (30 Days)",
+  "totals": {
+    "total_posts_scraped": 2045,
+    "spam_coupon_posts": 400,
+    "non_fashion_posts": 88,
+    "fashion_image_records": 1965,
+    "unique_md5_files": 1446,
+    "unique_visual_dhashes": 1218,
+    "duplicate_rate_pct": 38.0,
+    "single_outfits_unique": 829,
+    "infographics_unique": 389
+  },
+  "channel_audit": [
+    {
+      "handle": "MensFits_",
+      "name": "Mens Fits",
+      "user_label": "Mans Fits",
+      "role": "Color-combo & viral thread syndicator",
+      "total_scraped": 558,
+      "spam_filtered": 206,
+      "non_fashion_filtered": 0,
+      "non_fashion_breakdown": {},
+      "fashion_images": 433,
+      "unique_in_channel": 279,
+      "shared_with_network": 380,
+      "top_themes": [
+        {
+          "theme": "Elevated Everyday & Knit-Denim",
+          "count": 231
+        },
+        {
+          "theme": "Smart Casual & Blazer-Chino",
+          "count": 84
+        },
+        {
+          "theme": "Monochrome & Dark Noir",
+          "count": 33
+        },
+        {
+          "theme": "Street Casual & Utility",
+          "count": 28
+        }
+      ]
+    },
+    {
+      "handle": "MensCanvas",
+      "name": "Mens Canvas",
+      "user_label": "Mens Canvas",
+      "role": "Mirror/sister network to @MensFits_ + casual/t-shirt threads",
+      "total_scraped": 626,
+      "spam_filtered": 194,
+      "non_fashion_filtered": 0,
+      "non_fashion_breakdown": {},
+      "fashion_images": 490,
+      "unique_in_channel": 299,
+      "shared_with_network": 397,
+      "top_themes": [
+        {
+          "theme": "Elevated Everyday & Knit-Denim",
+          "count": 254
+        },
+        {
+          "theme": "Smart Casual & Blazer-Chino",
+          "count": 106
+        },
+        {
+          "theme": "Monochrome & Dark Noir",
+          "count": 39
+        },
+        {
+          "theme": "Street Casual & Utility",
+          "count": 31
+        }
+      ]
+    },
+    {
+      "handle": "_menstylish",
+      "name": "Stylish Men",
+      "user_label": "Stylish Menu",
+      "role": "Pure visual flat-lay + on-model smart casual boards",
+      "total_scraped": 65,
+      "spam_filtered": 0,
+      "non_fashion_filtered": 0,
+      "non_fashion_breakdown": {},
+      "fashion_images": 63,
+      "unique_in_channel": 46,
+      "shared_with_network": 11,
+      "top_themes": [
+        {
+          "theme": "Smart Casual & Blazer-Chino",
+          "count": 34
+        },
+        {
+          "theme": "Elevated Everyday & Knit-Denim",
+          "count": 12
+        },
+        {
+          "theme": "Footwear, Watch & Style Guides",
+          "count": 7
+        },
+        {
+          "theme": "Boardroom & Executive Tailoring",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "handle": "gentelmenoutfit",
+      "name": "gentleman's outfits",
+      "user_label": "Gentlemens Outfits (1)",
+      "role": "Textless Br\u00fcder-style dual-panel editorial boards",
+      "total_scraped": 157,
+      "spam_filtered": 0,
+      "non_fashion_filtered": 0,
+      "non_fashion_breakdown": {},
+      "fashion_images": 106,
+      "unique_in_channel": 89,
+      "shared_with_network": 47,
+      "top_themes": [
+        {
+          "theme": "Elevated Everyday & Knit-Denim",
+          "count": 41
+        },
+        {
+          "theme": "Smart Casual & Blazer-Chino",
+          "count": 25
+        },
+        {
+          "theme": "Footwear, Watch & Style Guides",
+          "count": 19
+        },
+        {
+          "theme": "Boardroom & Executive Tailoring",
+          "count": 9
+        }
+      ]
+    },
+    {
+      "handle": "Mensoutfitpxs",
+      "name": "Gentlemen's Outfits",
+      "user_label": "Gentlemens Outfits (2)",
+      "role": "Textless visual lookbooks + luxury fabric color cards",
+      "total_scraped": 79,
+      "spam_filtered": 0,
+      "non_fashion_filtered": 0,
+      "non_fashion_breakdown": {},
+      "fashion_images": 76,
+      "unique_in_channel": 71,
+      "shared_with_network": 30,
+      "top_themes": [
+        {
+          "theme": "Elevated Everyday & Knit-Denim",
+          "count": 23
+        },
+        {
+          "theme": "Footwear, Watch & Style Guides",
+          "count": 18
+        },
+        {
+          "theme": "Smart Casual & Blazer-Chino",
+          "count": 17
+        },
+        {
+          "theme": "Boardroom & Executive Tailoring",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "handle": "Elegantmanx",
+      "name": "Elegant man",
+      "user_label": "Elegant Men",
+      "role": "Structured outfit threads + shoe/suit/fitting infographics",
+      "total_scraped": 165,
+      "spam_filtered": 0,
+      "non_fashion_filtered": 11,
+      "non_fashion_breakdown": {
+        "fragrance": 10,
+        "grooming_health": 1
+      },
+      "fashion_images": 406,
+      "unique_in_channel": 381,
+      "shared_with_network": 26,
+      "top_themes": [
+        {
+          "theme": "Footwear, Watch & Style Guides",
+          "count": 111
+        },
+        {
+          "theme": "Elevated Everyday & Knit-Denim",
+          "count": 79
+        },
+        {
+          "theme": "Smart Casual & Blazer-Chino",
+          "count": 65
+        },
+        {
+          "theme": "Resort, Linen & Warm-Weather",
+          "count": 37
+        }
+      ]
+    },
+    {
+      "handle": "manly_talks",
+      "name": "Man to Man",
+      "user_label": "Man to Man",
+      "role": "Deepest style/watch/shoe/blazer infographic library + work/date threads",
+      "total_scraped": 395,
+      "spam_filtered": 0,
+      "non_fashion_filtered": 77,
+      "non_fashion_breakdown": {
+        "fragrance": 54,
+        "grooming_health": 19,
+        "mindset": 4
+      },
+      "fashion_images": 391,
+      "unique_in_channel": 366,
+      "shared_with_network": 37,
+      "top_themes": [
+        {
+          "theme": "Footwear, Watch & Style Guides",
+          "count": 188
+        },
+        {
+          "theme": "Elevated Everyday & Knit-Denim",
+          "count": 75
+        },
+        {
+          "theme": "Smart Casual & Blazer-Chino",
+          "count": 38
+        },
+        {
+          "theme": "Boardroom & Executive Tailoring",
+          "count": 35
+        }
+      ]
+    }
+  ],
+  "theme_counts_all": {
+    "Smart Casual & Blazer-Chino": 369,
+    "Elevated Everyday & Knit-Denim": 715,
+    "Monochrome & Dark Noir": 117,
+    "Street Casual & Utility": 93,
+    "Cold-Weather Coat & Layering": 39,
+    "Resort, Linen & Warm-Weather": 68,
+    "Old Money & Quiet Luxury": 79,
+    "Boardroom & Executive Tailoring": 121,
+    "Footwear, Watch & Style Guides": 343,
+    "Date Night & Evening Sharp": 19,
+    "Other": 2
+  },
+  "theme_counts_unique": {
+    "Smart Casual & Blazer-Chino": 217,
+    "Elevated Everyday & Knit-Denim": 337,
+    "Monochrome & Dark Noir": 63,
+    "Street Casual & Utility": 60,
+    "Cold-Weather Coat & Layering": 26,
+    "Resort, Linen & Warm-Weather": 49,
+    "Old Money & Quiet Luxury": 44,
+    "Footwear, Watch & Style Guides": 314,
+    "Boardroom & Executive Tailoring": 88,
+    "Date Night & Evening Sharp": 18,
+    "Other": 2
+  },
+  "theme_formulas": {
+    "Smart Casual & Blazer-Chino": [
+      [
+        "Button-Up / Dress Shirt + Chinos + Minimal Sneakers",
+        69
+      ],
+      [
+        "Button-Up / Dress Shirt + Tailored Trousers + Loafers",
+        41
+      ],
+      [
+        "Button-Up / Dress Shirt + Tailored Trousers + Minimal Sneakers",
+        20
+      ],
+      [
+        "Polo Shirt + Chinos + Minimal Sneakers",
+        18
+      ],
+      [
+        "Bomber / Harrington + Crew Tee + Chinos + Minimal Sneakers",
+        14
+      ],
+      [
+        "Polo Shirt + Tailored Trousers + Minimal Sneakers",
+        14
+      ],
+      [
+        "Polo Shirt + Tailored Trousers + Loafers",
+        13
+      ],
+      [
+        "Button-Up / Dress Shirt + Tailored Trousers + Oxfords / Derbies",
+        12
+      ],
+      [
+        "Button-Up / Dress Shirt + Tailored Trousers",
+        11
+      ],
+      [
+        "Knit Sweater + Tailored Trousers + Chelsea / Dress Boots",
+        10
+      ],
+      [
+        "Button-Up / Dress Shirt + Chinos + Oxfords / Derbies",
+        10
+      ],
+      [
+        "Overshirt + Crew Tee + Chinos + Minimal Sneakers",
+        8
+      ]
+    ],
+    "Elevated Everyday & Knit-Denim": [
+      [
+        "Button-Up / Dress Shirt + Jeans + Minimal Sneakers",
+        128
+      ],
+      [
+        "Button-Up / Dress Shirt + Chinos + Minimal Sneakers",
+        60
+      ],
+      [
+        "Crew Tee + Jeans + Minimal Sneakers",
+        39
+      ],
+      [
+        "Overshirt + Crew Tee + Jeans + Minimal Sneakers",
+        31
+      ],
+      [
+        "Knit Sweater + Tailored Trousers + Chelsea / Dress Boots",
+        26
+      ],
+      [
+        "Bomber / Harrington + Crew Tee + Jeans + Minimal Sneakers",
+        26
+      ],
+      [
+        "Knit Sweater + Jeans + Minimal Sneakers",
+        24
+      ],
+      [
+        "Polo Shirt + Jeans + Minimal Sneakers",
+        21
+      ],
+      [
+        "Overshirt + Crew Tee + Chinos + Minimal Sneakers",
+        19
+      ],
+      [
+        "Polo Shirt + Chinos + Minimal Sneakers",
+        18
+      ],
+      [
+        "Crew Tee + Chinos + Minimal Sneakers",
+        17
+      ],
+      [
+        "Knit Sweater + Chinos + Minimal Sneakers",
+        16
+      ]
+    ],
+    "Monochrome & Dark Noir": [
+      [
+        "Button-Up / Dress Shirt + Tailored Trousers + Oxfords / Derbies",
+        8
+      ],
+      [
+        "Button-Up / Dress Shirt + Tailored Trousers + Loafers",
+        7
+      ],
+      [
+        "Button-Up / Dress Shirt + Tailored Trousers + Chelsea / Dress Boots",
+        6
+      ],
+      [
+        "Button-Up / Dress Shirt + Jeans + Minimal Sneakers",
+        6
+      ],
+      [
+        "Blazer + Turtleneck + Tailored Trousers + Chelsea / Dress Boots",
+        6
+      ],
+      [
+        "Knit Sweater + Tailored Trousers + Chelsea / Dress Boots",
+        5
+      ],
+      [
+        "Utility Shirt + Crew Tee + Jeans + Minimal Sneakers",
+        5
+      ],
+      [
+        "Crew Tee + Jeans + Minimal Sneakers",
+        5
+      ],
+      [
+        "Knit Sweater + Tailored Trousers + Minimal Sneakers",
+        4
+      ],
+      [
+        "Overshirt + Crew Tee + Jeans + Chelsea / Dress Boots",
+        4
+      ],
+      [
+        "Knit Sweater + Chinos + Minimal Sneakers",
+        3
+      ],
+      [
+        "Leather Jacket + Polo Shirt + Jeans + Chelsea / Dress Boots",
+        3
+      ]
+    ],
+    "Street Casual & Utility": [
+      [
+        "Overshirt + Crew Tee + Jeans + Minimal Sneakers",
+        11
+      ],
+      [
+        "Button-Up / Dress Shirt + Jeans + Minimal Sneakers",
+        11
+      ],
+      [
+        "Flannel Shirt + Jeans + Minimal Sneakers",
+        7
+      ],
+      [
+        "Leather Jacket + Crew Tee + Jeans + Minimal Sneakers",
+        5
+      ],
+      [
+        "Crew Tee + Jeans + Minimal Sneakers",
+        5
+      ],
+      [
+        "Crew Tee + Utility / Cargo + Minimal Sneakers",
+        3
+      ],
+      [
+        "Overshirt + Crew Tee + Utility / Cargo + Minimal Sneakers",
+        3
+      ],
+      [
+        "Polo Shirt + Utility / Cargo + Minimal Sneakers",
+        3
+      ],
+      [
+        "Shirt Jacket + Crew Tee + Jeans + Minimal Sneakers",
+        3
+      ],
+      [
+        "Denim Jacket + Crew Tee + Tailored Trousers + Minimal Sneakers",
+        3
+      ],
+      [
+        "Half-Zip Sweatshirt + Crew Tee + Jeans + Minimal Sneakers",
+        2
+      ],
+      [
+        "Denim Jacket + Crew Tee + Jeans + Minimal Sneakers",
+        2
+      ]
+    ],
+    "Cold-Weather Coat & Layering": [
+      [
+        "Bomber / Harrington + Turtleneck + Jeans + Chelsea / Dress Boots",
+        7
+      ],
+      [
+        "Overcoat + Turtleneck + Tailored Trousers + Chelsea / Dress Boots",
+        7
+      ],
+      [
+        "Leather Jacket + Knit Sweater + Tailored Trousers + Chelsea / Dress Boots",
+        4
+      ],
+      [
+        "Corduroy Jacket + Button-Up / Dress Shirt + Tailored Trousers + Oxfords / Derbies",
+        4
+      ],
+      [
+        "Overcoat + Turtleneck + Tailored Trousers + Oxfords / Derbies",
+        2
+      ],
+      [
+        "Overshirt + Crew Tee + Jeans + Chelsea / Dress Boots",
+        2
+      ],
+      [
+        "Leather Jacket + Turtleneck + Tailored Trousers + Chelsea / Dress Boots",
+        2
+      ],
+      [
+        "Puffer Jacket + None + None",
+        1
+      ],
+      [
+        "Fleece Jacket + None + None",
+        1
+      ],
+      [
+        "Shearling Jacket + Knit Sweater + Jeans + Minimal Sneakers",
+        1
+      ],
+      [
+        "Cardigan / Vest + Knit Sweater + Tailored Trousers + Minimal Sneakers",
+        1
+      ],
+      [
+        "Overcoat + Turtleneck + Jeans + Chelsea / Dress Boots",
+        1
+      ]
+    ],
+    "Resort, Linen & Warm-Weather": [
+      [
+        "Button-Up / Dress Shirt + Chinos + Minimal Sneakers",
+        16
+      ],
+      [
+        "Button-Up / Dress Shirt + Jeans + Minimal Sneakers",
+        5
+      ],
+      [
+        "Button-Up / Dress Shirt + Tailored Trousers + Loafers",
+        5
+      ],
+      [
+        "Long Sleeve Shirt + Crew Tee + Chinos + Minimal Sneakers",
+        4
+      ],
+      [
+        "Crew Tee + Jeans + Minimal Sneakers",
+        4
+      ],
+      [
+        "Button-Up / Dress Shirt + Tailored Trousers + Minimal Sneakers",
+        3
+      ],
+      [
+        "Button-Down Shirt + Crew Tee + Chinos + Minimal Sneakers",
+        3
+      ],
+      [
+        "Overshirt + Crew Tee + Chinos + Minimal Sneakers",
+        3
+      ],
+      [
+        "Crew Tee + Chinos + Loafers",
+        2
+      ],
+      [
+        "Long Sleeve Shirt + Tailored Trousers + Minimal Sneakers",
+        2
+      ],
+      [
+        "Button-Up / Dress Shirt + Linen Trousers + Minimal Sneakers",
+        2
+      ],
+      [
+        "Band Collar Shirt + Crew Tee + Chinos + Minimal Sneakers",
+        2
+      ]
+    ],
+    "Old Money & Quiet Luxury": [
+      [
+        "Overshirt + Crew Tee + Jeans + Minimal Sneakers",
+        8
+      ],
+      [
+        "Knit Sweater + Jeans + Minimal Sneakers",
+        5
+      ],
+      [
+        "Suede Jacket + Crew Tee + Jeans + Minimal Sneakers",
+        5
+      ],
+      [
+        "Button-Up / Dress Shirt + Chinos + Loafers",
+        5
+      ],
+      [
+        "Polo Shirt + Tailored Trousers + Loafers",
+        4
+      ],
+      [
+        "Suit Jacket + Button-Up / Dress Shirt + Tailored Trousers + Oxfords / Derbies",
+        4
+      ],
+      [
+        "Button-Up / Dress Shirt + Tailored Trousers + Minimal Sneakers",
+        3
+      ],
+      [
+        "Blazer + Button-Up / Dress Shirt + Tailored Trousers + Loafers",
+        3
+      ],
+      [
+        "Button-Up / Dress Shirt + Tailored Trousers + Loafers",
+        2
+      ],
+      [
+        "Blazer + Crew Tee + Chinos + Loafers",
+        2
+      ],
+      [
+        "Blazer + Polo Shirt + Chinos + Loafers",
+        2
+      ],
+      [
+        "Denim Jacket + Crew Tee + Jeans + Minimal Sneakers",
+        2
+      ]
+    ],
+    "Boardroom & Executive Tailoring": [
+      [
+        "Suit Jacket + Button-Up / Dress Shirt + Tailored Trousers + Oxfords / Derbies",
+        44
+      ],
+      [
+        "Button-Up / Dress Shirt + Tailored Trousers + Oxfords / Derbies",
+        14
+      ],
+      [
+        "Button-Up / Dress Shirt + Chinos + Minimal Sneakers",
+        9
+      ],
+      [
+        "Blazer + Button-Up / Dress Shirt + Tailored Trousers + Oxfords / Derbies",
+        6
+      ],
+      [
+        "Button-Up / Dress Shirt + Chinos + Loafers",
+        4
+      ],
+      [
+        "Button-Up / Dress Shirt + Tailored Trousers + Loafers",
+        4
+      ],
+      [
+        "Suit Jacket + Button-Up / Dress Shirt + Tailored Trousers + Loafers",
+        3
+      ],
+      [
+        "Quarter-Zip Sweater + Button-Up / Dress Shirt + Tailored Trousers + Loafers",
+        3
+      ],
+      [
+        "Button-Up / Dress Shirt + Tailored Trousers + Chelsea / Dress Boots",
+        3
+      ],
+      [
+        "Suit Jacket + Button-Up / Dress Shirt + Tailored Trousers + Dress Shoes",
+        2
+      ],
+      [
+        "Bomber / Harrington + Polo Shirt + Tailored Trousers + Oxfords / Derbies",
+        2
+      ],
+      [
+        "Button-Up / Dress Shirt + Tailored Trousers + Dress Shoes",
+        2
+      ]
+    ],
+    "Footwear, Watch & Style Guides": [
+      [
+        "Bomber / Harrington + None + None",
+        1
+      ]
+    ],
+    "Date Night & Evening Sharp": [
+      [
+        "Suit Jacket + Button-Up / Dress Shirt + Tailored Trousers + Oxfords / Derbies",
+        3
+      ],
+      [
+        "Suit Jacket + Button-Up / Dress Shirt + Tailored Trousers + Dress Shoes",
+        3
+      ],
+      [
+        "Cardigan / Vest + Button-Up / Dress Shirt + Tailored Trousers + Oxfords / Derbies",
+        1
+      ],
+      [
+        "Button-Up / Dress Shirt + Tailored Trousers + Loafers",
+        1
+      ],
+      [
+        "Polo Shirt + Tailored Trousers + Loafers",
+        1
+      ],
+      [
+        "Button-Up / Dress Shirt + Tailored Trousers + Not Visible",
+        1
+      ],
+      [
+        "Bomber / Harrington + Knit Sweater + Jeans + Minimal Sneakers",
+        1
+      ],
+      [
+        "Leather Jacket + Knit Sweater + Tailored Trousers + Chelsea / Dress Boots",
+        1
+      ],
+      [
+        "Button-Up / Dress Shirt + Jeans + Minimal Sneakers",
+        1
+      ]
+    ],
+    "Other": []
+  },
+  "theme_colors": {
+    "Smart Casual & Blazer-Chino": [
+      [
+        "Dark Grey + Light Grey + Black",
+        12
+      ],
+      [
+        "Navy + Light Grey + Black",
+        11
+      ],
+      [
+        "Navy + Grey + Beige + White",
+        10
+      ],
+      [
+        "Cream + Brown",
+        9
+      ],
+      [
+        "White + Light Grey + Black",
+        8
+      ],
+      [
+        "Light Blue + Black",
+        8
+      ],
+      [
+        "Burgundy + Khaki + White",
+        6
+      ],
+      [
+        "Black + Khaki + Off-White",
+        6
+      ],
+      [
+        "Mint Green + Beige + White",
+        6
+      ],
+      [
+        "Burgundy + Black + White",
+        6
+      ],
+      [
+        "Navy + Charcoal + Brown",
+        6
+      ],
+      [
+        "Black + Grey",
+        5
+      ]
+    ],
+    "Elevated Everyday & Knit-Denim": [
+      [
+        "Dusty Rose + Light Grey + White",
+        17
+      ],
+      [
+        "Charcoal Grey + Off-White + White",
+        15
+      ],
+      [
+        "Light Blue + Black + White",
+        15
+      ],
+      [
+        "Olive + Black + White",
+        15
+      ],
+      [
+        "Dark Brown + White + Brown",
+        11
+      ],
+      [
+        "Taupe + Black + Dark Blue + White",
+        10
+      ],
+      [
+        "Light Blue + Off-White + Charcoal Suede",
+        9
+      ],
+      [
+        "Mustard + Dark Blue + Dark Brown",
+        8
+      ],
+      [
+        "Burgundy + Light Grey + White",
+        8
+      ],
+      [
+        "Black + Taupe",
+        8
+      ],
+      [
+        "Navy + Blue Denim + White",
+        7
+      ],
+      [
+        "Navy + Light Blue + White",
+        7
+      ]
+    ],
+    "Monochrome & Dark Noir": [
+      [
+        "All Black",
+        32
+      ],
+      [
+        "Charcoal + Black",
+        10
+      ],
+      [
+        "Grey + All Black",
+        6
+      ],
+      [
+        "Black + White",
+        5
+      ],
+      [
+        "All Black + White Accent",
+        5
+      ],
+      [
+        "Dark Brown + Black",
+        5
+      ],
+      [
+        "Black + Light Grey + White",
+        4
+      ],
+      [
+        "Navy + Black + Silver",
+        4
+      ],
+      [
+        "All Black & Grey",
+        3
+      ],
+      [
+        "Dark Brown + Brown + Black",
+        3
+      ],
+      [
+        "Black + Charcoal Grey",
+        3
+      ],
+      [
+        "White + Black",
+        3
+      ]
+    ],
+    "Street Casual & Utility": [
+      [
+        "Black + White + Grey",
+        5
+      ],
+      [
+        "Black + Grey + Blue Denim + White",
+        4
+      ],
+      [
+        "Beige Plaid + Black + White",
+        4
+      ],
+      [
+        "Olive Green + Blue Denim",
+        4
+      ],
+      [
+        "Dark Olive + Off-White + Light Wash Denim",
+        3
+      ],
+      [
+        "Denim Blue + Black + White",
+        3
+      ],
+      [
+        "Red Plaid + Blue Denim + Black",
+        3
+      ],
+      [
+        "Plaid + Lavender + Blue",
+        3
+      ],
+      [
+        "Black + White",
+        2
+      ],
+      [
+        "All Black",
+        2
+      ],
+      [
+        "Light Grey + Olive Green + Cream",
+        2
+      ],
+      [
+        "Tan + White + Light Wash Blue + Black",
+        2
+      ]
+    ],
+    "Cold-Weather Coat & Layering": [
+      [
+        "Dark Green + Beige + Medium Blue + Brown",
+        5
+      ],
+      [
+        "Taupe Brown + Navy + Grey + Black",
+        4
+      ],
+      [
+        "Black + White + Cream",
+        4
+      ],
+      [
+        "All Black",
+        2
+      ],
+      [
+        "Camel + Black",
+        2
+      ],
+      [
+        "Charcoal + Olive + Grey + Black",
+        2
+      ],
+      [
+        "Camel + Black + Silver",
+        2
+      ],
+      [
+        "Navy + Cream + Charcoal + Black",
+        2
+      ],
+      [
+        "Olive Green + Cream + Light Wash Denim",
+        1
+      ],
+      [
+        "Navy + Cream + Black + White",
+        1
+      ],
+      [
+        "Camel + Black + Dark Grey",
+        1
+      ],
+      [
+        "Dark Brown + Cream + Black",
+        1
+      ]
+    ],
+    "Resort, Linen & Warm-Weather": [
+      [
+        "Pink + White + Light Beige",
+        4
+      ],
+      [
+        "Light Yellow + Off-White + Cream",
+        3
+      ],
+      [
+        "Beige + Cream",
+        3
+      ],
+      [
+        "Dark Green + White",
+        3
+      ],
+      [
+        "Brown + White + Beige",
+        3
+      ],
+      [
+        "Beige + Off-White",
+        2
+      ],
+      [
+        "Mint Green + Light Wash Denim + White",
+        2
+      ],
+      [
+        "Burgundy + White",
+        2
+      ],
+      [
+        "Dusty Pink + Light Beige + White",
+        2
+      ],
+      [
+        "Light Blue + Off-White",
+        2
+      ],
+      [
+        "Olive Green + Off White",
+        2
+      ],
+      [
+        "White + Light Blue + Brown",
+        2
+      ]
+    ],
+    "Old Money & Quiet Luxury": [
+      [
+        "Olive Green + Grey + Blue + White",
+        5
+      ],
+      [
+        "Burgundy + Black + White",
+        5
+      ],
+      [
+        "Brown + Black + Dark Blue",
+        5
+      ],
+      [
+        "Teal + Black",
+        2
+      ],
+      [
+        "Tan + Light Green + Dark Brown",
+        2
+      ],
+      [
+        "Brown Houndstooth + Black + Dark Brown",
+        2
+      ],
+      [
+        "Brown + White + Blue",
+        1
+      ],
+      [
+        "Black + Dark Brown + White",
+        1
+      ],
+      [
+        "Burgundy + Cream + White",
+        1
+      ],
+      [
+        "Tan + Dark Brown + Beige",
+        1
+      ],
+      [
+        "Navy + Cream + White",
+        1
+      ],
+      [
+        "Dark Brown + Olive Green",
+        1
+      ]
+    ],
+    "Boardroom & Executive Tailoring": [
+      [
+        "Navy + Black",
+        5
+      ],
+      [
+        "Light Grey + White + Navy + Dark Brown",
+        3
+      ],
+      [
+        "Grey + Light Blue + Burgundy",
+        3
+      ],
+      [
+        "Navy + Off-White",
+        3
+      ],
+      [
+        "Black + Tan + White",
+        3
+      ],
+      [
+        "Black + Charcoal",
+        3
+      ],
+      [
+        "Navy + Light Blue + Dark Brown",
+        3
+      ],
+      [
+        "Light Brown + White + Dark Brown",
+        2
+      ],
+      [
+        "Navy + White + Dark Brown",
+        2
+      ],
+      [
+        "Navy Pinstripe + White + Burgundy",
+        2
+      ],
+      [
+        "Navy + Light Blue + Black",
+        2
+      ],
+      [
+        "White + Navy + Cognac",
+        2
+      ]
+    ],
+    "Footwear, Watch & Style Guides": [
+      [
+        "All Black",
+        1
+      ]
+    ],
+    "Date Night & Evening Sharp": [
+      [
+        "Burgundy + Beige + White + Dark Brown",
+        1
+      ],
+      [
+        "White + Black",
+        1
+      ],
+      [
+        "Navy + White + Brown",
+        1
+      ],
+      [
+        "Dark Green + Black",
+        1
+      ],
+      [
+        "Blue + White + Brown",
+        1
+      ],
+      [
+        "Burgundy + White + Black",
+        1
+      ],
+      [
+        "Off-White + Olive Green + Dark Brown",
+        1
+      ],
+      [
+        "Dark Brown + Beige",
+        1
+      ],
+      [
+        "Light Grey Pattern + Dark Grey + Black",
+        1
+      ],
+      [
+        "All Black + White + Gold",
+        1
+      ],
+      [
+        "Navy + Cream + Black + White",
+        1
+      ],
+      [
+        "Black + Grey + Dark Grey",
+        1
+      ]
+    ],
+    "Other": []
+  },
+  "theme_urls": {
+    "Elevated Everyday & Knit-Denim": [
+      {
+        "url": "https://x.com/MensFits_/status/2120477767074787834",
+        "channel": "@MensFits_",
+        "title": "7 Best Color Combos For Men:  1.",
+        "formula": "Casual Shirt + Jeans + White Sneakers",
+        "color_label": "Dusty Rose + Light Grey + White",
+        "repeats": 17
+      },
+      {
+        "url": "https://x.com/Elegantmanx/status/2114983963810820160",
+        "channel": "@Elegantmanx",
+        "title": "8 Outfit Ideas For Men  1.",
+        "formula": "Bomber Jacket + Henley Shirt + Jeans + Sneakers",
+        "color_label": "Grey + White + Black",
+        "repeats": 7
+      },
+      {
+        "url": "https://x.com/MensCanvas/status/2114152460726263818",
+        "channel": "@MensCanvas",
+        "title": "8 SEXY CASUAL OUTFITS THAT SPEAK BEFORE YOU DO.  1.",
+        "formula": "Bomber Jacket + Button-Down Shirt + T-Shirt + Corduroy Trousers + Sneakers",
+        "color_label": "Black + Brown + Dark Brown",
+        "repeats": 6
+      },
+      {
+        "url": "https://x.com/manly_talks/status/2116889967909654854",
+        "channel": "@manly_talks",
+        "title": "9 SEXY OUTFITS THAT MAKE WOMEN LOOK TWICE.  1.",
+        "formula": "Dress Shirt + Trousers + Sneakers",
+        "color_label": "Rust + Black + White",
+        "repeats": 3
+      },
+      {
+        "url": "https://x.com/gentelmenoutfit/status/2118277324114456857",
+        "channel": "@gentelmenoutfit",
+        "title": "Black + Medium Blue + Beige",
+        "formula": "Button-Down Shirt + Jeans + Suede Sneakers",
+        "color_label": "Black + Medium Blue + Beige",
+        "repeats": 3
+      },
+      {
+        "url": "https://x.com/_menstylish/status/2120458012951532025",
+        "channel": "@_menstylish",
+        "title": "Beige + Charcoal + Blue Denim + Dark Brown",
+        "formula": "Overshirt + Button-Up Shirt + Jeans + Derby Shoes",
+        "color_label": "Beige + Charcoal + Blue Denim + Dark Brown",
+        "repeats": 2
+      }
+    ],
+    "Smart Casual & Blazer-Chino": [
+      {
+        "url": "https://x.com/MensFits_/status/2115419478049927671",
+        "channel": "@MensFits_",
+        "title": "7 Best Color Combos For Men:  1.",
+        "formula": "Dress Shirt + Tailored Trousers + Loafers",
+        "color_label": "Dark Grey + Light Grey + Black",
+        "repeats": 12
+      },
+      {
+        "url": "https://x.com/MensCanvas/status/2115602015321485449",
+        "channel": "@MensCanvas",
+        "title": "6 Stylish Outfits Every Men Should Try:  1.",
+        "formula": "Button-Down Shirt + Chinos + Suede Sneakers",
+        "color_label": "Olive Green + Beige + Dark Brown",
+        "repeats": 5
+      },
+      {
+        "url": "https://x.com/_menstylish/status/2118649757950234831",
+        "channel": "@_menstylish",
+        "title": "Navy + Charcoal + Brown",
+        "formula": "Knit Sweater + Striped Dress Shirt + Tailored Trousers + Oxfords",
+        "color_label": "Navy + Charcoal + Brown",
+        "repeats": 4
+      },
+      {
+        "url": "https://x.com/gentelmenoutfit/status/2120067037548728790",
+        "channel": "@gentelmenoutfit",
+        "title": "Brown + White + Navy + Cognac",
+        "formula": "Blazer + Dress Shirt + Chinos + Leather Oxfords",
+        "color_label": "Brown + White + Navy + Cognac",
+        "repeats": 3
+      },
+      {
+        "url": "https://x.com/Elegantmanx/status/2114983956882018459",
+        "channel": "@Elegantmanx",
+        "title": "8 Outfit Ideas For Men  1.",
+        "formula": "Polo Shirt + Chinos + Minimal Sneakers",
+        "color_label": "Burnt Orange + Light Grey + White",
+        "repeats": 2
+      },
+      {
+        "url": "https://x.com/manly_talks/status/2114612695286563272",
+        "channel": "@manly_talks",
+        "title": "7 DAYS OF WHAT TO WEAR TO WORK WITHOUT REPEATING A SINGLE OUTFIT.",
+        "formula": "V-Neck Sweater + Dress Shirt + Tailored Trousers + Chelsea Boots",
+        "color_label": "Light Grey + White + Navy + Dark Brown",
+        "repeats": 2
+      }
+    ],
+    "Old Money & Quiet Luxury": [
+      {
+        "url": "https://x.com/MensFits_/status/2115062746177757427",
+        "channel": "@MensFits_",
+        "title": "10 Game-Changing Outfit Combos for the Classy Man:  1.",
+        "formula": "Dress Shirt + Tailored Trousers + Minimal Sneakers",
+        "color_label": "White + Light Grey + Black",
+        "repeats": 8
+      },
+      {
+        "url": "https://x.com/MensCanvas/status/2115772166377722016",
+        "channel": "@MensCanvas",
+        "title": "8 Powerful Old Money Outfits for Modern Gentlemen:  1.",
+        "formula": "Button-Down Shirt + Chinos + Minimal Sneakers",
+        "color_label": "Burgundy + Black + White",
+        "repeats": 6
+      },
+      {
+        "url": "https://x.com/_menstylish/status/2113166875886764511",
+        "channel": "@_menstylish",
+        "title": "Tan + Light Green + Dark Brown",
+        "formula": "Suit Jacket + Dress Shirt + Trousers + Oxfords",
+        "color_label": "Tan + Light Green + Dark Brown",
+        "repeats": 2
+      },
+      {
+        "url": "https://x.com/gentelmenoutfit/status/2120444956607144373",
+        "channel": "@gentelmenoutfit",
+        "title": "Brown Houndstooth + Black + Dark Brown",
+        "formula": "Houndstooth Blazer + Turtleneck + Tailored Trousers + Monk Strap Shoes",
+        "color_label": "Brown Houndstooth + Black + Dark Brown",
+        "repeats": 2
+      },
+      {
+        "url": "https://x.com/Elegantmanx/status/2120203282174054600",
+        "channel": "@Elegantmanx",
+        "title": "10 ELEGANT OUTFIT COMBOS FOR MEN TO TRY  1.",
+        "formula": "Dress Shirt + Tailored Trousers + Minimal Sneakers",
+        "color_label": "Black + Dark Brown + White",
+        "repeats": 1
+      },
+      {
+        "url": "https://x.com/manly_talks/status/2117520459096838283",
+        "channel": "@manly_talks",
+        "title": "10 OUTFITS THAT MAKE A MAN LOOK RICH WITHOUT WEARING DESIGNER.  1",
+        "formula": "Overshirt + Crew Tee + Jeans + Sneakers",
+        "color_label": "Beige + Black + Charcoal",
+        "repeats": 1
+      }
+    ],
+    "Monochrome & Dark Noir": [
+      {
+        "url": "https://x.com/MensCanvas/status/2116862785854525655",
+        "channel": "@MensCanvas",
+        "title": "These Outfit Ideas Will Make You Look Instantly More Stylish.  1.",
+        "formula": "Blazer + Turtleneck + Tailored Trousers + Chelsea Boots",
+        "color_label": "Grey + All Black",
+        "repeats": 6
+      },
+      {
+        "url": "https://x.com/MensFits_/status/2118313439106121810",
+        "channel": "@MensFits_",
+        "title": "Top 8 Sexy Colour Combinations for men   1.",
+        "formula": "Knit Sweater + Tailored Trousers + Chelsea Boots",
+        "color_label": "Charcoal + Black",
+        "repeats": 5
+      },
+      {
+        "url": "https://x.com/gentelmenoutfit/status/2114277314662113502",
+        "channel": "@gentelmenoutfit",
+        "title": "All Black",
+        "formula": "Dress Shirt + Tailored Trousers + Oxfords",
+        "color_label": "All Black",
+        "repeats": 3
+      },
+      {
+        "url": "https://x.com/Elegantmanx/status/2113890533596635638",
+        "channel": "@Elegantmanx",
+        "title": "7 SIMPLE CASUAL OUTFITS FOR MEN  1.",
+        "formula": "Plaid Overshirt + Turtleneck + Jeans + Sneakers",
+        "color_label": "All Black / Dark Grey",
+        "repeats": 2
+      },
+      {
+        "url": "https://x.com/manly_talks/status/2120456372634718572",
+        "channel": "@manly_talks",
+        "title": "8 ALL-BLACK OUTFITS THAT LOOK DANGEROUSLY SEXY:  1.",
+        "formula": "Button-Down Shirt + Slim Jeans + Sneakers",
+        "color_label": "Black + White",
+        "repeats": 2
+      },
+      {
+        "url": "https://x.com/_menstylish/status/2119414793983709483",
+        "channel": "@_menstylish",
+        "title": "All Black",
+        "formula": "Dress Shirt + Chinos + Oxfords",
+        "color_label": "All Black",
+        "repeats": 2
+      }
+    ],
+    "Cold-Weather Coat & Layering": [
+      {
+        "url": "https://x.com/MensFits_/status/2112510534008680893",
+        "channel": "@MensFits_",
+        "title": "7 Outfits That Make Men Instantly Attractive.  1.",
+        "formula": "Suede Bomber Jacket + Turtleneck Sweater + Jeans + Leather Boots",
+        "color_label": "Dark Green + Beige + Medium Blue + Brown",
+        "repeats": 5
+      },
+      {
+        "url": "https://x.com/MensCanvas/status/2115239626172411934",
+        "channel": "@MensCanvas",
+        "title": "5 Looks That Make You Stand Out Effortlessly.  1.",
+        "formula": "Corduroy Jacket + Dress Shirt + Tie + Tailored Trousers + Oxfords",
+        "color_label": "Black + White + Cream",
+        "repeats": 4
+      },
+      {
+        "url": "https://x.com/Elegantmanx/status/2117151717267496969",
+        "channel": "@Elegantmanx",
+        "title": "8 MUST HAVE JACKETS FOR MEN  1. Bomber Jacket",
+        "formula": "Puffer Jacket",
+        "color_label": "All Black",
+        "repeats": 1
+      },
+      {
+        "url": "https://x.com/manly_talks/status/2115864092821139534",
+        "channel": "@manly_talks",
+        "title": "10 JACKETS THAT MAKE EVEN A SIMPLE OUTFIT LOOK CLASSY. \ud83d\udd25  1. Sued",
+        "formula": "Utility Jacket + Crew Neck Sweater + Jeans",
+        "color_label": "Dark Olive + Black + Blue Denim",
+        "repeats": 1
+      },
+      {
+        "url": "https://x.com/Mensoutfitpxs/status/2109566205774479865",
+        "channel": "@Mensoutfitpxs",
+        "title": "Monochrome Olive Green + Dark Brown",
+        "formula": "Overcoat + Turtleneck + Trousers + Chelsea Boots",
+        "color_label": "Monochrome Olive Green + Dark Brown",
+        "repeats": 1
+      },
+      {
+        "url": "https://x.com/MensFits_/status/2116864191772684466",
+        "channel": "@MensFits_",
+        "title": "These Outfit Ideas Will Make You Look Instantly More Stylish.  1.",
+        "formula": "Leather Jacket + Crew Neck Sweater + Tailored Trousers + Chelsea Boots",
+        "color_label": "Taupe Brown + Navy + Grey + Black",
+        "repeats": 4
+      }
+    ],
+    "Street Casual & Utility": [
+      {
+        "url": "https://x.com/MensCanvas/status/2117943581281546476",
+        "channel": "@MensCanvas",
+        "title": "8 Best Color Combinations for Every Man.  1.",
+        "formula": "Button-Down Shirt + Jeans + Retro Sneakers",
+        "color_label": "Black + White + Grey",
+        "repeats": 5
+      },
+      {
+        "url": "https://x.com/MensFits_/status/2117944532193120495",
+        "channel": "@MensFits_",
+        "title": "8 Sexy & Stylish Outfits Every Men Should Try:  1.",
+        "formula": "Leather Jacket + Crew Tee + Jeans + Minimal Sneakers",
+        "color_label": "Black + Grey + Blue Denim + White",
+        "repeats": 4
+      },
+      {
+        "url": "https://x.com/Elegantmanx/status/2116430204507725846",
+        "channel": "@Elegantmanx",
+        "title": "8 COLD-WEATHER OUTFITS EVERY MAN SHOULD HAVE  1.",
+        "formula": "Half-Zip Fleece Sweatshirt + Crewneck T-shirt + Wide-Leg Jeans + Sneakers",
+        "color_label": "All Black",
+        "repeats": 2
+      },
+      {
+        "url": "https://x.com/manly_talks/status/2117155440589197528",
+        "channel": "@manly_talks",
+        "title": "11 JEAN STYLES THAT CAN UPGRADE A MAN'S WARDROBE.  1. Wide-Leg Je",
+        "formula": "Bomber Jacket + Crewneck Tee + Wide-Leg Jeans + Sneakers",
+        "color_label": "Black + White + Dark Blue",
+        "repeats": 1
+      },
+      {
+        "url": "https://x.com/_menstylish/status/2115376162289729703",
+        "channel": "@_menstylish",
+        "title": "Dark Brown + Washed Black + White",
+        "formula": "Crew Neck T-Shirt + Jeans + Minimal Sneakers",
+        "color_label": "Dark Brown + Washed Black + White",
+        "repeats": 1
+      },
+      {
+        "url": "https://x.com/gentelmenoutfit/status/2111340363554099617",
+        "channel": "@gentelmenoutfit",
+        "title": "Navy + White + Olive",
+        "formula": "Bomber Jacket + White Tee + Olive Chinos + White Sneakers",
+        "color_label": "Navy + White + Olive",
+        "repeats": 1
+      }
+    ],
+    "Resort, Linen & Warm-Weather": [
+      {
+        "url": "https://x.com/MensFits_/status/2116864227420012591",
+        "channel": "@MensFits_",
+        "title": "These Outfit Ideas Will Make You Look Instantly More Stylish.  1.",
+        "formula": "Open Shirt + Crew Tee + Chinos + Minimal Sneakers",
+        "color_label": "Pink + White + Light Beige",
+        "repeats": 4
+      },
+      {
+        "url": "https://x.com/MensCanvas/status/2117414202923212915",
+        "channel": "@MensCanvas",
+        "title": "6 OUTFITS THAT WILL MAKE YOU LOOK YOUNGER  1.",
+        "formula": "Button-Down Shirt + Chinos + Sneakers",
+        "color_label": "Light Yellow + Off-White + Cream",
+        "repeats": 3
+      },
+      {
+        "url": "https://x.com/Elegantmanx/status/2116808604091126121",
+        "channel": "@Elegantmanx",
+        "title": "8 SIMPLE SHORT OUTFITS FOR MEN TO TRY  1.",
+        "formula": "Short Sleeve Shirt + Distressed Denim Shorts + White Sneakers",
+        "color_label": "Mint Green + Light Wash Denim + White",
+        "repeats": 2
+      },
+      {
+        "url": "https://x.com/gentelmenoutfit/status/2116825562694217875",
+        "channel": "@gentelmenoutfit",
+        "title": "White + Sage Green",
+        "formula": "Band Collar Shirt + Crew Tee + Chinos + Minimal Sneakers",
+        "color_label": "White + Sage Green",
+        "repeats": 2
+      },
+      {
+        "url": "https://x.com/manly_talks/status/2118300272606769207",
+        "channel": "@manly_talks",
+        "title": "1. You let go of old habits.  Things that once felt normal begin ",
+        "formula": "Swim Shorts",
+        "color_label": "All Black",
+        "repeats": 1
+      },
+      {
+        "url": "https://x.com/Mensoutfitpxs/status/2116927587503259806",
+        "channel": "@Mensoutfitpxs",
+        "title": "White + Navy + Taupe Suede",
+        "formula": "Linen Shirt + Chinos + Suede Loafers",
+        "color_label": "White + Navy + Taupe Suede",
+        "repeats": 1
+      }
+    ],
+    "Boardroom & Executive Tailoring": [
+      {
+        "url": "https://x.com/manly_talks/status/2120142309035852051",
+        "channel": "@manly_talks",
+        "title": "7 OFFICIAL OUTFITS THAT MAKE YOU LOOK LIKE THE BOSS BEFORE YOU SP",
+        "formula": "Dress Shirt + Tailored Trousers + Oxford Shoes",
+        "color_label": "Brown + Grey",
+        "repeats": 4
+      },
+      {
+        "url": "https://x.com/MensCanvas/status/2114877237748957191",
+        "channel": "@MensCanvas",
+        "title": "6 Classy Office Outfits That Make Men Look Elite:  1.",
+        "formula": "Suit Jacket + Dress Shirt + Tie + Trousers + Dress Shoes",
+        "color_label": "Grey + Light Blue + Burgundy",
+        "repeats": 3
+      },
+      {
+        "url": "https://x.com/_menstylish/status/2117896373312078087",
+        "channel": "@_menstylish",
+        "title": "Navy + Light Blue + Dark Brown",
+        "formula": "Double-Breasted Suit + Dress Shirt + Tie + Oxfords",
+        "color_label": "Navy + Light Blue + Dark Brown",
+        "repeats": 3
+      },
+      {
+        "url": "https://x.com/gentelmenoutfit/status/2120444969777566043",
+        "channel": "@gentelmenoutfit",
+        "title": "Navy + Black",
+        "formula": "Dress Shirt + Tailored Trousers + Oxfords + Blazer (carried)",
+        "color_label": "Navy + Black",
+        "repeats": 3
+      },
+      {
+        "url": "https://x.com/Elegantmanx/status/2118052739322376345",
+        "channel": "@Elegantmanx",
+        "title": "7 ELEGANT FORMAL OUTFITS FOR MEN  1.",
+        "formula": "Suit Jacket + Dress Shirt + Trousers + Oxfords",
+        "color_label": "Light Brown + White + Dark Brown",
+        "repeats": 2
+      },
+      {
+        "url": "https://x.com/MensFits_/status/2118229326655062234",
+        "channel": "@MensFits_",
+        "title": "Olive Green + Black",
+        "formula": "Dress Shirt + Tailored Trousers + Loafers",
+        "color_label": "Olive Green + Black",
+        "repeats": 2
+      }
+    ],
+    "Footwear, Watch & Style Guides": [
+      {
+        "url": "https://x.com/Elegantmanx/status/2117151706073153846",
+        "channel": "@Elegantmanx",
+        "title": "8 MUST HAVE JACKETS FOR MEN  1. Bomber Jacket",
+        "formula": "Bomber Jacket",
+        "color_label": "All Black",
+        "repeats": 1
+      }
+    ],
+    "Date Night & Evening Sharp": [
+      {
+        "url": "https://x.com/Elegantmanx/status/2113700561619128437",
+        "channel": "@Elegantmanx",
+        "title": "7 SUIT COLOR IDEAS FOR MEN  1. Dark Green",
+        "formula": "Suit Jacket + Vest + Dress Shirt + Trousers + Oxfords",
+        "color_label": "Burgundy + Beige + White + Dark Brown",
+        "repeats": 1
+      },
+      {
+        "url": "https://x.com/manly_talks/status/2119471907649282209",
+        "channel": "@manly_talks",
+        "title": "8 SHIRTS THAT MAKE A MAN LOOK SEXIER. \ud83d\udd25  1.",
+        "formula": "Patterned Dress Shirt + Tailored Trousers",
+        "color_label": "Light Grey Pattern + Dark Grey + Black",
+        "repeats": 1
+      },
+      {
+        "url": "https://x.com/Elegantmanx/status/2113700577372946731",
+        "channel": "@Elegantmanx",
+        "title": "7 SUIT COLOR IDEAS FOR MEN  1. Dark Green",
+        "formula": "Tuxedo Jacket + Vest + Dress Shirt + Trousers + Oxfords",
+        "color_label": "White + Black",
+        "repeats": 1
+      },
+      {
+        "url": "https://x.com/Elegantmanx/status/2110777677380526553",
+        "channel": "@Elegantmanx",
+        "title": "10 STUNNING COUPLE DINNER OUTFITS   1.",
+        "formula": "Navy Suit Jacket + White Dress Shirt + Navy Trousers + Brown Dress Shoes",
+        "color_label": "Navy + White + Brown",
+        "repeats": 1
+      },
+      {
+        "url": "https://x.com/Elegantmanx/status/2110777694174531787",
+        "channel": "@Elegantmanx",
+        "title": "10 STUNNING COUPLE DINNER OUTFITS   1.",
+        "formula": "Dark Green Suit Jacket + Black Dress Shirt + Dark Green Trousers + Black Dress Shoes",
+        "color_label": "Dark Green + Black",
+        "repeats": 1
+      },
+      {
+        "url": "https://x.com/Elegantmanx/status/2110777711375401321",
+        "channel": "@Elegantmanx",
+        "title": "10 STUNNING COUPLE DINNER OUTFITS   1.",
+        "formula": "Blue Suit Jacket + Open Collar Shirt + Blue Trousers + Brown Dress Shoes",
+        "color_label": "Blue + White + Brown",
+        "repeats": 1
+      }
+    ]
+  },
+  "guide_urls": [
+    {
+      "title": "Luxury Fabric Color Pairings",
+      "channel": "@Mensoutfitpxs",
+      "kind": "color_combo_chart",
+      "url": "https://x.com/Mensoutfitpxs/status/2116585595594223628",
+      "summary": "An infographic illustrating three luxurious and classic fabric color pairings: Chocolate + Cream, Chocolate + Black, and Burgundy + Cream."
+    },
+    {
+      "title": "Fitting rules for men",
+      "channel": "@Elegantmanx",
+      "kind": "tailoring_guide",
+      "url": "https://x.com/Elegantmanx/status/2112054650585149849",
+      "summary": "An infographic detailing nine essential fitting rules for men's tailored clothing, covering shoulders, collar, tie, cuffs, jacket length, sleeve length, buttoning, pant break, and shoe/pant hem."
+    },
+    {
+      "title": "TYPES OF SUITS.",
+      "channel": "@manly_talks",
+      "kind": "multi_outfit_grid",
+      "url": "https://x.com/manly_talks/status/2120109216664780975",
+      "summary": "This infographic details eight essential types of men's suits, from single-breasted to patterned, providing a comprehensive guide to formal wear."
+    },
+    {
+      "title": "COLOR COMBINATIONS TRENDING FOR 2026.",
+      "channel": "@manly_talks",
+      "kind": "color_combo_chart",
+      "url": "https://x.com/manly_talks/status/2119444834490421602",
+      "summary": "A chart showcasing trending color combinations for men's shirts and trousers for 2026."
+    },
+    {
+      "title": "TOP 10 SHIRT & PANTS COMBINATIONS.",
+      "channel": "@manly_talks",
+      "kind": "color_combo_chart",
+      "url": "https://x.com/manly_talks/status/2119324041756500439",
+      "summary": "A top 10 infographic detailing various shirt, pants, and footwear color combinations for men."
+    },
+    {
+      "title": "Belt colors that match your shoes.",
+      "channel": "@manly_talks",
+      "kind": "color_combo_chart",
+      "url": "https://x.com/manly_talks/status/2118025487385522459",
+      "summary": "A visual guide illustrating recommended belt colors to match various shoe colors, offering 'best match,' 'acceptable,' and 'stylish option' pairings."
+    },
+    {
+      "title": "TURTLENECKS THAT MATCH YOUR BLAZER.",
+      "channel": "@manly_talks",
+      "kind": "color_combo_chart",
+      "url": "https://x.com/manly_talks/status/2116787325099298966",
+      "summary": "A color guide illustrating various turtleneck and blazer combinations for refined layered dressing."
+    },
+    {
+      "title": "9 Pant Colors every Man should own.",
+      "channel": "@manly_talks",
+      "kind": "color_combo_chart",
+      "url": "https://x.com/manly_talks/status/2116213541141459108",
+      "summary": "This guide showcases 9 essential pant colors every man should own, along with suggested leather pairings for each."
+    },
+    {
+      "title": "8 Best Watches to Wear With a Suit.",
+      "channel": "@manly_talks",
+      "kind": "accessories_watches",
+      "url": "https://x.com/mens__wardrobe/status/2111109912499745204",
+      "summary": "An infographic presenting 8 best watch and suit combinations, offering specific pairings for various suit colors and styles."
+    }
+  ]
+}
